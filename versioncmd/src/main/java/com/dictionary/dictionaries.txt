@@ -1,0 +1,3 @@
+House	Nha
+City	Thanh pho
+Beach	Bien

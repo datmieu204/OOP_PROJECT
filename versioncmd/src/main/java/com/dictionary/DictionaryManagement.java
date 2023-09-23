@@ -1,5 +1,7 @@
 package com.dictionary;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.Scanner;
 
 public class DictionaryManagement {
@@ -28,5 +30,30 @@ public class DictionaryManagement {
             dictionary.put(newWord);
             numOfWords--;
         }
+    }
+
+    public void insertFromFile(Scanner scanner) {
+        String filePath = "versioncmd\\src\\main\\java\\com\\dictionary\\dictionaries.txt";
+
+        try {
+            File file = new File(filePath);
+            scanner = new Scanner(file);
+
+            while (scanner.hasNextLine()) {
+                String line = scanner.nextLine();
+                String[] words = line.split("\t");
+                if (words.length == 2) {
+                    String word_target = words[0];
+                    String word_explain = words[1];
+                    Word newWord = new Word(word_target, word_explain);
+                    dictionary.put(newWord);
+                } else {
+                    System.out.println("Invalid line format: " + line);
+                }
+            }
+        } catch (IOException e) {
+            System.out.println("File not found: " + e.getMessage());
+        }
+
     }
 }

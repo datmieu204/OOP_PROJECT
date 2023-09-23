@@ -18,6 +18,7 @@ public class DictionaryCommandline {
             System.out.println("[0] Exit");
             System.out.println("[1] Add");
             System.out.println("[2] Show");
+            System.out.println("[8] Import from file");
             System.out.print("Your request: ");
 
             request = scanner.nextInt();
@@ -31,6 +32,9 @@ public class DictionaryCommandline {
                     break;
                 case 2:
                     showAllWords();
+                    break;
+                case 8:
+                    service.insertFromFile(scanner);
                     break;
                 default:
                     System.out.println("Action not supported");
