@@ -4,13 +4,14 @@ import java.util.Scanner;
 
 public class DictionaryCommandline {
     private DictionaryManagement service;
+    private Scanner scanner;
 
     public DictionaryCommandline() {
         service = new DictionaryManagement();
+        scanner = new Scanner(System.in);
     }
 
     public void dictionaryBasic() {
-        Scanner scanner = new Scanner(System.in);
         int request = -1;
         System.out.println("Welcome to My Application!");
         while (request != 0) {
