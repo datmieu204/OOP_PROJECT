@@ -1,0 +1,6 @@
+City	Thanh pho
+Beach	Bien
+Transport	Phuong tien
+Translate	Dich
+Transform	Bien doi
+Transit	Qua canh

@@ -174,7 +174,7 @@ public class DictionaryManagement {
     }
 
     public void exportToFile(Scanner scanner) {
-        String filename = "output.txt";
+        String filename = "versioncmd/src/main/java/com/dictionary/output.txt";
 
         try {
             File file = new File(filename);
