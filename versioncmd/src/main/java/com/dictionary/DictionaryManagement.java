@@ -1,6 +1,7 @@
 package com.dictionary;
 
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
 
@@ -32,42 +33,6 @@ public class DictionaryManagement {
         }
     }
 
-    public void insertFromFile(Scanner scanner) {
-        String filePath = "versioncmd\\src\\main\\java\\com\\dictionary\\dictionaries.txt";
-
-        try {
-            File file = new File(filePath);
-            scanner = new Scanner(file);
-
-            while (scanner.hasNextLine()) {
-                String line = scanner.nextLine();
-                String[] words = line.split("\t");
-                if (words.length == 2) {
-                    String word_target = words[0];
-                    String word_explain = words[1];
-                    Word newWord = new Word(word_target, word_explain);
-                    dictionary.put(newWord);
-                } else {
-                    System.out.println("Invalid line format: " + line);
-                }
-            }
-            System.out.println("Import succeeded!");
-        } catch (IOException e) {
-            System.out.println("File not found: " + e.getMessage());
-        }
-    }
-
-    public void dictionaryLookup(Scanner scanner) {
-        System.out.print("The word you want to look up: ");
-        String word_target = scanner.nextLine();
-        Word target = dictionary.getWord(word_target);
-        if (target != null) {
-            System.out.println("The meaning: " + target.getWord_explain());
-        } else {
-            System.out.println("Can't find " + word_target + " in dictionary");
-        }
-    }
-
     public void removeFromCommandline(Scanner scanner) {
         System.out.print("The word you want to remove: ");
         String word_target = scanner.nextLine();
@@ -89,6 +54,17 @@ public class DictionaryManagement {
             String word_explain = scanner.nextLine();
             dictionary.update(target, word_explain);
             System.out.println("Word updated!");
+        } else {
+            System.out.println("Can't find " + word_target + " in dictionary");
+        }
+    }
+
+    public void dictionaryLookup(Scanner scanner) {
+        System.out.print("The word you want to look up: ");
+        String word_target = scanner.nextLine();
+        Word target = dictionary.getWord(word_target);
+        if (target != null) {
+            System.out.println("The meaning: " + target.getWord_explain());
         } else {
             System.out.println("Can't find " + word_target + " in dictionary");
         }
@@ -171,4 +147,61 @@ public class DictionaryManagement {
         if (!found)
             System.out.println("No words found with your suggestion");
     }
+
+    public void insertFromFile(Scanner scanner) {
+        String filePath = "versioncmd\\src\\main\\java\\com\\dictionary\\dictionaries.txt";
+
+        try {
+            File file = new File(filePath);
+            scanner = new Scanner(file);
+
+            while (scanner.hasNextLine()) {
+                String line = scanner.nextLine();
+                String[] words = line.split("\t");
+                if (words.length == 2) {
+                    String word_target = words[0];
+                    String word_explain = words[1];
+                    Word newWord = new Word(word_target, word_explain);
+                    dictionary.put(newWord);
+                } else {
+                    System.out.println("Invalid line format: " + line);
+                }
+            }
+            System.out.println("Import succeeded!");
+        } catch (IOException e) {
+            System.out.println("File not found: " + e.getMessage());
+        }
+    }
+
+    public void exportToFile(Scanner scanner) {
+        String filename = "output.txt";
+
+        try {
+            File file = new File(filename);
+
+            if (file.createNewFile()) {
+                System.out.println("New file created: " + file.getAbsolutePath());
+            } else {
+                System.out.println("File already exists.");
+            }
+        } catch (IOException e) {
+            System.out.println("An error occurred while creating the file.");
+            e.printStackTrace();
+        }
+
+        String newText = "";
+        for (int i = 0; i < dictionary.getNumOfWords(); i++) {
+            Word word = dictionary.getWordAt(i);
+            newText += word.getWord_target() + "\t" + word.getWord_explain() + "\n";
+        }
+
+        try (FileWriter writer = new FileWriter(filename, false)) {
+            writer.write(newText);
+            System.out.println("Successfully export the file.");
+        } catch (IOException e) {
+            System.out.println("An error occurred while rewriting the file.");
+            e.printStackTrace();
+        }
+    }
+
 }

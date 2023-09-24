@@ -3,6 +3,11 @@ package com.dictionary;
 import java.util.Scanner;
 
 public class DictionaryCommandline {
+    public static void main(String[] args) {
+        DictionaryCommandline cmdline = new DictionaryCommandline();
+        cmdline.dictionaryBasic();
+    }
+
     private DictionaryManagement service;
     private Scanner scanner;
 
@@ -23,6 +28,7 @@ public class DictionaryCommandline {
             System.out.println("[5] Look up");
             System.out.println("[6] Search");
             System.out.println("[8] Import from file");
+            System.out.println("[9] Export to file");
             System.out.print("Your request: ");
 
             request = scanner.nextInt();
@@ -30,6 +36,7 @@ public class DictionaryCommandline {
 
             switch (request) {
                 case 0:
+                    System.out.println("Good bye!");
                     break;
                 case 1:
                     service.insertFromCommandline(scanner);
@@ -52,6 +59,9 @@ public class DictionaryCommandline {
                 case 8:
                     service.insertFromFile(scanner);
                     break;
+                case 9:
+                    service.exportToFile(scanner);
+                    break;
                 default:
                     System.out.println("Action not supported");
                     break;
@@ -60,8 +70,4 @@ public class DictionaryCommandline {
         scanner.close();
     }
 
-    public static void main(String[] args) {
-        DictionaryCommandline cmdline = new DictionaryCommandline();
-        cmdline.dictionaryBasic();
-    }
 }
