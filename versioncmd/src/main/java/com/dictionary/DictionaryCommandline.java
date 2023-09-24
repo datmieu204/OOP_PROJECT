@@ -21,6 +21,7 @@ public class DictionaryCommandline {
             System.out.println("[3] Update");
             System.out.println("[4] Display");
             System.out.println("[5] Look up");
+            System.out.println("[6] Search");
             System.out.println("[8] Import from file");
             System.out.print("Your request: ");
 
@@ -40,10 +41,13 @@ public class DictionaryCommandline {
                     service.updateFromCommandline(scanner);
                     break;
                 case 4:
-                    showAllWords();
+                    service.showAllWords();
                     break;
                 case 5:
                     service.dictionaryLookup(scanner);
+                    break;
+                case 6:
+                    service.dictionarySearcher(scanner);
                     break;
                 case 8:
                     service.insertFromFile(scanner);
@@ -54,15 +58,6 @@ public class DictionaryCommandline {
             }
         }
         scanner.close();
-    }
-
-    private void showAllWords() {
-        System.out.println("NO\t" + "| ENGLISH\t" + "| Vietnamese");
-        for (int index = 0; index < service.getDictionary().getNumOfWords(); index++) {
-            Word temp = service.getDictionary().getWordAt(index);
-            System.out.println(
-                    index + 1 + "\t" + "| " + temp.getWord_target() + "\t" + "\t" + "| " + temp.getWord_explain());
-        }
     }
 
     public static void main(String[] args) {

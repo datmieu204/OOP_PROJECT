@@ -94,4 +94,81 @@ public class DictionaryManagement {
         }
     }
 
+    public void showAllWords() {
+        String table[][] = new String[dictionary.getNumOfWords() + 1][3];
+        table[0][0] = "NO";
+        table[0][1] = "English";
+        table[0][2] = "Vietnamese";
+        for (int index = 0; index < this.getDictionary().getNumOfWords(); index++) {
+            Word temp = this.getDictionary().getWordAt(index);
+            table[index + 1][0] = Integer.toString(index);
+            table[index + 1][1] = temp.getWord_target();
+            table[index + 1][2] = temp.getWord_explain();
+        }
+
+        // Define column widths
+        int[] columnWidths = { 5, 20, 15 };
+
+        // Print top border
+        printBorder(columnWidths);
+
+        // Print table header
+        printRow(table[0], columnWidths);
+
+        // Print header-row separator
+        printSeparator(columnWidths);
+
+        // Print table rows
+        for (int i = 1; i < table.length; i++) {
+            printRow(table[i], columnWidths);
+        }
+
+        // Print bottom border
+        printBorder(columnWidths);
+
+    }
+
+    private static void printBorder(int[] columnWidths) {
+        for (int i = 0; i < columnWidths.length; i++) {
+            System.out.print("+");
+            for (int j = 0; j < columnWidths[i] + 2; j++) {
+                System.out.print("-");
+            }
+        }
+        System.out.println("+");
+    }
+
+    private static void printRow(String[] rowData, int[] columnWidths) {
+        for (int i = 0; i < rowData.length; i++) {
+            System.out.format("| %-" + columnWidths[i] + "s ", rowData[i]);
+        }
+        System.out.println("|");
+    }
+
+    private static void printSeparator(int[] columnWidths) {
+        for (int i = 0; i < columnWidths.length; i++) {
+            System.out.print("+");
+            for (int j = 0; j < columnWidths[i] + 2; j++) {
+                System.out.print("-");
+            }
+        }
+        System.out.println("+");
+    }
+
+    public void dictionarySearcher(Scanner scanner) {
+        System.out.print("Type your suggestion: ");
+        System.out.println("Result from your suggestion: ");
+        String suggestion = scanner.nextLine();
+        boolean found = false;
+        for (int i = 0; i < dictionary.getNumOfWords(); i++) {
+            Word word = dictionary.getWordAt(i);
+            if (word.getWord_target().substring(0, suggestion.length()).equals(suggestion)) {
+                System.out.println(word.getWord_target());
+                found = true;
+            }
+        }
+
+        if (!found)
+            System.out.println("No words found with your suggestion");
+    }
 }
