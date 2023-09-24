@@ -21,4 +21,11 @@ public class Dictionary {
         words[numOfWords++] = newWord;
     }
 
+    public Word getWord(String word_target) {
+        for (int i = 0; i < numOfWords; i++) {
+            if (words[i].getWord_target().equals(word_target))
+                return words[i];
+        }
+        return null;
+    }
 }

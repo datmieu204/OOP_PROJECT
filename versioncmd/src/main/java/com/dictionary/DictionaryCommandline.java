@@ -17,7 +17,8 @@ public class DictionaryCommandline {
         while (request != 0) {
             System.out.println("[0] Exit");
             System.out.println("[1] Add");
-            System.out.println("[2] Show");
+            System.out.println("[4] Display");
+            System.out.println("[5] Look up");
             System.out.println("[8] Import from file");
             System.out.print("Your request: ");
 
@@ -30,8 +31,11 @@ public class DictionaryCommandline {
                 case 1:
                     service.insertFromCommandline(scanner);
                     break;
-                case 2:
+                case 4:
                     showAllWords();
+                    break;
+                case 5:
+                    service.dictionaryLookup(scanner);
                     break;
                 case 8:
                     service.insertFromFile(scanner);

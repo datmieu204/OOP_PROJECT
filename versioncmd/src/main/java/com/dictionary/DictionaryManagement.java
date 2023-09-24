@@ -54,6 +54,16 @@ public class DictionaryManagement {
         } catch (IOException e) {
             System.out.println("File not found: " + e.getMessage());
         }
+    }
 
+    public void dictionaryLookup(Scanner scanner) {
+        System.out.print("The word you want to look up: ");
+        String word_target = scanner.nextLine();
+        Word target = dictionary.getWord(word_target);
+        if (target != null) {
+            System.out.println("The meaning: " + target.getWord_explain());
+        } else {
+            System.out.println("Can't find " + word_target + " in dictionary");
+        }
     }
 }
