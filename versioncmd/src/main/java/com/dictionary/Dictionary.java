@@ -28,4 +28,24 @@ public class Dictionary {
         }
         return null;
     }
+
+    public void remove(Word word_target) {
+        int i;
+        for (i = 0; i < numOfWords; i++) {
+            if (words[i] == word_target) {
+                break;
+            }
+        }
+        if (i == numOfWords) {
+            return;
+        }
+        while (i < numOfWords - 1) {
+            Word temp = words[i];
+            words[i] = words[i + 1];
+            words[i + 1] = temp;
+            i++;
+        }
+        words[numOfWords - 1] = null;
+        numOfWords--;
+    }
 }

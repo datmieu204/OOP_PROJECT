@@ -51,6 +51,7 @@ public class DictionaryManagement {
                     System.out.println("Invalid line format: " + line);
                 }
             }
+            System.out.println("Import succeeded!");
         } catch (IOException e) {
             System.out.println("File not found: " + e.getMessage());
         }
@@ -62,6 +63,18 @@ public class DictionaryManagement {
         Word target = dictionary.getWord(word_target);
         if (target != null) {
             System.out.println("The meaning: " + target.getWord_explain());
+        } else {
+            System.out.println("Can't find " + word_target + " in dictionary");
+        }
+    }
+
+    public void removeFromCommandline(Scanner scanner) {
+        System.out.print("The word you want to remove: ");
+        String word_target = scanner.nextLine();
+        Word target = dictionary.getWord(word_target);
+        if (target != null) {
+            dictionary.remove(target);
+            System.out.println("Word removed!");
         } else {
             System.out.println("Can't find " + word_target + " in dictionary");
         }
