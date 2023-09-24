@@ -174,10 +174,12 @@ public class DictionaryManagement {
     }
 
     public void exportToFile(Scanner scanner) {
-        String filename = "versioncmd/src/main/java/com/dictionary/output.txt";
+        System.out.print("Your file' s name: ");
+        String filename = scanner.nextLine();
+        String filepath = "versioncmd/src/main/java/com/dictionary/" + filename +  ".txt";
 
         try {
-            File file = new File(filename);
+            File file = new File(filepath);
 
             if (file.createNewFile()) {
                 System.out.println("New file created: " + file.getAbsolutePath());
@@ -195,7 +197,7 @@ public class DictionaryManagement {
             newText += word.getWord_target() + "\t" + word.getWord_explain() + "\n";
         }
 
-        try (FileWriter writer = new FileWriter(filename, false)) {
+        try (FileWriter writer = new FileWriter(filepath, false)) {
             writer.write(newText);
             System.out.println("Successfully export the file.");
         } catch (IOException e) {
