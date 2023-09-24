@@ -79,4 +79,19 @@ public class DictionaryManagement {
             System.out.println("Can't find " + word_target + " in dictionary");
         }
     }
+
+    public void updateFromCommandline(Scanner scanner) {
+        System.out.print("The word you want to update: ");
+        String word_target = scanner.nextLine();
+        Word target = dictionary.getWord(word_target);
+        if (target != null) {
+            System.out.print("New explaination of the word: ");
+            String word_explain = scanner.nextLine();
+            dictionary.update(target, word_explain);
+            System.out.println("Word updated!");
+        } else {
+            System.out.println("Can't find " + word_target + " in dictionary");
+        }
+    }
+
 }

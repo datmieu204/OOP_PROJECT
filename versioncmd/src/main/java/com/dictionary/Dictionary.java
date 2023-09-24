@@ -29,10 +29,10 @@ public class Dictionary {
         return null;
     }
 
-    public void remove(Word word_target) {
+    public void remove(Word removedWord) {
         int i;
         for (i = 0; i < numOfWords; i++) {
-            if (words[i] == word_target) {
+            if (words[i] == removedWord) {
                 break;
             }
         }
@@ -47,5 +47,9 @@ public class Dictionary {
         }
         words[numOfWords - 1] = null;
         numOfWords--;
+    }
+
+    public void update(Word target, String word_explain) {
+        target.setWord_explain(word_explain);
     }
 }

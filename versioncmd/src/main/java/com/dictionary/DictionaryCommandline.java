@@ -18,6 +18,7 @@ public class DictionaryCommandline {
             System.out.println("[0] Exit");
             System.out.println("[1] Add");
             System.out.println("[2] Remove");
+            System.out.println("[3] Update");
             System.out.println("[4] Display");
             System.out.println("[5] Look up");
             System.out.println("[8] Import from file");
@@ -34,6 +35,9 @@ public class DictionaryCommandline {
                     break;
                 case 2:
                     service.removeFromCommandline(scanner);
+                    break;
+                case 3:
+                    service.updateFromCommandline(scanner);
                     break;
                 case 4:
                     showAllWords();
