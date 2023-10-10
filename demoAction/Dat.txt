@@ -1,1 +1,15 @@
-File này của Đạt miêu ! <3
+#File này của Đạt miêu ! <3
+
+Main file:
+- UserDictionary: => format về dạng chữ in thường, bất kể c
+  + List lưu những từ do người dùng nhập, không cho phép 2 từ giống nhau
+  + List xóa từ trong phần từ điển của người dùng.
+  + 
+  + 
+
+- ListDictionaryWord:
+  + private user_input_en
+  + private output_explain
+
+- 
+
