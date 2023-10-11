@@ -1,1 +1,11 @@
 Nhiệm vu: Tìm hiểu về Game
+
+- Mô tả về game: 
++ Lấy những từ đã được tra ra tạo thành 1 game
++ Người dùng thường tra tiếng Anh để dịch sang tiếng Viết thế nên ta sẽ cần sử dụng nghĩa của những từ đó làm câu hỏi và 4 đáp án là random trong bộ đã được tra, trong đó có 1 đáp án đúng
++ Ta cần lưu lại những từ mà người dùng đã tra vào 1 map gồm từ và nghĩa
+=> Câu hỏi là nghĩa, đáp án là từ
++ Sau mỗi lần chọn đáp án thì cập nhật số câu đúng, số câu sai
+
+Cần sử dụng:
++ JavaFX để thiết kế
