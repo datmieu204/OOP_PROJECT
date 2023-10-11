@@ -1,3 +1,5 @@
+# Nhiệm vụ: xử lý sự kiện liên quan đến google dịch.
+
 #File này của Đạt miêu ! <3
 
 Main file:
