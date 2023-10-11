@@ -9,3 +9,24 @@ Nhiệm vu: Tìm hiểu về Game
 
 Cần sử dụng:
 + JavaFX để thiết kế
+
+Các hàm:
++ Hàm tạo ngẫu nhiên câu hỏi và đáp án cho mỗi lượt chơi
++ Hàm List getListWord() lấy ra những từ đã được tra ra (Hàm sẽ trả về 1 list từ mà người dùng đã tra)
++ Hàm void hiển thị câu hoi
++ Hàm boolean kiểm tra đáp án chính xác
++ 
+
+Luồng tạm thời:
+List<String> userDictionary = getUserDictionary();
+String question = createQuestion(userDictionary);
+String userAnswer = displayQuestion(question);
+boolean isCorrect = checkAnswer(userAnswer, userDictionary);
+
+if (isCorrect) {
+    System.out.println("Câu trả lời đúng!");
+    // Thực hiện các hành động khi câu trả lời đúng
+} else {
+    System.out.println("Câu trả lời sai. Hãy thử lại!");
+    // Thực hiện các hành động khi câu trả lời sai
+}
