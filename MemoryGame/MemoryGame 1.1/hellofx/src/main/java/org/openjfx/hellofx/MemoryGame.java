@@ -10,6 +10,17 @@ public class MemoryGame {
 
     private final ArrayList<String> memoryBoard = new ArrayList<>(Arrays.asList("", "", "", "", "", "", "", "", ""));
     private final ArrayList<String> memoryOptions = new ArrayList<>(Arrays.asList("a", "a", "b", "b", "c", "c", "d", "d", "e"));
+    public ArrayList<Boolean> checkClicked = new ArrayList<>(Arrays.asList(false, false, false, false, false, false, false, false, false));
+
+    public int countClicked(ArrayList<Boolean> checkClicked) {
+        int count = 0;
+        for (boolean clicked : checkClicked) {
+            if (clicked == true) {
+                count ++;
+            }
+        }
+        return count;
+    }
 
     public void setupGame(){
         setupMemoryBoard();
@@ -20,6 +31,10 @@ public class MemoryGame {
         return memoryBoard.get(index);
     }
 
+    public String getKeyAtIndex(int index){
+        return memoryOptions.get(index);
+    }
+    
     public void setupMemoryBoard(){
         for (int i = 0; i < boardSize; i++) {
             String memoryOption = memoryOptions.get(i);
@@ -44,6 +59,7 @@ public class MemoryGame {
         memoryOptions.clear();
         memoryBoard.addAll(Arrays.asList("", "", "", "", "", "", "", "", ""));
         memoryOptions.addAll(Arrays.asList("a", "a", "b", "b", "c", "c", "d", "d", "e"));
+        checkClicked = new ArrayList<>(Arrays.asList(false, false, false, false, false, false, false, false, false));
         // Thực hiện các bước khởi tạo lại trò chơi
         setupGame();
     }
