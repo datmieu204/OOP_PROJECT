@@ -73,5 +73,6 @@
       <Button fx:id="restart" layoutX="14.0" layoutY="210.0" mnemonicParsing="false" onAction="#restartGame" text="Restart" />
       <Label fx:id="turn" layoutX="30.0" layoutY="24.0" text="Turns = 0" />
       <Label fx:id="point" layoutX="30.0" layoutY="60.0" text="Points = 0" />
+      <Label fx:id="time" layoutX="173.0" layoutY="24.0" text="Time: " />
    </children>
 </AnchorPane>

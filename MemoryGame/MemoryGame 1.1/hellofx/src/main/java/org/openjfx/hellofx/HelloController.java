@@ -1,5 +1,6 @@
 package org.openjfx.hellofx;
 
+import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
@@ -16,7 +17,9 @@ import java.util.Arrays;
 import java.util.ResourceBundle;
 
 public class HelloController implements Initializable {
-
+    //Biến thời gian
+    int i = 0;
+    
     ArrayList<Button> buttons = new ArrayList<>();
 
     MemoryGame memoryGame = new MemoryGame();
@@ -47,6 +50,8 @@ public class HelloController implements Initializable {
     private Label point;
     @FXML
     private Label turn;
+    @FXML
+    private Label time;
 
     Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(1), e -> hideButtons()));
 
@@ -60,6 +65,17 @@ public class HelloController implements Initializable {
     public int points = 0;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        time.setText("Time: " + String.valueOf(i));
+
+        //Set time
+        Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(1),e ->{
+            i++;
+            time.setText("Time: " + String.valueOf(i));
+        }));
+        timeline.setCycleCount(Animation.INDEFINITE);
+        timeline.play();
+
+
         memoryGame.setupGame();
 
         buttons.addAll(Arrays.asList(button0, button1, button2, button3, button4,
@@ -81,6 +97,8 @@ public class HelloController implements Initializable {
         memoryGame.reset();
         turns = 0;
         points = 0;
+        i = 0;
+        time.setText("Time: " + i);
         turn.setText("Turns = " + turns);
         point.setText("Points = " + points);
     }
