@@ -7,6 +7,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Control;
+import javafx.scene.control.Label;
 import javafx.util.Duration;
 
 import java.net.URL;
@@ -39,6 +40,14 @@ public class HelloController implements Initializable {
     @FXML 
     private Button button8;
 
+    @FXML
+    private Button restart;
+    
+    @FXML
+    private Label point;
+    @FXML
+    private Label turn;
+
     Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(1), e -> hideButtons()));
 
     private boolean firstButtonClicked = false;
@@ -47,6 +56,8 @@ public class HelloController implements Initializable {
     private int secondButtonIndex;
     private boolean match;
 
+    public int turns = 0;
+    public int points = 0;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         memoryGame.setupGame();
@@ -55,6 +66,24 @@ public class HelloController implements Initializable {
                 button5, button6, button7, button8));
     }
 
+    @FXML
+    public void restartGame() {
+        button0.setText("");
+        button1.setText("");
+        button2.setText("");
+        button3.setText("");
+        button4.setText("");
+        button5.setText("");
+        button6.setText("");
+        button7.setText("");
+        button8.setText("");
+        match = false;
+        memoryGame.reset();
+        turns = 0;
+        points = 0;
+        turn.setText("Turns = " + turns);
+        point.setText("Points = " + points);
+    }
     @FXML
     void buttonClicked(ActionEvent event) {
         if(!firstButtonClicked){
@@ -87,10 +116,14 @@ public class HelloController implements Initializable {
         buttons.get(secondButtonIndex).setText(memoryGame.getOptionAtIndex(secondButtonIndex));
 
         firstButtonClicked = false;
+        turns ++;
+        turn.setText("Turns = " + turns);
         //Check if the two clicked button match
         if(memoryGame.checkTwoPositions(firstButtonIndex,secondButtonIndex)){
             System.out.println("Match");
             match = true;
+            points++;
+            point.setText("Points = " + points);
             return;
         }
         timeline.play();
