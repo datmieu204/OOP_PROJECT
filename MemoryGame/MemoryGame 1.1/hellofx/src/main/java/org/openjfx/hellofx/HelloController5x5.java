@@ -22,8 +22,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.ResourceBundle;
 
-public class HelloController implements Initializable {
-    //Biến thời gian
+public class HelloController5x5 implements Initializable {
+    // Biến thời gian
     int i = 0;
     ArrayList<Button> buttons = new ArrayList<>();
 
@@ -45,12 +45,44 @@ public class HelloController implements Initializable {
     private Button button6;
     @FXML
     private Button button7;
-    @FXML 
+    @FXML
     private Button button8;
-
+    @FXML
+    private Button button9;
+    @FXML
+    private Button button10;
+    @FXML
+    private Button button11;
+    @FXML
+    private Button button12;
+    @FXML
+    private Button button13;
+    @FXML
+    private Button button14;
+    @FXML
+    private Button button15;
+    @FXML
+    private Button button16;
+    @FXML
+    private Button button17;
+    @FXML
+    private Button button18;
+    @FXML
+    private Button button19;
+    @FXML
+    private Button button20;
+    @FXML
+    private Button button21;
+    @FXML
+    private Button button22;
+    @FXML
+    private Button button23;
+    @FXML
+    private Button button24;
+    
     @FXML
     private Button restart;
-    
+
     @FXML
     private Label point;
     @FXML
@@ -60,8 +92,8 @@ public class HelloController implements Initializable {
 
     @FXML
     private Button switchButton;
-    
-    Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(0.75), e -> hideButtons()));
+
+    Timeline timelineHide = new Timeline(new KeyFrame(Duration.seconds(0.75), e -> hideButtons()));
 
     private boolean firstButtonClicked = false;
 
@@ -75,22 +107,24 @@ public class HelloController implements Initializable {
 
     public int turns = 0;
     public int points = 0;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         time.setText("Time: " + String.valueOf(i));
 
-        //Set time
-        Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(1),e ->{
+        // Set time
+        Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(1), e -> {
             i++;
             time.setText("Time: " + String.valueOf(i));
         }));
         timeline.setCycleCount(Animation.INDEFINITE);
         timeline.play();
 
+        buttons.addAll(Arrays.asList(button0, button1, button2, button3, button4, button5, button6,
+                button7, button8, button9, button10, button11, button12, button13, button14, button15,
+                button16, button17, button18, button19, button20, button21, button22, button23, button24));
         memoryGame.setupGame();
 
-        buttons.addAll(Arrays.asList(button0, button1, button2, button3, button4,
-                button5, button6, button7, button8));
     }
 
     @FXML
@@ -104,6 +138,22 @@ public class HelloController implements Initializable {
         button6.setText("");
         button7.setText("");
         button8.setText("");
+        button9.setText("");
+        button10.setText("");
+        button11.setText("");
+        button12.setText("");
+        button13.setText("");
+        button14.setText("");
+        button15.setText("");
+        button16.setText("");
+        button17.setText("");
+        button18.setText("");
+        button19.setText("");
+        button20.setText("");
+        button21.setText("");
+        button22.setText("");
+        button23.setText("");
+        button24.setText("");
         match = false;
         turns = 0;
         points = 0;
@@ -124,63 +174,87 @@ public class HelloController implements Initializable {
         button6.setText("");
         button7.setText("");
         button8.setText("");
+        button9.setText("");
+        button10.setText("");
+        button11.setText("");
+        button12.setText("");
+        button13.setText("");
+        button14.setText("");
+        button15.setText("");
+        button16.setText("");
+        button17.setText("");
+        button18.setText("");
+        button19.setText("");
+        button20.setText("");
+        button21.setText("");
+        button22.setText("");
+        button23.setText("");
+        button24.setText("");
         match = false;
         memoryGame.reset();
         time.setText("Time: " + i);
         turn.setText("Turns = " + turns);
         point.setText("Points = " + points);
     }
+
     @FXML
     void buttonClicked(ActionEvent event) {
-            String buttonId1 = ((Control)event.getSource()).getId();
-            int check = Integer.parseInt(buttonId1.substring(buttonId1.length() - 1));
-
+            String buttonId1 = ((Control) event.getSource()).getId();
+            String numberStr1 = buttonId1.replaceAll("\\D+", "");
+            int check = Integer.parseInt(numberStr1);
 
             if ((memoryGame.checkClicked.get(check) == true)) {
                 return;
             }
-        if(!firstButtonClicked){
-            //If next turn is started before old buttons are hidden
-            if(!match){
+
+        if (!firstButtonClicked) {
+            // If next turn is started before old buttons are hidden
+            if (!match) {
                 hideButtons();
-                timeline.stop();
+                timelineHide.stop();
             }
             match = false;
             firstButtonClicked = true;
-            //Get clicked button memory letter
-            String buttonId = ((Control)event.getSource()).getId();
-            firstButtonIndex = Integer.parseInt(buttonId.substring(buttonId.length() - 1));
+            // Get clicked button memory letter
+            String buttonId = ((Control) event.getSource()).getId();
+            String numberStr = buttonId.replaceAll("\\D+", "");
+            firstButtonIndex = Integer.parseInt(numberStr);
+        
+            System.out.println("firstButtonIndex: " + firstButtonIndex);
 
 
-            if ((memoryGame.checkClicked.get(firstButtonIndex) == true)) {
-                return;
-            }
-
-            //Change clicked button text
+            // Change clicked button text
             buttons.get(firstButtonIndex).setText(memoryGame.getOptionAtIndex(firstButtonIndex));
 
             return;
         }
+            if ((memoryGame.checkClicked.get(firstButtonIndex) == true)) {
+                return;
+            }
+        // Get clicked button memory letter
+        // String buttonId = ((Control) event.getSource()).getId();
+        // secondButtonIndex = Integer.parseInt(buttonId.substring(buttonId.length() - 1));
+        
+        String buttonId = ((Control) event.getSource()).getId();
+        String numberStr = buttonId.replaceAll("\\D+", "");
+        secondButtonIndex = Integer.parseInt(numberStr);
+        
+            System.out.println("secondButtonIndex: " + secondButtonIndex);
 
-        //Get clicked button memory letter
-        String buttonId = ((Control)event.getSource()).getId();
-        secondButtonIndex = Integer.parseInt(buttonId.substring(buttonId.length() - 1));
-
-
-        //Nếu mà nhấn ô 2 trùng ô 1 thì return
+        // Nếu mà nhấn ô 2 trùng ô 1 thì return
         if ((secondButtonIndex == firstButtonIndex)) {
             firstButtonClicked = true;
             return;
         }
-        //Change clicked button text
+        // Change clicked button text
         buttons.get(secondButtonIndex).setText(memoryGame.getOptionAtIndex(secondButtonIndex));
 
         firstButtonClicked = false;
 
-        turns ++;
+        turns++;
         turn.setText("Turns = " + turns);
-        //Check if the two clicked button match
-        if(memoryGame.checkTwoPositions(firstButtonIndex,secondButtonIndex)){
+        // Check if the two clicked button match
+        if (memoryGame.checkTwoPositions(firstButtonIndex, secondButtonIndex)) {
             memoryGame.checkClicked.set(secondButtonIndex, true);
             memoryGame.checkClicked.set(firstButtonIndex, true);
             System.out.println("Match");
@@ -188,32 +262,29 @@ public class HelloController implements Initializable {
             points++;
             point.setText("Points = " + points);
 
-            if(points % 4 == 0 && (memoryGame.countClicked(memoryGame.checkClicked) == 8)){
+            if (points % 12 == 0 && (memoryGame.countClicked(memoryGame.checkClicked) == 24)) {
                 nextRound();
             }
             return;
 
-        }
-        else{
+        } else {
             memoryGame.checkClicked.set(firstButtonIndex, false);
             memoryGame.checkClicked.set(secondButtonIndex, false);
         }
-        timeline.play();
+        timelineHide.play();
     }
 
-    private void hideButtons(){
+    private void hideButtons() {
         buttons.get(firstButtonIndex).setText("");
         buttons.get(secondButtonIndex).setText("");
     }
 
-
     public void backToStartScene(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("StartScene.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }
-
 
 }

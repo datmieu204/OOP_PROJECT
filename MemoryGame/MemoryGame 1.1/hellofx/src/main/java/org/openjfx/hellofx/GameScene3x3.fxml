@@ -7,61 +7,61 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openjfx.hellofx.HelloController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="597.0" prefWidth="786.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openjfx.hellofx.HelloController">
    <children>
-      <VBox layoutX="160.0" layoutY="60.0" prefHeight="300.0" prefWidth="300.0">
+      <VBox layoutX="160.0" layoutY="60.0" prefHeight="498.0" prefWidth="498.0">
          <children>
-            <HBox prefHeight="100.0" prefWidth="334.0">
+            <HBox prefHeight="166.0" prefWidth="498.0">
                <children>
-                  <Button fx:id="button0" mnemonicParsing="false" onAction="#buttonClicked" prefHeight="100.0" prefWidth="100.0">
+                  <Button fx:id="button0" mnemonicParsing="false" onAction="#buttonClicked" prefHeight="166.0" prefWidth="166.0">
                      <font>
                         <Font size="32.0" />
                      </font>
                   </Button>
-                  <Button fx:id="button1" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#buttonClicked" prefHeight="100.0" prefWidth="100.0">
+                  <Button fx:id="button1" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#buttonClicked" prefHeight="166.0" prefWidth="166.0">
                      <font>
                         <Font size="32.0" />
                      </font>
                   </Button>
-                  <Button fx:id="button2" layoutX="235.0" layoutY="10.0" mnemonicParsing="false" onAction="#buttonClicked" prefHeight="100.0" prefWidth="100.0">
+                  <Button fx:id="button2" layoutX="235.0" layoutY="10.0" mnemonicParsing="false" onAction="#buttonClicked" prefHeight="166.0" prefWidth="166.0">
                      <font>
                         <Font size="32.0" />
                      </font>
                   </Button>
                </children>
             </HBox>
-            <HBox layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="300.0">
+            <HBox layoutX="10.0" layoutY="10.0" prefHeight="166.0" prefWidth="498.0">
                <children>
-                  <Button fx:id="button3" mnemonicParsing="false" onAction="#buttonClicked" prefHeight="100.0" prefWidth="100.0">
+                  <Button fx:id="button3" mnemonicParsing="false" onAction="#buttonClicked" prefHeight="166.0" prefWidth="166.0">
                      <font>
                         <Font size="32.0" />
                      </font>
                   </Button>
-                  <Button fx:id="button4" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#buttonClicked" prefHeight="100.0" prefWidth="100.0">
+                  <Button fx:id="button4" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#buttonClicked" prefHeight="166.0" prefWidth="166.0">
                      <font>
                         <Font size="32.0" />
                      </font>
                   </Button>
-                  <Button fx:id="button5" layoutX="110.0" layoutY="10.0" mnemonicParsing="false" onAction="#buttonClicked" prefHeight="100.0" prefWidth="100.0">
+                  <Button fx:id="button5" layoutX="110.0" layoutY="10.0" mnemonicParsing="false" onAction="#buttonClicked" prefHeight="166.0" prefWidth="166.0">
                      <font>
                         <Font size="32.0" />
                      </font>
                   </Button>
                </children>
             </HBox>
-            <HBox layoutX="10.0" layoutY="110.0" prefHeight="100.0" prefWidth="300.0">
+            <HBox layoutX="10.0" layoutY="110.0" prefHeight="166.0" prefWidth="498.0">
                <children>
-                  <Button fx:id="button6" mnemonicParsing="false" onAction="#buttonClicked" prefHeight="100.0" prefWidth="100.0">
+                  <Button fx:id="button6" mnemonicParsing="false" onAction="#buttonClicked" prefHeight="166.0" prefWidth="166.0">
                      <font>
                         <Font size="32.0" />
                      </font>
                   </Button>
-                  <Button fx:id="button7" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#buttonClicked" prefHeight="100.0" prefWidth="100.0">
+                  <Button fx:id="button7" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#buttonClicked" prefHeight="166.0" prefWidth="166.0">
                      <font>
                         <Font size="32.0" />
                      </font>
                   </Button>
-                  <Button fx:id="button8" mnemonicParsing="false" onAction="#buttonClicked" prefHeight="100.0" prefWidth="100.0">
+                  <Button fx:id="button8" mnemonicParsing="false" onAction="#buttonClicked" prefHeight="166.0" prefWidth="166.0">
                      <font>
                         <Font size="32.0" />
                      </font>
@@ -74,5 +74,6 @@
       <Label fx:id="turn" layoutX="30.0" layoutY="24.0" text="Turns = 0" />
       <Label fx:id="point" layoutX="30.0" layoutY="60.0" text="Points = 0" />
       <Label fx:id="time" layoutX="173.0" layoutY="24.0" text="Time: " />
+      <Button fx:id="back" layoutX="14.0" layoutY="265.0" mnemonicParsing="false" onAction="#backToStartScene" text="Back" />
    </children>
 </AnchorPane>
