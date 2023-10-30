@@ -1,0 +1,3 @@
+Thay ChoiceBox = ComboBox (Kiểm tra xem có sửa được mấy cái kéo xuống không)
+Thêm giới hạn thời gian 1 phút được bao nhiêu điểm, hết game thì hiện ra 1 scene mới tổng kết điểm
+Thay vào cho 4x4 và 5x5

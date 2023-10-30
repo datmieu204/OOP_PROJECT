@@ -13,6 +13,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Control;
 import javafx.scene.control.Label;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
@@ -61,7 +62,6 @@ public class HelloController4x4 implements Initializable {
     private Button button14;
     @FXML
     private Button button15;
-    
 
     @FXML
     private Button restart;
@@ -103,6 +103,24 @@ public class HelloController4x4 implements Initializable {
         timeline.setCycleCount(Animation.INDEFINITE);
         timeline.play();
 
+        Font font = new Font("Arial", 20); // Đặt kích thước font là 12
+        button0.setFont(font);
+        button1.setFont(font);
+        button2.setFont(font);
+        button3.setFont(font);
+        button4.setFont(font);
+        button5.setFont(font);
+        button6.setFont(font);
+        button7.setFont(font);
+        button8.setFont(font);
+        button9.setFont(font);
+        button10.setFont(font);
+        button11.setFont(font);
+        button12.setFont(font);
+        button13.setFont(font);
+        button14.setFont(font);
+        button15.setFont(font);
+
         buttons.addAll(Arrays.asList(button0, button1, button2, button3, button4, button5, button6,
                 button7, button8, button9, button10, button11, button12, button13, button14, button15));
         memoryGame.setupGame();
@@ -127,6 +145,7 @@ public class HelloController4x4 implements Initializable {
         button13.setText("");
         button14.setText("");
         button15.setText("");
+
         match = false;
         turns = 0;
         points = 0;
@@ -163,13 +182,13 @@ public class HelloController4x4 implements Initializable {
 
     @FXML
     void buttonClicked1(ActionEvent event) {
-            String buttonId1 = ((Control) event.getSource()).getId();
-            String numberStr1 = buttonId1.replaceAll("\\D+", "");
-            int check = Integer.parseInt(numberStr1);
+        String buttonId1 = ((Control) event.getSource()).getId();
+        String numberStr1 = buttonId1.replaceAll("\\D+", "");
+        int check = Integer.parseInt(numberStr1);
 
-            if ((memoryGame.checkClicked.get(check) == true)) {
-                return;
-            }
+        if ((memoryGame.checkClicked.get(check) == true)) {
+            return;
+        }
 
         if (!firstButtonClicked) {
             // If next turn is started before old buttons are hidden
@@ -183,27 +202,23 @@ public class HelloController4x4 implements Initializable {
             String buttonId = ((Control) event.getSource()).getId();
             String numberStr = buttonId.replaceAll("\\D+", "");
             firstButtonIndex = Integer.parseInt(numberStr);
-        
-            System.out.println("firstButtonIndex: " + firstButtonIndex);
 
+            System.out.println("firstButtonIndex: " + firstButtonIndex);
 
             // Change clicked button text
             buttons.get(firstButtonIndex).setText(memoryGame.getOptionAtIndex(firstButtonIndex));
 
             return;
         }
-            if ((memoryGame.checkClicked.get(firstButtonIndex) == true)) {
-                return;
-            }
+        if ((memoryGame.checkClicked.get(firstButtonIndex) == true)) {
+            return;
+        }
         // Get clicked button memory letter
-        // String buttonId = ((Control) event.getSource()).getId();
-        // secondButtonIndex = Integer.parseInt(buttonId.substring(buttonId.length() - 1));
-        
         String buttonId = ((Control) event.getSource()).getId();
         String numberStr = buttonId.replaceAll("\\D+", "");
         secondButtonIndex = Integer.parseInt(numberStr);
-        
-            System.out.println("secondButtonIndex: " + secondButtonIndex);
+
+        System.out.println("secondButtonIndex: " + secondButtonIndex);
 
         // Nếu mà nhấn ô 2 trùng ô 1 thì return
         if ((secondButtonIndex == firstButtonIndex)) {
@@ -245,10 +260,12 @@ public class HelloController4x4 implements Initializable {
 
     public void backToStartScene(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("StartScene.fxml"));
+        String css = this.getClass().getResource("Style.css").toExternalForm();
+        root.getStylesheets().add(css);
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
-    }
+    }   
 
 }

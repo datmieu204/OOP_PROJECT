@@ -13,6 +13,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Control;
 import javafx.scene.control.Label;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
@@ -123,6 +124,33 @@ public class HelloController5x5 implements Initializable {
         buttons.addAll(Arrays.asList(button0, button1, button2, button3, button4, button5, button6,
                 button7, button8, button9, button10, button11, button12, button13, button14, button15,
                 button16, button17, button18, button19, button20, button21, button22, button23, button24));
+
+        Font font = new Font("Arial", 20); // Đặt kích thước font là 12
+        button0.setFont(font);
+        button1.setFont(font);
+        button2.setFont(font);
+        button3.setFont(font);
+        button4.setFont(font);
+        button5.setFont(font);
+        button6.setFont(font);
+        button7.setFont(font);
+        button8.setFont(font);
+        button9.setFont(font);
+        button10.setFont(font);
+        button11.setFont(font);
+        button12.setFont(font);
+        button13.setFont(font);
+        button14.setFont(font);
+        button15.setFont(font);
+        button16.setFont(font);
+        button17.setFont(font);
+        button18.setFont(font);
+        button19.setFont(font);
+        button20.setFont(font);
+        button21.setFont(font);
+        button22.setFont(font);
+        button23.setFont(font);
+        button24.setFont(font);
         memoryGame.setupGame();
 
     }
@@ -281,6 +309,8 @@ public class HelloController5x5 implements Initializable {
 
     public void backToStartScene(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("StartScene.fxml"));
+        String css = this.getClass().getResource("Style.css").toExternalForm();
+        root.getStylesheets().add(css);
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);

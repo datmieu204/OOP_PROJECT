@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -12,6 +13,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class SceneController implements Initializable{
@@ -26,6 +28,9 @@ public class SceneController implements Initializable{
 
     private int boardLength = 3;
 
+    TextAnimator textAnimator;
+    @FXML
+    private Text text;
 
     public void switchToGame(ActionEvent event) throws IOException {
         String matrix = "GameScene3x3.fxml";
@@ -39,18 +44,48 @@ public class SceneController implements Initializable{
             matrix = "GameScene5x5.fxml";
         }
         Parent root = FXMLLoader.load(getClass().getResource(matrix));
+
+        String css = this.getClass().getResource("Style.css").toExternalForm();
+        root.getStylesheets().add(css);
+
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }
 
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        TextOutput textOutput = new TextOutput() {
+            @Override
+            public void writeText(String textOut) {
+                Platform.runLater(new Runnable() {
+                    @Override
+                    public void run() {
+                        text.setText(textOut);
+                    }
+                });
+            }
+        };
+
+        textAnimator = new TextAnimator("Welcome To My Show!",
+                100, textOutput);
+                
+        Thread thread = new Thread(textAnimator);
+        thread.start();
+
         choiceBox.getItems().addAll(level);
         choiceBox.setOnAction(this::getLevel);
     }
+
+    // @FXML
+    // void start(ActionEvent event) {
+    //     Thread thread = new Thread(textAnimator);
+    //     thread.start();
+    // }
+
+
+
 
     public void getLevel(ActionEvent event){
         String myLevel = choiceBox.getValue();

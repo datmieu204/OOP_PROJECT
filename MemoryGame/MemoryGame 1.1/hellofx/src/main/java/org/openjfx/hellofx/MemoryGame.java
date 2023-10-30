@@ -128,6 +128,7 @@ public class MemoryGame {
     public void reset() {
         memoryBoard.clear();
         memoryOptions.clear();
+        checkClicked.clear();
         // Thực hiện các bước khởi tạo lại trò chơi
         setupGame();
     }

@@ -12,6 +12,10 @@ public class Main extends Application {
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("StartScene.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
+
+        String css = this.getClass().getResource("Style.css").toExternalForm();
+        scene.getStylesheets().add(css);
+
         stage.setTitle("Memory Game");
         stage.setScene(scene);
         stage.show();

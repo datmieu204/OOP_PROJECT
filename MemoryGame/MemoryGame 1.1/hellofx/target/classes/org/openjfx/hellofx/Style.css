@@ -1,0 +1,107 @@
+.gameButton{
+    -fx-font-weight: bold;
+    -fx-border-color: #8F60BF;
+    -fx-border-style: solid;
+    -fx-border-width: 2px;
+    -fx-border-radius: 22;
+    -fx-background-color: #BEB6F2;
+    -fx-background-radius: 22;
+    -fx-font-size: 25;
+    -fx-text-fill: #079DD9;
+}
+
+.gameButton:hover{
+    -fx-font-weight: bold;
+    -fx-background-color: #079DD9;
+    -fx-background-radius: 22;
+    -fx-font-size: 25;
+    -fx-text-fill: #BEB6F2;
+    -fx-border-color: #06457a;
+    -fx-border-radius: 20;
+    -fx-border-width: 3;
+}
+.gameButton.closed{
+    -fx-font-weight: bold;
+    -fx-background-color: #BEB6F2;
+    -fx-background-radius: 22;
+    -fx-font-size: 16;
+    -fx-text-fill: #079DD9;
+}
+.gameButton.opened {
+    -fx-background-color: #2D5F73;
+}
+
+.optionButton{
+    -fx-font-weight: bold;
+    -fx-background-color: #ECD8F2;
+    -fx-background-radius: 22;
+    -fx-border-color: #8F60BF;
+    -fx-border-style: solid;
+    -fx-border-width: 2px;
+    -fx-border-radius: 22;
+    -fx-font-size: 16;
+    -fx-text-fill: #A0BBF2;
+}
+
+.optionButton:hover{
+    -fx-font-weight: bold;
+    -fx-background-color: A0BBF2;
+    -fx-background-radius: 22;
+    -fx-font-size: 16;
+    -fx-text-fill: #0583F2;
+    -fx-border-color: #06457a;
+    -fx-border-radius: 20;
+    -fx-border-width: 3;
+}
+
+.AnchorPane {
+    -fx-background-color: #99D9F2;
+    -fx-border-width: 2px; /* Độ dày viền */
+}
+
+.AnchorPane.menu-button {
+    -fx-background-color: #99D9F2;
+}
+
+/* Đặt màu nền cho ChoiceBox */
+.ChoiceBox {
+    -fx-background-color: #99d9f2;
+}
+
+/* Đặt màu chữ cho ChoiceBox */
+.ChoiceBox .label {
+    -fx-text-fill: #10054f;
+}
+
+/* Đặt màu nền cho mũi tên */
+.ChoiceBox .arrow-button {
+    -fx-background-color: #31515e;
+}
+
+/* Đặt màu chữ cho mũi tên */
+.ChoiceBox .arrow-button .arrow {
+    -fx-background-color: #330f0f;
+}
+
+/* Đặt màu nền cho menu */
+.ChoiceBox .menu-button .popup .menu-item {
+    -fx-background-color: #99d9f2;
+}
+
+/* Đặt màu chữ cho menu */
+.ChoiceBox .menu-button .popup .menu-item .text {
+    -fx-text-fill: #4290a5;
+}
+
+.gameLabel{
+    -fx-text-fill: #4290a5;
+    -fx-border-color: black;
+    -fx-border-style: solid;
+    -fx-font-weight: bold;
+    -fx-border-radius: 22;
+    -fx-border-width: 2px;
+    -fx-background-color: #ECD8F2;
+    -fx-background-radius: 22;
+    -fx-alignment: center;
+    -fx-font-size: 20px;
+}

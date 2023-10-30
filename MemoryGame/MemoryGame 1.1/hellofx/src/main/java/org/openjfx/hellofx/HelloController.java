@@ -95,6 +95,10 @@ public class HelloController implements Initializable {
 
     @FXML
     public void restartGame() {
+        for(Button button : buttons){
+            button.getStyleClass().remove("opened");
+            button.getStyleClass().add("gameButton");
+        }
         button0.setText("");
         button1.setText("");
         button2.setText("");
@@ -115,6 +119,10 @@ public class HelloController implements Initializable {
     }
 
     public void nextRound() {
+        for(Button button : buttons){
+            button.getStyleClass().remove("opened");
+            button.getStyleClass().add("gameButton");
+        }
         button0.setText("");
         button1.setText("");
         button2.setText("");
@@ -183,6 +191,10 @@ public class HelloController implements Initializable {
         if(memoryGame.checkTwoPositions(firstButtonIndex,secondButtonIndex)){
             memoryGame.checkClicked.set(secondButtonIndex, true);
             memoryGame.checkClicked.set(firstButtonIndex, true);
+
+            buttons.get(firstButtonIndex).getStyleClass().add("opened");
+            buttons.get(secondButtonIndex).getStyleClass().add("opened");
+
             System.out.println("Match");
             match = true;
             points++;
@@ -209,6 +221,8 @@ public class HelloController implements Initializable {
 
     public void backToStartScene(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("StartScene.fxml"));
+        String css = this.getClass().getResource("Style.css").toExternalForm();
+        root.getStylesheets().add(css);
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);

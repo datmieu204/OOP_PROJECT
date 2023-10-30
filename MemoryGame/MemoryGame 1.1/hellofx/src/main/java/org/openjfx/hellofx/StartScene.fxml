@@ -1,19 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.Light.Distant?>
+<?import javafx.scene.effect.Lighting?>
+<?import javafx.scene.effect.Shadow?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openjfx.hellofx.SceneController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="AnchorPane" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openjfx.hellofx.SceneController">
    <children>
-      <Button fx:id="switchButton" layoutX="258.0" layoutY="319.0" mnemonicParsing="false" onAction="#switchToGame" text="Let's start" />
-      <ChoiceBox fx:id="choiceBox" layoutX="225.0" layoutY="113.0" prefWidth="150.0" />
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutY="45.0" prefHeight="21.0" prefWidth="600.0" text="Select level to play">
+      <ChoiceBox fx:id="choiceBox" accessibleRole="CHECK_BOX" blendMode="MULTIPLY" cache="true" layoutX="231.0" layoutY="176.0" nodeOrientation="LEFT_TO_RIGHT" prefWidth="150.0" styleClass="ChoiceBox">
+         <effect>
+            <Lighting>
+               <bumpInput>
+                  <Shadow />
+               </bumpInput>
+               <light>
+                  <Light.Distant />
+               </light>
+            </Lighting>
+         </effect>
+         <cursor>
+            <Cursor fx:constant="CLOSED_HAND" />
+         </cursor></ChoiceBox>
+      <Button fx:id="switchButton" alignment="CENTER" contentDisplay="CENTER" layoutX="258.0" layoutY="319.0" mnemonicParsing="false" onAction="#switchToGame" styleClass="optionButton" text="Let's start" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutY="112.0" prefHeight="21.0" prefWidth="600.0" text="Select level to play">
          <font>
             <Font size="30.0" />
          </font>
       </Label>
+      <Text fx:id="text" layoutX="51.0" layoutY="68.0" strokeWidth="0.0" wrappingWidth="510.0">
+         <font>
+            <Font size="50.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>
