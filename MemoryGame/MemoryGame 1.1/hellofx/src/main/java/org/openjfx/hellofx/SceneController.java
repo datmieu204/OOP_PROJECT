@@ -13,8 +13,11 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 public class SceneController implements Initializable{
 
@@ -29,10 +32,18 @@ public class SceneController implements Initializable{
     private int boardLength = 3;
 
     TextAnimator textAnimator;
+
+    String option_sound = getClass().getResource("option.mp3").toExternalForm();
+    Media option_media = new Media(option_sound);
+    MediaPlayer optionSound = new MediaPlayer(option_media);
+
     @FXML
     private Text text;
 
     public void switchToGame(ActionEvent event) throws IOException {
+        optionSound.setVolume(1.0);
+        optionSound.seek(Duration.ZERO);
+        optionSound.play();        
         String matrix = "GameScene3x3.fxml";
         if(boardLength == 3){
             matrix = "GameScene3x3.fxml";
@@ -56,6 +67,8 @@ public class SceneController implements Initializable{
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        optionSound.play();
+        optionSound.stop();
         TextOutput textOutput = new TextOutput() {
             @Override
             public void writeText(String textOut) {
@@ -78,16 +91,10 @@ public class SceneController implements Initializable{
         choiceBox.setOnAction(this::getLevel);
     }
 
-    // @FXML
-    // void start(ActionEvent event) {
-    //     Thread thread = new Thread(textAnimator);
-    //     thread.start();
-    // }
-
-
-
-
     public void getLevel(ActionEvent event){
+        optionSound.setVolume(1.0);
+        optionSound.seek(Duration.ZERO);
+        optionSound.play();
         String myLevel = choiceBox.getValue();
         if(myLevel.equals("3x3")){
             MemoryGame.setBoardLength(3);

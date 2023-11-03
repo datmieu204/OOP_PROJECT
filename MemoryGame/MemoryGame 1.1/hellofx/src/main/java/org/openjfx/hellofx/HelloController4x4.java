@@ -13,7 +13,10 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Control;
 import javafx.scene.control.Label;
-import javafx.scene.text.Font;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
@@ -22,6 +25,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.ResourceBundle;
+
 
 public class HelloController4x4 implements Initializable {
     // Biến thời gian
@@ -75,10 +79,34 @@ public class HelloController4x4 implements Initializable {
 
     @FXML
     private Button switchButton;
+    @FXML
+    private Button soundButton;
 
-    Timeline timelineHide = new Timeline(new KeyFrame(Duration.seconds(0.75), e -> hideButtons()));
+    Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(0.75), e -> hideButtons()));
 
     private boolean firstButtonClicked = false;
+    private boolean soundOn = true;
+
+    private ImageView soundOnImage;
+    private ImageView soundOffImage;
+
+    Image soundOnImg = new Image("file:///D:/Visual Studio Code/OOP_PROJECT/MemoryGame/MemoryGame 1.1/hellofx/src/main/java/org/openjfx/hellofx/soundOn.png");
+    Image soundOffImg = new Image("file:///D:/Visual Studio Code/OOP_PROJECT/MemoryGame/MemoryGame 1.1/hellofx/src/main/java/org/openjfx/hellofx/soundOff.png");
+    
+    String correct_sound = getClass().getResource("correct.mp3").toExternalForm();
+    String wrong_sound = getClass().getResource("wrong.mp3").toExternalForm();
+    String background_sound = getClass().getResource("background.mp3").toExternalForm();
+    String option_sound = getClass().getResource("option.mp3").toExternalForm();
+
+    Media correct_media = new Media(correct_sound);
+    Media wrong_media = new Media(wrong_sound);
+    Media background_media = new Media(background_sound);
+    Media option_media = new Media(option_sound);
+
+    MediaPlayer correctSound = new MediaPlayer(correct_media);
+    MediaPlayer wrongSound = new MediaPlayer(wrong_media);
+    MediaPlayer backgroundSound = new MediaPlayer(background_media);
+    MediaPlayer optionSound = new MediaPlayer(option_media);
 
     private int firstButtonIndex;
     private int secondButtonIndex;
@@ -93,6 +121,30 @@ public class HelloController4x4 implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        soundOnImage = new ImageView(soundOnImg);
+        soundOffImage = new ImageView(soundOffImg);
+        soundButton.setGraphic(soundOffImage);
+
+
+        correctSound.play();
+        correctSound.stop();
+        correctSound.seek(Duration.ZERO);
+
+        wrongSound.play();
+        wrongSound.stop();
+        wrongSound.seek(Duration.ZERO);
+
+
+        optionSound.play();
+        optionSound.stop();
+        optionSound.seek(Duration.ZERO);
+
+        backgroundSound.setCycleCount(MediaPlayer.INDEFINITE);
+        backgroundSound.setVolume(0.5);
+        backgroundSound.play();
+        backgroundSound.stop();
+        soundOn = false;
+
         time.setText("Time: " + String.valueOf(i));
 
         // Set time
@@ -103,24 +155,6 @@ public class HelloController4x4 implements Initializable {
         timeline.setCycleCount(Animation.INDEFINITE);
         timeline.play();
 
-        Font font = new Font("Arial", 20); // Đặt kích thước font là 12
-        button0.setFont(font);
-        button1.setFont(font);
-        button2.setFont(font);
-        button3.setFont(font);
-        button4.setFont(font);
-        button5.setFont(font);
-        button6.setFont(font);
-        button7.setFont(font);
-        button8.setFont(font);
-        button9.setFont(font);
-        button10.setFont(font);
-        button11.setFont(font);
-        button12.setFont(font);
-        button13.setFont(font);
-        button14.setFont(font);
-        button15.setFont(font);
-
         buttons.addAll(Arrays.asList(button0, button1, button2, button3, button4, button5, button6,
                 button7, button8, button9, button10, button11, button12, button13, button14, button15));
         memoryGame.setupGame();
@@ -129,6 +163,13 @@ public class HelloController4x4 implements Initializable {
 
     @FXML
     public void restartGame() {
+        optionSound.setVolume(0.7);
+        optionSound.seek(Duration.ZERO);
+        optionSound.play();  
+        for(Button button : buttons){
+            button.getStyleClass().remove("opened");
+            button.getStyleClass().add("gameButton");
+        }
         button0.setText("");
         button1.setText("");
         button2.setText("");
@@ -157,6 +198,10 @@ public class HelloController4x4 implements Initializable {
     }
 
     public void nextRound() {
+        for(Button button : buttons){
+            button.getStyleClass().remove("opened");
+            button.getStyleClass().add("gameButton");
+        }
         button0.setText("");
         button1.setText("");
         button2.setText("");
@@ -186,71 +231,81 @@ public class HelloController4x4 implements Initializable {
         String numberStr1 = buttonId1.replaceAll("\\D+", "");
         int check = Integer.parseInt(numberStr1);
 
+
         if ((memoryGame.checkClicked.get(check) == true)) {
             return;
         }
-
-        if (!firstButtonClicked) {
-            // If next turn is started before old buttons are hidden
-            if (!match) {
-                hideButtons();
-                timelineHide.stop();
-            }
-            match = false;
-            firstButtonClicked = true;
-            // Get clicked button memory letter
-            String buttonId = ((Control) event.getSource()).getId();
-            String numberStr = buttonId.replaceAll("\\D+", "");
-            firstButtonIndex = Integer.parseInt(numberStr);
-
-            System.out.println("firstButtonIndex: " + firstButtonIndex);
-
-            // Change clicked button text
-            buttons.get(firstButtonIndex).setText(memoryGame.getOptionAtIndex(firstButtonIndex));
-
-            return;
+    if(!firstButtonClicked){
+        //If next turn is started before old buttons are hidden
+        if(!match){
+            hideButtons();
+            timeline.stop();
         }
-        if ((memoryGame.checkClicked.get(firstButtonIndex) == true)) {
-            return;
-        }
+        match = false;
+        firstButtonClicked = true;
         // Get clicked button memory letter
         String buttonId = ((Control) event.getSource()).getId();
         String numberStr = buttonId.replaceAll("\\D+", "");
-        secondButtonIndex = Integer.parseInt(numberStr);
+        firstButtonIndex = Integer.parseInt(numberStr);
 
-        System.out.println("secondButtonIndex: " + secondButtonIndex);
+        //Change clicked button text
+        buttons.get(firstButtonIndex).setText(memoryGame.getOptionAtIndex(firstButtonIndex));
 
-        // Nếu mà nhấn ô 2 trùng ô 1 thì return
-        if ((secondButtonIndex == firstButtonIndex)) {
-            firstButtonClicked = true;
+        return;
+    }
+        if ((memoryGame.checkClicked.get(firstButtonIndex) == true)) {
             return;
         }
-        // Change clicked button text
-        buttons.get(secondButtonIndex).setText(memoryGame.getOptionAtIndex(secondButtonIndex));
 
-        firstButtonClicked = false;
+    //Get clicked button memory letter
+    String buttonId = ((Control) event.getSource()).getId();
+    String numberStr = buttonId.replaceAll("\\D+", "");
+    secondButtonIndex = Integer.parseInt(numberStr);
 
-        turns++;
-        turn.setText("Turns = " + turns);
-        // Check if the two clicked button match
-        if (memoryGame.checkTwoPositions(firstButtonIndex, secondButtonIndex)) {
-            memoryGame.checkClicked.set(secondButtonIndex, true);
-            memoryGame.checkClicked.set(firstButtonIndex, true);
-            System.out.println("Match");
-            match = true;
-            points++;
-            point.setText("Points = " + points);
 
-            if (points % 8 == 0 && (memoryGame.countClicked(memoryGame.checkClicked) == 16)) {
-                nextRound();
-            }
-            return;
+    //Nếu mà nhấn ô 2 trùng ô 1 thì return
+    if ((secondButtonIndex == firstButtonIndex)) {
+        firstButtonClicked = true;
+        return;
+    }
+    //Change clicked button text
+    buttons.get(secondButtonIndex).setText(memoryGame.getOptionAtIndex(secondButtonIndex));
 
-        } else {
-            memoryGame.checkClicked.set(firstButtonIndex, false);
-            memoryGame.checkClicked.set(secondButtonIndex, false);
+    firstButtonClicked = false;
+
+    turns ++;
+    turn.setText("Turns = " + turns);
+    //Check if the two clicked button match
+    if(memoryGame.checkTwoPositions(firstButtonIndex,secondButtonIndex)){
+        memoryGame.checkClicked.set(secondButtonIndex, true);
+        memoryGame.checkClicked.set(firstButtonIndex, true);
+
+        buttons.get(firstButtonIndex).getStyleClass().add("opened");
+        buttons.get(secondButtonIndex).getStyleClass().add("opened");
+
+        correctSound.setVolume(1.0);
+        correctSound.seek(Duration.ZERO);
+        correctSound.play();
+
+        System.out.println("Match");
+        match = true;
+        points++;
+        point.setText("Points = " + points);
+
+        if(points % 12 == 0 && (memoryGame.countClicked(memoryGame.checkClicked) == 24)){
+            nextRound();
         }
-        timelineHide.play();
+        return;
+
+    }
+    else{
+        wrongSound.setVolume(1.0);
+        wrongSound.seek(Duration.ZERO);
+        wrongSound.play();
+        memoryGame.checkClicked.set(firstButtonIndex, false);
+        memoryGame.checkClicked.set(secondButtonIndex, false);
+    }
+    timeline.play();
     }
 
     private void hideButtons() {
@@ -259,13 +314,31 @@ public class HelloController4x4 implements Initializable {
     }
 
     public void backToStartScene(ActionEvent event) throws IOException {
+        optionSound.setVolume(0.7);
+        optionSound.seek(Duration.ZERO);
+        optionSound.play();  
+        backgroundSound.stop();
+        soundOn = false; 
+
         root = FXMLLoader.load(getClass().getResource("StartScene.fxml"));
         String css = this.getClass().getResource("Style.css").toExternalForm();
         root.getStylesheets().add(css);
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
-    }   
+    }
 
+    public void onOffSound(ActionEvent event){
+        if(soundOn == true){
+            soundOn = false;
+            soundButton.setGraphic(soundOffImage);
+            backgroundSound.pause();
+        }
+        else{
+            soundOn = true;
+            soundButton.setGraphic(soundOnImage);
+            backgroundSound.play();
+        }
+    }
 }

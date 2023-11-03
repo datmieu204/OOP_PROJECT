@@ -13,6 +13,10 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Control;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
@@ -52,18 +56,42 @@ public class HelloController implements Initializable {
     private Button restart;
     
     @FXML
+    private Button switchButton;
+    @FXML
+    private Button soundButton;
+
+    @FXML
     private Label point;
     @FXML
     private Label turn;
     @FXML
     private Label time;
-
-    @FXML
-    private Button switchButton;
     
     Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(0.75), e -> hideButtons()));
 
     private boolean firstButtonClicked = false;
+    private boolean soundOn = true;
+
+    private ImageView soundOnImage;
+    private ImageView soundOffImage;
+
+    Image soundOnImg = new Image("file:///D:/Visual Studio Code/OOP_PROJECT/MemoryGame/MemoryGame 1.1/hellofx/src/main/java/org/openjfx/hellofx/soundOn.png");
+    Image soundOffImg = new Image("file:///D:/Visual Studio Code/OOP_PROJECT/MemoryGame/MemoryGame 1.1/hellofx/src/main/java/org/openjfx/hellofx/soundOff.png");
+    
+    String correct_sound = getClass().getResource("correct.mp3").toExternalForm();
+    String wrong_sound = getClass().getResource("wrong.mp3").toExternalForm();
+    String background_sound = getClass().getResource("background.mp3").toExternalForm();
+    String option_sound = getClass().getResource("option.mp3").toExternalForm();
+
+    Media correct_media = new Media(correct_sound);
+    Media wrong_media = new Media(wrong_sound);
+    Media background_media = new Media(background_sound);
+    Media option_media = new Media(option_sound);
+
+    MediaPlayer correctSound = new MediaPlayer(correct_media);
+    MediaPlayer wrongSound = new MediaPlayer(wrong_media);
+    MediaPlayer backgroundSound = new MediaPlayer(background_media);
+    MediaPlayer optionSound = new MediaPlayer(option_media);
 
     private int firstButtonIndex;
     private int secondButtonIndex;
@@ -77,8 +105,31 @@ public class HelloController implements Initializable {
     public int points = 0;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        time.setText("Time: " + String.valueOf(i));
+        soundOnImage = new ImageView(soundOnImg);
+        soundOffImage = new ImageView(soundOffImg);
+        soundButton.setGraphic(soundOffImage);
 
+
+        correctSound.play();
+        correctSound.stop();
+        correctSound.seek(Duration.ZERO);
+
+        wrongSound.play();
+        wrongSound.stop();
+        wrongSound.seek(Duration.ZERO);
+
+
+        optionSound.play();
+        optionSound.stop();
+        optionSound.seek(Duration.ZERO);
+
+        backgroundSound.setCycleCount(MediaPlayer.INDEFINITE);
+        backgroundSound.setVolume(0.5);
+        backgroundSound.play();
+        backgroundSound.stop();
+        soundOn = false;
+
+        time.setText("Time: " + String.valueOf(i));
         //Set time
         Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(1),e ->{
             i++;
@@ -87,14 +138,16 @@ public class HelloController implements Initializable {
         timeline.setCycleCount(Animation.INDEFINITE);
         timeline.play();
 
-        memoryGame.setupGame();
-
         buttons.addAll(Arrays.asList(button0, button1, button2, button3, button4,
                 button5, button6, button7, button8));
+        memoryGame.setupGame();
     }
 
     @FXML
     public void restartGame() {
+        optionSound.setVolume(0.7);
+        optionSound.seek(Duration.ZERO);
+        optionSound.play();  
         for(Button button : buttons){
             button.getStyleClass().remove("opened");
             button.getStyleClass().add("gameButton");
@@ -138,6 +191,7 @@ public class HelloController implements Initializable {
         turn.setText("Turns = " + turns);
         point.setText("Points = " + points);
     }
+    
     @FXML
     void buttonClicked(ActionEvent event) {
             String buttonId1 = ((Control)event.getSource()).getId();
@@ -195,6 +249,10 @@ public class HelloController implements Initializable {
             buttons.get(firstButtonIndex).getStyleClass().add("opened");
             buttons.get(secondButtonIndex).getStyleClass().add("opened");
 
+            correctSound.setVolume(1.0);
+            correctSound.seek(Duration.ZERO);
+            correctSound.play();
+
             System.out.println("Match");
             match = true;
             points++;
@@ -207,6 +265,9 @@ public class HelloController implements Initializable {
 
         }
         else{
+            wrongSound.setVolume(1.0);
+            wrongSound.seek(Duration.ZERO);
+            wrongSound.play();
             memoryGame.checkClicked.set(firstButtonIndex, false);
             memoryGame.checkClicked.set(secondButtonIndex, false);
         }
@@ -220,6 +281,12 @@ public class HelloController implements Initializable {
 
 
     public void backToStartScene(ActionEvent event) throws IOException {
+        optionSound.setVolume(0.7);
+        optionSound.seek(Duration.ZERO);
+        optionSound.play();  
+        backgroundSound.stop();
+        soundOn = false; 
+
         root = FXMLLoader.load(getClass().getResource("StartScene.fxml"));
         String css = this.getClass().getResource("Style.css").toExternalForm();
         root.getStylesheets().add(css);
@@ -229,5 +296,16 @@ public class HelloController implements Initializable {
         stage.show();
     }
 
-
+    public void onOffSound(ActionEvent event){
+        if(soundOn == true){
+            soundOn = false;
+            soundButton.setGraphic(soundOffImage);
+            backgroundSound.pause();
+        }
+        else{
+            soundOn = true;
+            soundButton.setGraphic(soundOnImage);
+            backgroundSound.play();
+        }
+    }
 }
