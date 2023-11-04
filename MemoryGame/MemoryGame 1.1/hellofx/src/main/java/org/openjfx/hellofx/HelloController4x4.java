@@ -1,13 +1,13 @@
 package org.openjfx.hellofx;
 
 import javafx.animation.Animation;
+import javafx.animation.FadeTransition;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -15,6 +15,7 @@ import javafx.scene.control.Control;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.StackPane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
@@ -25,6 +26,8 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 public class HelloController4x4 implements Initializable {
@@ -82,6 +85,9 @@ public class HelloController4x4 implements Initializable {
     @FXML
     private Button soundButton;
 
+    @FXML
+    private StackPane rootPane;
+
     Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(0.75), e -> hideButtons()));
 
     private boolean firstButtonClicked = false;
@@ -97,32 +103,34 @@ public class HelloController4x4 implements Initializable {
     String wrong_sound = getClass().getResource("wrong.mp3").toExternalForm();
     String background_sound = getClass().getResource("background.mp3").toExternalForm();
     String option_sound = getClass().getResource("option.mp3").toExternalForm();
+    String gameSelect_sound = getClass().getResource("gameSelect.mp3").toExternalForm();
 
     Media correct_media = new Media(correct_sound);
     Media wrong_media = new Media(wrong_sound);
     Media background_media = new Media(background_sound);
     Media option_media = new Media(option_sound);
+    Media gameSelect_media = new Media(gameSelect_sound);
 
     MediaPlayer correctSound = new MediaPlayer(correct_media);
     MediaPlayer wrongSound = new MediaPlayer(wrong_media);
     MediaPlayer backgroundSound = new MediaPlayer(background_media);
     MediaPlayer optionSound = new MediaPlayer(option_media);
+    MediaPlayer gameSelectSound = new MediaPlayer(gameSelect_media);
 
     private int firstButtonIndex;
     private int secondButtonIndex;
     private boolean match;
-
-    private Stage stage;
-    private Scene scene;
-    private Parent root;
 
     public int turns = 0;
     public int points = 0;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        rootPane.setOpacity(0);
+        makeClearTransition(); 
         soundOnImage = new ImageView(soundOnImg);
         soundOffImage = new ImageView(soundOffImg);
+        makeClearTransition();
         soundButton.setGraphic(soundOffImage);
 
 
@@ -138,6 +146,10 @@ public class HelloController4x4 implements Initializable {
         optionSound.play();
         optionSound.stop();
         optionSound.seek(Duration.ZERO);
+
+        gameSelectSound.play();
+        gameSelectSound.stop();
+        gameSelectSound.seek(Duration.ZERO);
 
         backgroundSound.setCycleCount(MediaPlayer.INDEFINITE);
         backgroundSound.setVolume(0.5);
@@ -227,6 +239,10 @@ public class HelloController4x4 implements Initializable {
 
     @FXML
     void buttonClicked1(ActionEvent event) {
+        gameSelectSound.setVolume(0.7);
+        gameSelectSound.seek(Duration.ZERO);
+        gameSelectSound.play();
+
         String buttonId1 = ((Control) event.getSource()).getId();
         String numberStr1 = buttonId1.replaceAll("\\D+", "");
         int check = Integer.parseInt(numberStr1);
@@ -292,7 +308,7 @@ public class HelloController4x4 implements Initializable {
         points++;
         point.setText("Points = " + points);
 
-        if(points % 12 == 0 && (memoryGame.countClicked(memoryGame.checkClicked) == 24)){
+        if(points % 8 == 0 && (memoryGame.countClicked(memoryGame.checkClicked) == 16)){
             nextRound();
         }
         return;
@@ -313,21 +329,6 @@ public class HelloController4x4 implements Initializable {
         buttons.get(secondButtonIndex).setText("");
     }
 
-    public void backToStartScene(ActionEvent event) throws IOException {
-        optionSound.setVolume(0.7);
-        optionSound.seek(Duration.ZERO);
-        optionSound.play();  
-        backgroundSound.stop();
-        soundOn = false; 
-
-        root = FXMLLoader.load(getClass().getResource("StartScene.fxml"));
-        String css = this.getClass().getResource("Style.css").toExternalForm();
-        root.getStylesheets().add(css);
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
 
     public void onOffSound(ActionEvent event){
         if(soundOn == true){
@@ -341,4 +342,50 @@ public class HelloController4x4 implements Initializable {
             backgroundSound.play();
         }
     }
+
+    @FXML
+    private void backToStartScene(ActionEvent event) throws IOException {
+        optionSound.setVolume(0.7);
+        optionSound.seek(Duration.ZERO);
+        optionSound.play();  
+        makeFadeOut();
+    }
+
+    public void backToScene(){  
+        backgroundSound.stop();
+        soundOn = false; 
+
+        try {
+            Parent secondView;
+            secondView = (StackPane) FXMLLoader.load(getClass().getResource("StartScene.fxml"));
+            String css = this.getClass().getResource("Style.css").toExternalForm();
+            secondView.getStylesheets().add(css);
+            Scene newScene = new Scene(secondView);
+            Stage curStage = (Stage) rootPane.getScene().getWindow();
+            curStage.setScene(newScene);
+        } catch (IOException ex) {
+            Logger.getLogger(HelloController4x4.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    private void makeFadeOut() {
+        FadeTransition fadeTransition = new FadeTransition();
+        fadeTransition.setDuration(Duration.millis(1000));
+        fadeTransition.setNode(rootPane);
+        fadeTransition.setFromValue(1);
+        fadeTransition.setToValue(0);
+        
+        fadeTransition.setOnFinished( (ActionEvent event) -> {
+            backToScene();
+        });
+        fadeTransition.play();
+    }
+    private void makeClearTransition() {
+        FadeTransition fadeTransition = new FadeTransition();
+        fadeTransition.setDuration(Duration.millis(1000));
+        fadeTransition.setNode(rootPane);
+        fadeTransition.setFromValue(0);
+        fadeTransition.setToValue(1);
+        fadeTransition.play();
+    }   
 }

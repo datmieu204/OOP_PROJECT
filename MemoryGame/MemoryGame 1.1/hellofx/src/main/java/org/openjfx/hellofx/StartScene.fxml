@@ -8,35 +8,42 @@
 <?import javafx.scene.effect.Lighting?>
 <?import javafx.scene.effect.Shadow?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="AnchorPane" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openjfx.hellofx.SceneController">
+
+<StackPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openjfx.hellofx.SceneController">
    <children>
-      <ChoiceBox fx:id="choiceBox" accessibleRole="CHECK_BOX" blendMode="MULTIPLY" cache="true" layoutX="231.0" layoutY="176.0" nodeOrientation="LEFT_TO_RIGHT" prefWidth="150.0" styleClass="ChoiceBox">
-         <effect>
-            <Lighting>
-               <bumpInput>
-                  <Shadow />
-               </bumpInput>
-               <light>
-                  <Light.Distant />
-               </light>
-            </Lighting>
-         </effect>
-         <cursor>
-            <Cursor fx:constant="CLOSED_HAND" />
-         </cursor></ChoiceBox>
-      <Button fx:id="switchButton" alignment="CENTER" contentDisplay="CENTER" layoutX="258.0" layoutY="319.0" mnemonicParsing="false" onAction="#switchToGame" styleClass="optionButton" text="Let's start" />
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutY="112.0" prefHeight="21.0" prefWidth="600.0" text="Select level to play">
-         <font>
-            <Font size="30.0" />
-         </font>
-      </Label>
-      <Text fx:id="text" layoutX="51.0" layoutY="68.0" strokeWidth="0.0" wrappingWidth="510.0">
-         <font>
-            <Font size="50.0" />
-         </font>
-      </Text>
+      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="AnchorPane">
+         <children>
+            <ChoiceBox fx:id="choiceBox" accessibleRole="CHECK_BOX" blendMode="MULTIPLY" cache="true" layoutX="231.0" layoutY="176.0" nodeOrientation="LEFT_TO_RIGHT" prefWidth="150.0" styleClass="ChoiceBox">
+               <effect>
+                  <Lighting>
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant />
+                     </light>
+                  </Lighting>
+               </effect>
+               <cursor>
+                  <Cursor fx:constant="CLOSED_HAND" />
+               </cursor>
+            </ChoiceBox>
+            <Button fx:id="switchButton" alignment="CENTER" contentDisplay="CENTER" layoutX="258.0" layoutY="319.0" mnemonicParsing="false" onAction="#handleButtonClick" styleClass="optionButton" text="Let's start" />
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutY="112.0" prefHeight="21.0" prefWidth="600.0" text="Select level to play">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Label>
+            <Text fx:id="text" layoutX="51.0" layoutY="68.0" strokeWidth="0.0" wrappingWidth="510.0">
+               <font>
+                  <Font size="50.0" />
+               </font>
+            </Text>
+         </children>
+      </AnchorPane>
    </children>
-</AnchorPane>
+</StackPane>
