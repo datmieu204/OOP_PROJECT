@@ -9,11 +9,10 @@ public class MemoryGame {
     private  int boardSize = boardLength * boardLength;
 
     private final Random random = new Random();
-
-    private final ArrayList<String> englishWords = new ArrayList<>(Arrays.asList("hello", "world", "java", "cat", "dog", "sun", "moon", "tree",
-    "book", "computer", "music", "friend", "love", "happy", "family", "time"));
-    private final ArrayList<String> vietnameseWords = new ArrayList<>(Arrays.asList("xin chao", "the gioi", "java", "meo", "cho", "mat troi", "mat trang", "cay",
-    "sach", "may tinh", "nhac", "ban be", "tinh yeu", "hanh phuc", "gia dinh", "thoi gian"));
+    HistoryFile historyFile = new HistoryFile();
+    
+    ArrayList<String> englishWords = historyFile.englishWords;
+    ArrayList<String> vietnameseWords = historyFile.vietnameseWords;
 
     private  ArrayList<String> memoryBoard = new ArrayList<>();
     private  ArrayList<String> memoryOptions = new ArrayList<>();
