@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<StackPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="HelloController3x3">
+   <children>
+      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="800.0" styleClass="AnchorPane">
+         <children>
+            <Pane prefHeight="700.0" prefWidth="800.0" styleClass="Pane">
+               <children>
+                  <Label fx:id="point" layoutX="321.0" layoutY="50.0" prefHeight="45.0" prefWidth="160.0" styleClass="gameLabel" text="Points = 0" />
+                  <Label fx:id="time" layoutX="489.0" layoutY="50.0" prefHeight="45.0" prefWidth="160.0" styleClass="gameLabel" text="Time: " />
+                  <Label fx:id="turn" layoutX="151.0" layoutY="50.0" prefHeight="45.0" prefWidth="160.0" styleClass="gameLabel" text="Turns = 0" />
+                  <Button fx:id="soundButton" layoutX="24.0" layoutY="83.0" mnemonicParsing="false" onAction="#onOffSound" prefHeight="64.0" prefWidth="64.0" styleClass="soundButton" />
+                  <VBox layoutX="180.0" layoutY="123.0" prefHeight="498.0" prefWidth="489.0">
+                     <children>
+                        <HBox prefHeight="166.0" prefWidth="498.0">
+                           <children>
+                              <Button fx:id="button0" mnemonicParsing="false" onAction="#buttonClicked" prefHeight="166.0" prefWidth="166.0" styleClass="gameButton3x3">
+                                 <font>
+                                    <Font size="32.0" />
+                                 </font>
+                              </Button>
+                              <Button fx:id="button1" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#buttonClicked" prefHeight="166.0" prefWidth="166.0" styleClass="gameButton3x3">
+                                 <font>
+                                    <Font size="32.0" />
+                                 </font>
+                              </Button>
+                              <Button fx:id="button2" layoutX="235.0" layoutY="10.0" mnemonicParsing="false" onAction="#buttonClicked" prefHeight="166.0" prefWidth="166.0" styleClass="gameButton3x3">
+                                 <font>
+                                    <Font size="32.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                        </HBox>
+                        <HBox layoutX="10.0" layoutY="10.0" prefHeight="166.0" prefWidth="498.0">
+                           <children>
+                              <Button fx:id="button3" mnemonicParsing="false" onAction="#buttonClicked" prefHeight="166.0" prefWidth="166.0" styleClass="gameButton3x3">
+                                 <font>
+                                    <Font size="32.0" />
+                                 </font>
+                              </Button>
+                              <Button fx:id="button4" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#buttonClicked" prefHeight="166.0" prefWidth="166.0" styleClass="gameButton3x3">
+                                 <font>
+                                    <Font size="32.0" />
+                                 </font>
+                              </Button>
+                              <Button fx:id="button5" layoutX="110.0" layoutY="10.0" mnemonicParsing="false" onAction="#buttonClicked" prefHeight="166.0" prefWidth="166.0" styleClass="gameButton3x3">
+                                 <font>
+                                    <Font size="32.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                        </HBox>
+                        <HBox layoutX="10.0" layoutY="110.0" prefHeight="166.0" prefWidth="498.0">
+                           <children>
+                              <Button fx:id="button6" mnemonicParsing="false" onAction="#buttonClicked" prefHeight="166.0" prefWidth="166.0" styleClass="gameButton3x3">
+                                 <font>
+                                    <Font size="32.0" />
+                                 </font>
+                              </Button>
+                              <Button fx:id="button7" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#buttonClicked" prefHeight="166.0" prefWidth="166.0" styleClass="gameButton3x3">
+                                 <font>
+                                    <Font size="32.0" />
+                                 </font>
+                              </Button>
+                              <Button fx:id="button8" mnemonicParsing="false" onAction="#buttonClicked" prefHeight="166.0" prefWidth="166.0" styleClass="gameButton3x3">
+                                 <font>
+                                    <Font size="32.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+            </Pane>
+            <Button fx:id="restart" layoutX="14.0" layoutY="210.0" mnemonicParsing="false" onAction="#restartGame" styleClass="optionButton" text="Restart" />
+            <Button fx:id="back" layoutX="14.0" layoutY="265.0" mnemonicParsing="false" onAction="#backToStartScene" styleClass="optionButton" text="Back" />
+         </children>
+      </AnchorPane>
+   </children>
+</StackPane>
