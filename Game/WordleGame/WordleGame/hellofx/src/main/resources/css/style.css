@@ -1,0 +1,30 @@
+.gameLabel {
+    -fx-background-color: white;
+    -fx-text-fill: black;
+    -fx-border-color: black;
+    -fx-font-weight: bold;
+    -fx-font-family: "Arial";
+}
+.gameLabel.true{
+    -fx-background-color: green;
+    -fx-text-fill: black;    
+    -fx-border-color: black; 
+    -fx-font-weight: bold; 
+    -fx-font-family: "Arial"; 
+}
+
+.gameLabel.false{
+    -fx-background-color: red;
+    -fx-text-fill: black;    
+    -fx-border-color: black; 
+    -fx-font-weight: bold; 
+    -fx-font-family: "Arial"; 
+}
+
+.gameLabel.having{
+    -fx-background-color: grey;
+    -fx-text-fill: black;    
+    -fx-border-color: black; 
+    -fx-font-weight: bold; 
+    -fx-font-family: "Arial"; 
+}
