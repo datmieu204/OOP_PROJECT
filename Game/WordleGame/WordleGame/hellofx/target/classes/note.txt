@@ -1,0 +1,5 @@
+1. Thêm flip sound
+7. Thêm các màn khó hơn
+8. Lấy bộ từ từ file .java khác
+2. Làm đẹp nó
+

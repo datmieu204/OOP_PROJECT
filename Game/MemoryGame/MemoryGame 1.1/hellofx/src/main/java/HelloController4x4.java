@@ -94,8 +94,8 @@ public class HelloController4x4 implements Initializable {
     private ImageView soundOnImage;
     private ImageView soundOffImage;
 
-    Image soundOnImg = new Image("file:///D:\\Visual Studio Code\\OOP_PROJECT\\MemoryGame\\MemoryGame 1.1\\hellofx\\src\\main\\resources\\image\\soundOn.png");
-    Image soundOffImg = new Image("file:///D:\\Visual Studio Code\\OOP_PROJECT\\MemoryGame\\MemoryGame 1.1\\hellofx\\src\\main\\resources\\image\\soundOff.png");
+    Image soundOnImg = new Image("/image/soundOn.png");
+    Image soundOffImg = new Image("/image/soundOff.png");
     
     String correct_sound = getClass().getResource("/sound/correct.mp3").toExternalForm();
     String wrong_sound = getClass().getResource("/sound/wrong.mp3").toExternalForm();
