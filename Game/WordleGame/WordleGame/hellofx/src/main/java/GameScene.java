@@ -7,6 +7,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import javafx.animation.Animation;
 import javafx.animation.FadeTransition;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -97,9 +98,15 @@ public class GameScene implements Initializable {
     private Label turn;
     @FXML
     private Label time;
+
+    //BIẾN THỜI GIAN
+    int i = 0;
+    private Timeline gameTimer;
+
     private static int rows = 0;
     private static int turns = 0;
     public static int points = 0;
+
     private Label[] boxes1;
     
     private String word;
@@ -200,10 +207,28 @@ public class GameScene implements Initializable {
         backgroundSound.play();
         backgroundSound.stop();
         soundOn = false;    
+
+        gameTimer = new Timeline(new KeyFrame(Duration.seconds(1), e -> {
+            i++;
+            time.setText("Time: " + String.valueOf(i));
+
+            //ĐIỀU KIỆN ĐỂ GAME DỪNG VÀ SHOW RA BẢNG KẾT QUẢ
+
+
+            // if (i >= 10) {
+            //     // Đạt đến giới hạn thời gian, dừng trò chơi
+            //     gameTimer.stop();
+            //     // showResult(points);
+            //     // Thực hiện các hành động bạn muốn khi kết thúc trò chơi
+            //     // Ví dụ: Hiển thị thông báo, đặt lại trạng thái trò chơi, v.v.
+            // }
+        }));
+        gameTimer.setCycleCount(Animation.INDEFINITE);
+        gameTimer.play();
     }
 
     @FXML
-    protected void checkGuess() {
+    protected void checkGuess() throws InterruptedException {
 
         optionSound.setVolume(0.7);
         optionSound.seek(Duration.ZERO);
@@ -255,7 +280,7 @@ public class GameScene implements Initializable {
             if(countMatchedLetter == 5){
                 correctSound.setVolume(1.0);
                 correctSound.seek(Duration.ZERO);
-                correctSound.play();    
+                correctSound.play();   
                 points++;
             }
             else if (letterIndex(ans, guess)){
@@ -273,6 +298,9 @@ public class GameScene implements Initializable {
             turns++;
             turn.setText("Turns = " + turns);
             timeline.play();
+            gameTimer.play();
+
+
         }
     }
 
@@ -368,16 +396,18 @@ public class GameScene implements Initializable {
         rows = 0;
         turns = 0;
         points = 0;
+        i = 0;
         turn.setText("Turns = " + turns);
         point.setText("Points = " + points);
+        time.setText("Time: " + i);
         noticeLabel.setText("");
         guessWord.setText("");
         guessInput.setText("");
         randomizeWord();
-
+        gameTimer.play();
     }
-
-    public void nextRound(){
+    @FXML
+    public void nextRound()  {
         rows = 0;
         turns = 0;
         randomizeWord();
@@ -387,7 +417,10 @@ public class GameScene implements Initializable {
             label.getStyleClass().add("gameLabel");
         }
         noticeLabel.setText("");
+
+        time.setText("Time: " + i);
         turn.setText("Turns = " + turns);
         point.setText("Points = " + points);
+
     }
 }

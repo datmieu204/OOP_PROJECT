@@ -145,13 +145,16 @@ public class HelloController3x3 implements Initializable {
         gameTimer = new Timeline(new KeyFrame(Duration.seconds(1), e -> {
             i++;
             time.setText("Time: " + String.valueOf(i));
-            if (i >= 10) {
-                // Đạt đến giới hạn thời gian, dừng trò chơi
-                gameTimer.stop();
-                // showResult(points);
-                // Thực hiện các hành động bạn muốn khi kết thúc trò chơi
-                // Ví dụ: Hiển thị thông báo, đặt lại trạng thái trò chơi, v.v.
-            }
+
+            //ĐIỀU KIỆN ĐỂ GAME DỪNG VÀ SHOW RA BẢNG KẾT QUẢ
+
+            // if (i >= 10) {
+            //     // Đạt đến giới hạn thời gian, dừng trò chơi
+            //     gameTimer.stop();
+            //     // showResult(points);
+            //     // Thực hiện các hành động bạn muốn khi kết thúc trò chơi
+            //     // Ví dụ: Hiển thị thông báo, đặt lại trạng thái trò chơi, v.v.
+            // }
         }));
         gameTimer.setCycleCount(Animation.INDEFINITE);
         gameTimer.play();
