@@ -152,3 +152,12 @@
 .soundButton{
     -fx-background-color: transparent;
 }
+
+.AnchorPane {
+    -fx-background-color: #99D9F2;
+    -fx-border-width: 2px; 
+}
+
+.AnchorPane.menu-button {
+    -fx-background-color: #99D9F2;
+}

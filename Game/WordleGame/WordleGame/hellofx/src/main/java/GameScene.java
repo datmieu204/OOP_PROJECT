@@ -91,8 +91,15 @@ public class GameScene implements Initializable {
     private Label noticeLabel;
     @FXML
     private Button restart;
+    @FXML
+    private Label point;
+    @FXML
+    private Label turn;
+    @FXML
+    private Label time;
     private static int rows = 0;
     private static int turns = 0;
+    public static int points = 0;
     private Label[] boxes1;
     
     private String word;
@@ -160,6 +167,7 @@ public class GameScene implements Initializable {
         noticeLabel.setText("");
         rows = 0;
         turns = 0;
+        points = 0;
         randomizeWord();
 
         soundOnImage = new ImageView(soundOnImg);
@@ -208,7 +216,7 @@ public class GameScene implements Initializable {
             guessWord.setText("Please enter another guess");
         }
         else if(turns == 5){
-            noticeLabel.setText("You have no tries, please restart");
+            noticeLabel.setText("You have no tries");
         } else {
             guessWord.setText(guess);
             Timeline timeline = new Timeline();
@@ -248,6 +256,7 @@ public class GameScene implements Initializable {
                 correctSound.setVolume(1.0);
                 correctSound.seek(Duration.ZERO);
                 correctSound.play();    
+                points++;
             }
             else if (letterIndex(ans, guess)){
                 almostCorrectSound.setVolume(1.0);
@@ -259,8 +268,10 @@ public class GameScene implements Initializable {
                 wrongSound.seek(Duration.ZERO);
                 wrongSound.play();
             }
+            point.setText("Points: " + points);
             rows++;
             turns++;
+            turn.setText("Turns = " + turns);
             timeline.play();
         }
     }
@@ -356,6 +367,12 @@ public class GameScene implements Initializable {
         noticeLabel.setText("");
         rows = 0;
         turns = 0;
+        points = 0;
+        turn.setText("Turns = " + turns);
+        point.setText("Points = " + points);
+        noticeLabel.setText("");
+        guessWord.setText("");
+        guessInput.setText("");
         randomizeWord();
 
     }
@@ -370,5 +387,7 @@ public class GameScene implements Initializable {
             label.getStyleClass().add("gameLabel");
         }
         noticeLabel.setText("");
+        turn.setText("Turns = " + turns);
+        point.setText("Points = " + points);
     }
 }

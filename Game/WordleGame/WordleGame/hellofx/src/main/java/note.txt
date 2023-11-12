@@ -3,3 +3,4 @@
 8. Lấy bộ từ từ file .java khác
 2. Làm đẹp nó
 
+3. Thêm time

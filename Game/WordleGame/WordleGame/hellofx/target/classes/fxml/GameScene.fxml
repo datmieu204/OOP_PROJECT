@@ -11,9 +11,9 @@
 
 <StackPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GameScene">
    <children>
-      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="800.0">
+      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="800.0" styleClass="AnchorPane">
          <children>
-            <VBox layoutX="3.0" prefHeight="500.0" prefWidth="800.0">
+            <VBox prefHeight="500.0" prefWidth="800.0">
                <children>
                   <HBox prefHeight="100.0" prefWidth="200.0">
                      <children>
@@ -162,21 +162,24 @@
                   </HBox>
                </children>
             </VBox>
-            <TextField fx:id="guessInput" alignment="CENTER" layoutX="65.0" layoutY="579.0" prefHeight="51.0" prefWidth="672.0" />
-            <Button fx:id="checkButton" defaultButton="true" layoutX="373.0" layoutY="655.0" mnemonicParsing="false" onAction="#checkGuess" text="Check" />
-            <Label fx:id="guessWord" alignment="CENTER" contentDisplay="CENTER" layoutX="64.0" layoutY="514.0" prefHeight="53.0" prefWidth="672.0">
+            <TextField fx:id="guessInput" alignment="CENTER" layoutX="84.0" layoutY="579.0" prefHeight="51.0" prefWidth="633.0" styleClass="textfield" />
+            <Button fx:id="checkButton" defaultButton="true" layoutX="368.0" layoutY="647.0" mnemonicParsing="false" onAction="#checkGuess" styleClass="optionButton" text="Check" />
+            <Label fx:id="guessWord" alignment="CENTER" contentDisplay="CENTER" layoutX="78.0" layoutY="515.0" prefHeight="53.0" prefWidth="651.0" styleClass="guessLabel">
                <font>
                   <Font size="30.0" />
                </font>
             </Label>
-            <Button fx:id="back" layoutX="123.0" layoutY="655.0" mnemonicParsing="false" onAction="#backToStartScene" text="Back" />
-            <Button fx:id="soundButton" layoutX="683.0" layoutY="509.0" mnemonicParsing="false" onAction="#onOffSound" prefHeight="64.0" prefWidth="64.0" style="-fx-background-color: transparent;" />
-            <Label fx:id="noticeLabel" layoutX="507.0" layoutY="648.0" prefHeight="38.0" prefWidth="252.0">
+            <Button fx:id="back" layoutX="101.0" layoutY="647.0" mnemonicParsing="false" onAction="#backToStartScene" prefHeight="41.0" prefWidth="80.0" styleClass="optionButton" text="Back" />
+            <Button fx:id="soundButton" layoutX="729.0" layoutY="510.0" mnemonicParsing="false" onAction="#onOffSound" prefHeight="64.0" prefWidth="64.0" style="-fx-background-color: transparent;" />
+            <Label fx:id="noticeLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="467.0" layoutY="648.0" prefHeight="38.0" prefWidth="313.0" styleClass="noticeLabel">
                <font>
-                  <Font size="24.0" />
+                  <Font size="21.0" />
                </font>
             </Label>
-            <Button fx:id="restart" layoutX="232.0" layoutY="652.0" mnemonicParsing="false" onAction="#restartGame" text="Restart" />
+            <Button fx:id="restart" layoutX="240.0" layoutY="647.0" mnemonicParsing="false" onAction="#restartGame" styleClass="optionButton" text="Restart" />
+            <Label fx:id="point" layoutX="5.0" layoutY="510.0" text="Points" />
+            <Label fx:id="time" layoutX="9.0" layoutY="558.0" text="Time" />
+            <Label fx:id="turn" layoutX="7.0" layoutY="605.0" text="Turns" />
          </children>
       </AnchorPane>
    </children>

@@ -1,30 +1,128 @@
+/* gameLabel */
 .gameLabel {
-    -fx-background-color: white;
-    -fx-text-fill: black;
-    -fx-border-color: black;
     -fx-font-weight: bold;
-    -fx-font-family: "Arial";
+    -fx-border-color: black;
+    -fx-text-fill: black;
+    -fx-font-family: "Comic Sans MS";
+    -fx-border-style: solid;
+    -fx-border-width: 2px;
+    -fx-border-radius: 22;
+    -fx-background-color: rgb(227, 195, 221);
+    -fx-background-radius: 22;
+    -fx-font-size: 25px;
 }
 .gameLabel.true{
-    -fx-background-color: green;
-    -fx-text-fill: black;    
-    -fx-border-color: black; 
-    -fx-font-weight: bold; 
-    -fx-font-family: "Arial"; 
+    -fx-font-weight: bold;
+    -fx-border-color: black;
+    -fx-text-fill: black;
+    -fx-font-family: "Comic Sans MS";
+    -fx-border-style: solid;
+    -fx-border-width: 2px;
+    -fx-border-radius: 22;
+    -fx-background-color: rgb(35, 110, 35);
+    -fx-background-radius: 22;
+    -fx-font-size: 25px;
 }
 
 .gameLabel.false{
-    -fx-background-color: red;
-    -fx-text-fill: black;    
-    -fx-border-color: black; 
-    -fx-font-weight: bold; 
-    -fx-font-family: "Arial"; 
+    -fx-font-weight: bold;
+    -fx-border-color: black;
+    -fx-text-fill: black;
+    -fx-font-family: "Comic Sans MS";
+    -fx-border-style: solid;
+    -fx-border-width: 2px;
+    -fx-border-radius: 22;
+    -fx-background-color: rgb(238, 118, 118);
+    -fx-background-radius: 22;
+    -fx-font-size: 25px;
 }
 
 .gameLabel.having{
-    -fx-background-color: grey;
-    -fx-text-fill: black;    
-    -fx-border-color: black; 
-    -fx-font-weight: bold; 
-    -fx-font-family: "Arial"; 
+    -fx-font-weight: bold;
+    -fx-border-color: black;
+    -fx-text-fill: black;
+    -fx-font-family: "Comic Sans MS";
+    -fx-border-style: solid;
+    -fx-border-width: 2px;
+    -fx-border-radius: 22;
+    -fx-background-color: rgb(154, 150, 150);
+    -fx-background-radius: 22;
+    -fx-font-size: 25px;
+}
+
+
+.optionButton{
+    -fx-font-weight: bold;
+    -fx-background-color: #ECD8F2;
+    -fx-background-radius: 22;
+    -fx-border-color: #8F60BF;
+    -fx-font-family: "Comic Sans MS";
+    -fx-border-style: solid;
+    -fx-border-width: 2px;
+    -fx-border-radius: 22;
+    -fx-font-size: 16;
+    -fx-text-fill: #A0BBF2;
+}
+
+.optionButton:hover{
+    -fx-font-weight: bold;
+    -fx-background-color: #A0BBF2;
+    -fx-background-radius: 22;
+    -fx-font-size: 16;
+    -fx-font-family: "Comic Sans MS";
+    -fx-text-fill: #0583F2;
+    -fx-border-color: #06457a;
+    -fx-border-radius: 20;
+    -fx-border-width: 3;
+}
+/* textfield */
+.textfield {
+    -fx-border-radius: 22px;
+    -fx-background-radius: 22;
+    -fx-padding: 10px;
+    -fx-border-width: 2px;
+    -fx-border-color: #079DD9;
+    -fx-background-color: #BEB6F2;
+    -fx-font-family: "Arial";
+    -fx-border-style: solid;
+
+  }
+  
+  .textfield:focused {
+    -fx-background-color: #d4d0ea;
+  }
+/* guessLabel */
+.guessLabel{
+    -fx-font-weight: bold;
+    -fx-border-color: #8F60BF;
+    -fx-text-fill: black;
+    -fx-font-family: "Comic Sans MS";
+    -fx-border-style: solid;
+    -fx-border-width: 2px;
+    -fx-border-radius: 22;
+    -fx-background-color: #BEB6F2;
+    -fx-background-radius: 22;
+    -fx-font-size: 25px;
+}
+/* noticeLabel */
+.noticeLabel{
+    -fx-font-weight: bold;
+    -fx-border-color: #8F60BF;
+    -fx-text-fill: black;
+    -fx-font-family: "Comic Sans MS";
+    -fx-border-style: solid;
+    -fx-border-width: 2px;
+    -fx-border-radius: 22;
+    -fx-background-color: #BEB6F2;
+    -fx-background-radius: 22;
+    -fx-font-size: 25px;
+}
+/* AnchorPane */
+.AnchorPane {
+    -fx-background-color: #99D9F2;
+    -fx-border-width: 2px; 
+}
+
+.AnchorPane.menu-button {
+    -fx-background-color: #99D9F2;
 }
