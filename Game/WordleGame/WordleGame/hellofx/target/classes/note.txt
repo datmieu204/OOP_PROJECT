@@ -4,3 +4,5 @@
 
 4. Làm INstruction
 5. Làm show bảng kết quả
+6. Fix lại từ sai vị trí (Trùng với từ đã đúng)
+7. Thêm gợi ý

@@ -42,7 +42,7 @@ public class Main extends Application {
             System.out.println("You successfully logged out!");
             stage.close();
         }
-    }
+    } 
 
     public static void main(String[] args) {
         launch();

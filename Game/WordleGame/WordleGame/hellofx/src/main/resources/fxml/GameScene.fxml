@@ -11,7 +11,8 @@
 
 <StackPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GameScene">
    <children>
-      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="800.0" styleClass="AnchorPane">
+      <StackPane fx:id="stackPane" prefHeight="150.0" prefWidth="200.0" />
+      <AnchorPane fx:id="anchorRoot" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="800.0" styleClass="AnchorPane">
          <children>
             <VBox prefHeight="500.0" prefWidth="800.0">
                <children>
@@ -170,7 +171,7 @@
                </font>
             </Label>
             <Button fx:id="back" layoutX="17.0" layoutY="646.0" mnemonicParsing="false" onAction="#backToStartScene" prefHeight="41.0" prefWidth="80.0" styleClass="optionButton" text="Back" />
-            <Button fx:id="soundButton" layoutX="729.0" layoutY="510.0" mnemonicParsing="false" onAction="#onOffSound" prefHeight="64.0" prefWidth="64.0" style="-fx-background-color: transparent;" />
+            <Button fx:id="soundButton" layoutX="729.0" layoutY="499.0" mnemonicParsing="false" onAction="#onOffSound" prefHeight="64.0" prefWidth="64.0" style="-fx-background-color: transparent;" />
             <Label fx:id="noticeLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="467.0" layoutY="648.0" prefHeight="38.0" prefWidth="313.0" styleClass="noticeLabel">
                <font>
                   <Font size="21.0" />
@@ -181,6 +182,7 @@
             <Label fx:id="time" layoutX="9.0" layoutY="558.0" text="Time: 0" />
             <Label fx:id="turn" layoutX="7.0" layoutY="605.0" text="Turns: 0" />
             <Button layoutX="225.0" layoutY="647.0" mnemonicParsing="false" onAction="#nextRound" styleClass="optionButton" text="Next Round" />
+            <Button fx:id="instructionButton" layoutX="729.0" layoutY="573.0" mnemonicParsing="false" onAction="#nextToInstruction" prefHeight="64.0" prefWidth="64.0" style="-fx-background-color: transparent;" />
          </children>
       </AnchorPane>
    </children>

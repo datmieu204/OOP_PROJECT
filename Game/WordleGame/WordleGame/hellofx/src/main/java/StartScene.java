@@ -12,6 +12,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.media.Media;
@@ -20,13 +21,15 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
-public class SceneController implements Initializable{
+public class StartScene implements Initializable{
 
     @FXML
     private ChoiceBox<String> choiceBox;
     @FXML
     private StackPane rootPane;
-
+    @FXML
+    private Button backToStart;
+    private String[] topic = {"Animal", "Body", "Family"};
     TextAnimator textAnimator;
 
     String option_sound = getClass().getResource("/sound/option.mp3").toExternalForm();
@@ -40,7 +43,9 @@ public class SceneController implements Initializable{
     public void initialize(URL location, ResourceBundle resources) {
         optionSound.play();
         optionSound.stop();
+        rootPane.setOpacity(0);
         makeClearTransition(); 
+        choiceBox.getSelectionModel().select("Animal");
         TextOutput textOutput = new TextOutput() {
             @Override
             public void writeText(String textOut) {
@@ -59,10 +64,20 @@ public class SceneController implements Initializable{
         Thread thread = new Thread(textAnimator);
         thread.start();
 
+        choiceBox.getItems().addAll(topic);
+        choiceBox.setOnAction(this::setTopic);
+    }
+
+    public void setTopic(ActionEvent event){
+        optionSound.setVolume(1.0);
+        optionSound.seek(Duration.ZERO);
+        optionSound.play();
+        String myTopic = choiceBox.getValue();
+        Word.setTopic(myTopic);
     }
 
     @FXML
-    private void handleButtonClick(ActionEvent event) throws IOException {
+    private void nextToGame(ActionEvent event) throws IOException {
         optionSound.setVolume(1.0);
         optionSound.seek(Duration.ZERO);
         optionSound.play();
@@ -85,24 +100,23 @@ public class SceneController implements Initializable{
     public void loadNextScene(){
         try {
             Parent secondView;
-            secondView = FXMLLoader.load(getClass().getResource("/fxml/GameScene.fxml"));
-            String css = this.getClass().getResource("/css/style.css").toExternalForm();
+            secondView = (StackPane) FXMLLoader.load(getClass().getResource("/fxml/GameScene.fxml"));
+            String css = this.getClass().getResource("/css/Style.css").toExternalForm();
             secondView.getStylesheets().add(css);
             Scene newScene = new Scene(secondView);
             Stage curStage = (Stage) rootPane.getScene().getWindow();
             curStage.setScene(newScene);
         } catch (IOException ex) {
-            Logger.getLogger(SceneController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(StartScene.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
     private void makeClearTransition() {
         FadeTransition fadeTransition = new FadeTransition();
-        fadeTransition.setDuration(Duration.millis(500));
+        fadeTransition.setDuration(Duration.millis(1000));
         fadeTransition.setNode(rootPane);
         fadeTransition.setFromValue(0);
         fadeTransition.setToValue(1);
         fadeTransition.play();
     }   
-
 }
