@@ -13,6 +13,7 @@ import javafx.scene.control.Control;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
@@ -29,7 +30,7 @@ import java.util.logging.Logger;
 
 public class HelloController3x3 implements Initializable {
     //BIẾN THỜI GIAN
-    int i = 0;
+    public int timeCount = 0;
     private Timeline gameTimer;
     
     ArrayList<Button> buttons = new ArrayList<>();
@@ -72,6 +73,10 @@ public class HelloController3x3 implements Initializable {
 
     @FXML
     private StackPane rootPane;
+    @FXML
+    private AnchorPane anchorRoot;
+    @FXML
+    private Button instructionButton;
     
     Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(0.75), e -> hideButtons()));
 
@@ -80,10 +85,12 @@ public class HelloController3x3 implements Initializable {
 
     private ImageView soundOnImage;
     private ImageView soundOffImage;
+    private ImageView instructionImage;
 
     Image soundOnImg = new Image("/image/soundOn.png");
     Image soundOffImg = new Image("/image/soundOff.png");
-    
+    Image instructionImg = new Image("/image/instruction.png");
+
     String correct_sound = getClass().getResource("/sound/correct.mp3").toExternalForm();
     String wrong_sound = getClass().getResource("/sound/wrong.mp3").toExternalForm();
     String background_sound = getClass().getResource("/sound/background.mp3").toExternalForm();
@@ -105,20 +112,16 @@ public class HelloController3x3 implements Initializable {
     private int firstButtonIndex;
     private int secondButtonIndex;
     private boolean match;
-
-    public int turns = 0;
-    public int points = 0;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
-
         rootPane.setOpacity(0);
         makeClearTransition(); 
-        
+        GameData.gameMatrix = "3x3";
         soundOnImage = new ImageView(soundOnImg);
         soundOffImage = new ImageView(soundOffImg);
+        instructionImage = new ImageView(instructionImg);
         soundButton.setGraphic(soundOffImage);
-
+        instructionButton.setGraphic(instructionImage);
 
         correctSound.play();
         correctSound.stop();
@@ -143,18 +146,20 @@ public class HelloController3x3 implements Initializable {
         soundOn = false;
 
         gameTimer = new Timeline(new KeyFrame(Duration.seconds(1), e -> {
-            i++;
-            time.setText("Time: " + String.valueOf(i));
+            timeCount++;
+            time.setText("Time: " + String.valueOf(timeCount));
 
             //ĐIỀU KIỆN ĐỂ GAME DỪNG VÀ SHOW RA BẢNG KẾT QUẢ
 
-            // if (i >= 10) {
-            //     // Đạt đến giới hạn thời gian, dừng trò chơi
-            //     gameTimer.stop();
-            //     // showResult(points);
-            //     // Thực hiện các hành động bạn muốn khi kết thúc trò chơi
-            //     // Ví dụ: Hiển thị thông báo, đặt lại trạng thái trò chơi, v.v.
-            // }
+            if(timeCount >= GameData.TIMELIMIT){
+                gameTimer.stop();
+                try {
+                    showResult();
+                } catch (IOException e1) {
+                    // TODO Auto-generated catch block
+                    e1.printStackTrace();
+                }
+            }
         }));
         gameTimer.setCycleCount(Animation.INDEFINITE);
         gameTimer.play();
@@ -162,7 +167,7 @@ public class HelloController3x3 implements Initializable {
         buttons.addAll(Arrays.asList(button0, button1, button2, button3, button4,
                 button5, button6, button7, button8));
         memoryGame.setupGame();
-    }
+    }   
 
     @FXML
     public void restartGame() {
@@ -183,18 +188,18 @@ public class HelloController3x3 implements Initializable {
         button7.setText("");
         button8.setText("");
         match = false;
-        turns = 0;
-        points = 0;
-        i = 0;
+        GameData.turns3x3 = 0;
+        GameData.points3x3 = 0;
+        timeCount = 0;
         memoryGame.reset();
-        time.setText("Time: " + i);
-        turn.setText("Turns = " + turns);
-        point.setText("Points = " + points);
+        time.setText("Time: " + timeCount);
+        turn.setText("Turns = " + GameData.turns3x3);
+        point.setText("Points = " + GameData.points3x3);
         gameTimer.play();
     }
 
     public void nextRound() {
-        if (i >= 60) {
+        if (timeCount >= 10) {
             // Đạt đến giới hạn thời gian, dừng trò chơi
             gameTimer.stop();
         }
@@ -213,9 +218,9 @@ public class HelloController3x3 implements Initializable {
         button8.setText("");
         match = false;
         memoryGame.reset();
-        time.setText("Time: " + i);
-        turn.setText("Turns = " + turns);
-        point.setText("Points = " + points);
+        time.setText("Time: " + timeCount);
+        turn.setText("Turns = " + GameData.turns3x3);
+        point.setText("Points = " + GameData.points3x3);
     }
     
     @FXML
@@ -268,8 +273,8 @@ public class HelloController3x3 implements Initializable {
 
         firstButtonClicked = false;
 
-        turns ++;
-        turn.setText("Turns = " + turns);
+        GameData.turns3x3 ++;
+        turn.setText("Turns = " + GameData.turns3x3);
         //Check if the two clicked button match
         if(memoryGame.checkTwoPositions(firstButtonIndex,secondButtonIndex)){
             memoryGame.checkClicked.set(secondButtonIndex, true);
@@ -284,10 +289,10 @@ public class HelloController3x3 implements Initializable {
 
             System.out.println("Match");
             match = true;
-            points++;
-            point.setText("Points = " + points);
+            GameData.points3x3++;
+            point.setText("Points = " + GameData.points3x3);
 
-            if(points % 4 == 0 && (memoryGame.countClicked(memoryGame.checkClicked) == 8)){
+            if(GameData.points3x3 % 4 == 0 && (memoryGame.countClicked(memoryGame.checkClicked) == 8)){
                 nextRound();
             }
             return;
@@ -329,22 +334,6 @@ public class HelloController3x3 implements Initializable {
         makeFadeOut();
     }
 
-    public void backToScene1(){
-        backgroundSound.stop();
-        soundOn = false; 
-        try {
-            Parent secondView;
-            secondView = (StackPane) FXMLLoader.load(getClass().getResource("/fxml/StartScene.fxml"));
-            String css = this.getClass().getResource("/css/Style.css").toExternalForm();
-            secondView.getStylesheets().add(css);
-            Scene newScene = new Scene(secondView);
-            Stage curStage = (Stage) rootPane.getScene().getWindow();
-            curStage.setScene(newScene);
-        } catch (IOException ex) {
-            Logger.getLogger(HelloController3x3.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-
     private void makeFadeOut() {
         FadeTransition fadeTransition = new FadeTransition();
         fadeTransition.setDuration(Duration.millis(1000));
@@ -357,6 +346,23 @@ public class HelloController3x3 implements Initializable {
         });
         fadeTransition.play();
     }
+
+    public void backToScene1(){
+        backgroundSound.stop();
+        soundOn = false; 
+        try {
+            Parent secondView;
+            secondView = (StackPane) FXMLLoader.load(getClass().getResource("/fxml/ChooseTopic.fxml"));
+            String css = this.getClass().getResource("/css/Style.css").toExternalForm();
+            secondView.getStylesheets().add(css);
+            Scene newScene = new Scene(secondView);
+            Stage curStage = (Stage) rootPane.getScene().getWindow();
+            curStage.setScene(newScene);
+        } catch (IOException ex) {
+            Logger.getLogger(HelloController3x3.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
     private void makeClearTransition() {
         FadeTransition fadeTransition = new FadeTransition();
         fadeTransition.setDuration(Duration.millis(1000));
@@ -364,5 +370,39 @@ public class HelloController3x3 implements Initializable {
         fadeTransition.setFromValue(0);
         fadeTransition.setToValue(1);
         fadeTransition.play();
+    }
+
+        //Tiến tới scene Instruction
+        @FXML
+        private void nextToInstruction(ActionEvent event) throws IOException {
+            optionSound.setVolume(0.7);
+            optionSound.seek(Duration.ZERO);
+            optionSound.play();  
+            Parent root = FXMLLoader.load(getClass().getResource("/fxml/Instruction.fxml"));
+            Stage stage = new Stage();
+            stage.setResizable(false);
+            
+            // Thiết lập kiểu dáng của sân khấu bằng CSS
+            String css = this.getClass().getResource("/css/Style.css").toExternalForm();
+            Scene scene = new Scene(root);
+            scene.getStylesheets().add(css);
+            stage.setScene(scene);
+            stage.showAndWait();
+        }
+
+    public void showResult() throws IOException{
+        optionSound.setVolume(0.7);
+        optionSound.seek(Duration.ZERO);
+        optionSound.play();  
+        Parent root = FXMLLoader.load(getClass().getResource("/fxml/Result.fxml"));
+        Stage stage = new Stage();
+        stage.setResizable(false);
+        
+        // Thiết lập kiểu dáng của sân khấu bằng CSS
+        String css = this.getClass().getResource("/css/Style.css").toExternalForm();
+        Scene scene = new Scene(root);
+        scene.getStylesheets().add(css);
+        stage.setScene(scene);
+        stage.show();
     }
 }

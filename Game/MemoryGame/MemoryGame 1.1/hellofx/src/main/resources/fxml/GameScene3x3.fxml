@@ -11,7 +11,7 @@
 
 <StackPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="HelloController3x3">
    <children>
-      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="800.0" styleClass="AnchorPane">
+      <AnchorPane fx:id="anchorRoot" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="800.0" styleClass="AnchorPane">
          <children>
             <Pane prefHeight="700.0" prefWidth="800.0" styleClass="Pane">
                <children>
@@ -80,6 +80,7 @@
                         </HBox>
                      </children>
                   </VBox>
+                  <Button fx:id="instructionButton" layoutX="24.0" layoutY="356.0" mnemonicParsing="false" onAction="#nextToInstruction" prefHeight="64.0" prefWidth="64.0" styleClass="soundButton" />
                </children>
             </Pane>
             <Button fx:id="restart" layoutX="14.0" layoutY="210.0" mnemonicParsing="false" onAction="#restartGame" styleClass="optionButton" text="Restart" />

@@ -6,7 +6,7 @@
     -fx-border-radius: 22;
     -fx-background-color: #BEB6F2;
     -fx-background-radius: 22;
-    -fx-font-size: 25;
+    -fx-font-size: 16;
     -fx-text-fill: #079DD9;
 }
 
@@ -14,7 +14,7 @@
     -fx-font-weight: bold;
     -fx-background-color: #079DD9;
     -fx-background-radius: 22;
-    -fx-font-size: 25;
+    -fx-font-size: 16;
     -fx-text-fill: #BEB6F2;
     -fx-border-color: #06457a;
     -fx-border-radius: 20;

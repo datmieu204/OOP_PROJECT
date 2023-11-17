@@ -10,7 +10,7 @@
 
 <StackPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="HelloController5x5">
    <children>
-      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="800.0" styleClass="AnchorPane">
+      <AnchorPane fx:id="anchorRoot" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="800.0" styleClass="AnchorPane">
          <children>
             <VBox layoutX="160.0" layoutY="60.0" prefHeight="600.0" prefWidth="600.0">
                <children>
@@ -167,6 +167,7 @@
             <Label fx:id="time" layoutX="649.0" layoutY="17.0" prefHeight="41.0" prefWidth="80.0" styleClass="gameLabel" text="Time: " />
             <Button fx:id="back" layoutX="14.0" layoutY="265.0" mnemonicParsing="false" onAction="#backToStartScene" styleClass="optionButton" text="Back" />
             <Button fx:id="soundButton" layoutX="23.0" layoutY="100.0" mnemonicParsing="false" onAction="#onOffSound" prefHeight="64.0" prefWidth="64.0" styleClass="soundButton" />
+            <Button fx:id="instructionButton" layoutX="42.0" layoutY="377.0" mnemonicParsing="false" onAction="#nextToInstruction" prefHeight="64.0" prefWidth="64.0" styleClass="soundButton" />
          </children>
       </AnchorPane>
    </children>

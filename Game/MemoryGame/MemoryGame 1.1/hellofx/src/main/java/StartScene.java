@@ -20,7 +20,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
-public class SceneController implements Initializable{
+public class StartScene implements Initializable{
 
     @FXML
     private ChoiceBox<String> choiceBox;
@@ -28,9 +28,7 @@ public class SceneController implements Initializable{
     private StackPane rootPane;
 
     private String[] level = {"3x3", "4x4", "5x5"};
-
-
-
+    public static String matrixFxml;
     private int boardLength = 3;
 
     TextAnimator textAnimator;
@@ -58,13 +56,12 @@ public class SceneController implements Initializable{
                 });
             }
         };
-
         textAnimator = new TextAnimator("Welcome To My Show!",
                 100, textOutput);
                 
         Thread thread = new Thread(textAnimator);
         thread.start();
-
+        choiceBox.getSelectionModel().select("3x3");
         choiceBox.getItems().addAll(level);
         choiceBox.setOnAction(this::getLevel);
     }
@@ -110,27 +107,27 @@ public class SceneController implements Initializable{
     }
 
     public void loadNextScene(){
-        String matrix = "/fxml/GameScene3x3.fxml";
+        matrixFxml = "/fxml/GameScene3x3.fxml";
         if(boardLength == 3){
-            matrix = "/fxml/GameScene3x3.fxml";
+            matrixFxml = "/fxml/GameScene3x3.fxml";
         }
         else if(boardLength == 4){
-            matrix = "/fxml/GameScene4x4.fxml";
+            matrixFxml ="/fxml/GameScene4x4.fxml";
         }
         else if(boardLength == 5){
-            matrix = "/fxml/GameScene5x5.fxml";
+            matrixFxml = "/fxml/GameScene5x5.fxml";
         }
 
         try {
             Parent secondView;
-            secondView = (StackPane) FXMLLoader.load(getClass().getResource(matrix));
+            secondView = (StackPane) FXMLLoader.load(getClass().getResource("/fxml/ChooseTopic.fxml"));
             String css = this.getClass().getResource("/css/Style.css").toExternalForm();
             secondView.getStylesheets().add(css);
             Scene newScene = new Scene(secondView);
             Stage curStage = (Stage) rootPane.getScene().getWindow();
             curStage.setScene(newScene);
         } catch (IOException ex) {
-            Logger.getLogger(SceneController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(StartScene.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

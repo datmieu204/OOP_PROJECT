@@ -13,6 +13,7 @@ import javafx.scene.control.Control;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
@@ -30,7 +31,7 @@ import java.util.logging.Logger;
 
 public class HelloController4x4 implements Initializable {
     // Biến thời gian
-    int i = 0;
+    public int timeCount = 0;
     ArrayList<Button> buttons = new ArrayList<>();
 
     MemoryGame memoryGame = new MemoryGame();
@@ -85,6 +86,11 @@ public class HelloController4x4 implements Initializable {
 
     @FXML
     private StackPane rootPane;
+    @FXML
+    private AnchorPane anchorRoot;
+    @FXML
+    private Button instructionButton;
+    private Timeline gameTimer;
 
     Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(0.75), e -> hideButtons()));
 
@@ -93,10 +99,12 @@ public class HelloController4x4 implements Initializable {
 
     private ImageView soundOnImage;
     private ImageView soundOffImage;
+    private ImageView instructionImage;
 
     Image soundOnImg = new Image("/image/soundOn.png");
     Image soundOffImg = new Image("/image/soundOff.png");
-    
+    Image instructionImg = new Image("/image/instruction.png");
+
     String correct_sound = getClass().getResource("/sound/correct.mp3").toExternalForm();
     String wrong_sound = getClass().getResource("/sound/wrong.mp3").toExternalForm();
     String background_sound = getClass().getResource("/sound/background.mp3").toExternalForm();
@@ -119,18 +127,17 @@ public class HelloController4x4 implements Initializable {
     private int secondButtonIndex;
     private boolean match;
 
-    public int turns = 0;
-    public int points = 0;
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         rootPane.setOpacity(0);
         makeClearTransition(); 
+        GameData.gameMatrix = "4x4";
+
         soundOnImage = new ImageView(soundOnImg);
         soundOffImage = new ImageView(soundOffImg);
-        makeClearTransition();
+        instructionImage = new ImageView(instructionImg);
         soundButton.setGraphic(soundOffImage);
-
+        instructionButton.setGraphic(instructionImage);
 
         correctSound.play();
         correctSound.stop();
@@ -155,15 +162,24 @@ public class HelloController4x4 implements Initializable {
         backgroundSound.stop();
         soundOn = false;
 
-        time.setText("Time: " + String.valueOf(i));
+        time.setText("Time: " + String.valueOf(timeCount));
 
         // Set time
-        Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(1), e -> {
-            i++;
-            time.setText("Time: " + String.valueOf(i));
+        gameTimer = new Timeline(new KeyFrame(Duration.seconds(1), e -> {
+            timeCount++;
+            time.setText("Time: " + String.valueOf(timeCount));
+            if(timeCount >= GameData.TIMELIMIT){
+                gameTimer.stop();
+                try {
+                    showResult();
+                } catch (IOException e1) {
+                    // TODO Auto-generated catch block
+                    e1.printStackTrace();
+                }
+            }
         }));
-        timeline.setCycleCount(Animation.INDEFINITE);
-        timeline.play();
+        gameTimer.setCycleCount(Animation.INDEFINITE);
+        gameTimer.play();
 
         buttons.addAll(Arrays.asList(button0, button1, button2, button3, button4, button5, button6,
                 button7, button8, button9, button10, button11, button12, button13, button14, button15));
@@ -198,13 +214,13 @@ public class HelloController4x4 implements Initializable {
         button15.setText("");
 
         match = false;
-        turns = 0;
-        points = 0;
-        i = 0;
+        GameData.turns4x4 = 0;
+        GameData.points4x4 = 0;
+        timeCount = 0;
         memoryGame.reset();
-        time.setText("Time: " + i);
-        turn.setText("Turns = " + turns);
-        point.setText("Points = " + points);
+        time.setText("Time: " + timeCount);
+        turn.setText("Turns = " + GameData.turns4x4);
+        point.setText("Points = " + GameData.points4x4);
     }
 
     public void nextRound() {
@@ -230,9 +246,9 @@ public class HelloController4x4 implements Initializable {
         button15.setText("");
         match = false;
         memoryGame.reset();
-        time.setText("Time: " + i);
-        turn.setText("Turns = " + turns);
-        point.setText("Points = " + points);
+        time.setText("Time: " + timeCount);
+        turn.setText("Turns = " + GameData.turns4x4);
+        point.setText("Points = " + GameData.points4x4);
     }
 
     @FXML
@@ -287,8 +303,8 @@ public class HelloController4x4 implements Initializable {
 
     firstButtonClicked = false;
 
-    turns ++;
-    turn.setText("Turns = " + turns);
+    GameData.turns4x4 ++;
+    turn.setText("Turns = " + GameData.turns4x4);
     //Check if the two clicked button match
     if(memoryGame.checkTwoPositions(firstButtonIndex,secondButtonIndex)){
         memoryGame.checkClicked.set(secondButtonIndex, true);
@@ -303,10 +319,10 @@ public class HelloController4x4 implements Initializable {
 
         System.out.println("Match");
         match = true;
-        points++;
-        point.setText("Points = " + points);
+        GameData.points4x4++;
+        point.setText("Points = " + GameData.points4x4);
 
-        if(points % 8 == 0 && (memoryGame.countClicked(memoryGame.checkClicked) == 16)){
+        if(GameData.points4x4 % 8 == 0 && (memoryGame.countClicked(memoryGame.checkClicked) == 16)){
             nextRound();
         }
         return;
@@ -355,7 +371,7 @@ public class HelloController4x4 implements Initializable {
 
         try {
             Parent secondView;
-            secondView = (StackPane) FXMLLoader.load(getClass().getResource("/fxml/StartScene.fxml"));
+            secondView = (StackPane) FXMLLoader.load(getClass().getResource("/fxml/ChooseTopic.fxml"));
             String css = this.getClass().getResource("/css/Style.css").toExternalForm();
             secondView.getStylesheets().add(css);
             Scene newScene = new Scene(secondView);
@@ -385,5 +401,39 @@ public class HelloController4x4 implements Initializable {
         fadeTransition.setFromValue(0);
         fadeTransition.setToValue(1);
         fadeTransition.play();
-    }   
+    }  
+
+    //Tiến tới scene Instruction
+    @FXML
+    private void nextToInstruction(ActionEvent event) throws IOException {
+        optionSound.setVolume(0.7);
+        optionSound.seek(Duration.ZERO);
+        optionSound.play();  
+        Parent root = FXMLLoader.load(getClass().getResource("/fxml/Instruction.fxml"));
+        Stage stage = new Stage();
+        stage.setResizable(false);
+        
+        // Thiết lập kiểu dáng của sân khấu bằng CSS
+        String css = this.getClass().getResource("/css/Style.css").toExternalForm();
+        Scene scene = new Scene(root);
+        scene.getStylesheets().add(css);
+        stage.setScene(scene);
+        stage.showAndWait();
+    }
+
+    public void showResult() throws IOException{
+        optionSound.setVolume(0.7);
+        optionSound.seek(Duration.ZERO);
+        optionSound.play();  
+        Parent root = FXMLLoader.load(getClass().getResource("/fxml/Result.fxml"));
+        Stage stage = new Stage();
+        stage.setResizable(false);
+        
+        // Thiết lập kiểu dáng của sân khấu bằng CSS
+        String css = this.getClass().getResource("/css/Style.css").toExternalForm();
+        Scene scene = new Scene(root);
+        scene.getStylesheets().add(css);
+        stage.setScene(scene);
+        stage.show();
+    }
 }

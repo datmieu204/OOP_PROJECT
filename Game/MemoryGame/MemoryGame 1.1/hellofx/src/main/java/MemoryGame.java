@@ -7,10 +7,10 @@ public class MemoryGame {
     private  int boardSize = boardLength * boardLength;
 
     private final Random random = new Random();
-    HistoryFile historyFile = new HistoryFile();
+    Word word = new Word();
     
-    ArrayList<String> englishWords = historyFile.englishWords;
-    ArrayList<String> vietnameseWords = historyFile.vietnameseWords;
+    ArrayList<String> englishWords = new ArrayList<>();
+    ArrayList<String> vietnameseWords = new ArrayList<>();
 
     private  ArrayList<String> memoryBoard = new ArrayList<>();
     private  ArrayList<String> memoryOptions = new ArrayList<>();
@@ -43,14 +43,19 @@ public class MemoryGame {
         }
         return count;
     }
-
+    public void generateWordData() {
+        Word.generateWord();
+        if (englishWords != null && vietnameseWords != null ) {
+            englishWords.clear();
+            vietnameseWords.clear();
+        }
+        englishWords.addAll(Word.engwords);
+        vietnameseWords.addAll(Word.vietwords);
+    }
     public void setupGame(){
-
+        generateWordData();
         generateMemorySource();
         setupMemoryBoard();
-        System.out.println(memoryBoard);
-
-        System.out.println("setupGame " + boardLength);
     }
 
     public String getOptionAtIndex(int index){
@@ -62,9 +67,6 @@ public class MemoryGame {
     }
     
     public void generateMemorySource(){
-        System.out.println("generateMemorySource " + boardLength);
-        System.out.println("generateMemorySource " + boardSize);
-
         memoryBoard = new ArrayList<>(Collections.nCopies(boardSize, ""));
         checkClicked = new ArrayList<>(Collections.nCopies(boardSize, false));
 

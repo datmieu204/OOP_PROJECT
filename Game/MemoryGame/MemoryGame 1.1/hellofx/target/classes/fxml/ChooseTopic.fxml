@@ -12,7 +12,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<StackPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="StartScene">
+<StackPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ChooseTopic">
    <children>
       <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="800.0" styleClass="AnchorPane">
          <children>
@@ -32,7 +32,7 @@
                </cursor>
             </ChoiceBox>
             <Button fx:id="switchButton" alignment="CENTER" contentDisplay="CENTER" layoutX="330.0" layoutY="520.0" mnemonicParsing="false" onAction="#handleButtonClick" prefHeight="57.0" prefWidth="140.0" styleClass="optionButton" text="Let's start" />
-            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="100.0" layoutY="194.0" prefHeight="21.0" prefWidth="600.0" text="Select level to play">
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="100.0" layoutY="194.0" prefHeight="21.0" prefWidth="600.0" text="Select Topic">
                <font>
                   <Font size="36.0" />
                </font>
@@ -42,6 +42,7 @@
                   <Font size="72.0" />
                </font>
             </Text>
+            <Button fx:id="backToStart" alignment="CENTER" contentDisplay="CENTER" layoutX="81.0" layoutY="520.0" mnemonicParsing="false" onAction="#backToStartScene" prefHeight="57.0" prefWidth="140.0" styleClass="optionButton" text="Back" />
          </children>
       </AnchorPane>
    </children>
