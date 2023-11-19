@@ -1,0 +1,13 @@
+org\openjfx\MainDictionary\Dictionary.class
+org\openjfx\MainDictionary\Word.class
+org\openjfx\MainDictionary\DictionaryFile.class
+org\openjfx\MainDictionary\Support.class
+org\openjfx\MainApp\TextToSpeech.class
+module-info.class
+org\openjfx\MainApp\UserController.class
+org\openjfx\MainDictionary\DictionaryManagementUser.class
+org\openjfx\MainDictionary\DictionaryManagementMain.class
+org\openjfx\MainDictionary\DictionaryUser.class
+org\openjfx\MainApp\App.class
+org\openjfx\MainApp\MainController.class
+org\openjfx\MainApp\AddUserWord.class
