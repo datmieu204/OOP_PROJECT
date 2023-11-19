@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -7,21 +8,24 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<StackPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="754.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="InstructionController">
+<StackPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="InstructionController">
    <children>
-      <AnchorPane fx:id="anchorRoot" prefHeight="600.0" prefWidth="700.0" styleClass="anchorPane">
+      <AnchorPane fx:id="anchorRoot" prefHeight="450.0" prefWidth="700.0" styleClass="anchorPane" StackPane.alignment="CENTER">
          <children>
-            <Button fx:id="backButton" layoutX="331.0" layoutY="526.0" mnemonicParsing="false" onAction="#backToGameScene" prefHeight="39.0" prefWidth="84.0" styleClass="optionButton" text="Back" />
-            <Text layoutX="32.0" layoutY="171.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="instructionText" text="You're greeted with a 5x6 grid of empty white boxes. Each box can hold one letter. You guess the answer by typing a five-letter word and pressing 'Enter'." wrappingWidth="686.55419921875" />
-            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="204.0" layoutY="33.0" prefHeight="46.0" prefWidth="339.0" styleClass="InstructionLabel" text="INSTRUCTION">
+            <Button fx:id="backButton" layoutX="308.0" layoutY="397.0" mnemonicParsing="false" onAction="#backToGameScene" prefHeight="39.0" prefWidth="84.0" styleClass="optionButton" text="Back" />
+            <Text layoutX="25.0" layoutY="94.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="instructionText" text="You're greeted with a 5x5 grid of empty white boxes. Each box can hold one letter. You guess the answer by typing a five-letter word and pressing 'Enter'." wrappingWidth="668.55419921875" />
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="197.0" layoutY="24.0" prefHeight="46.0" prefWidth="303.0" styleClass="InstructionLabel" text="INSTRUCTION">
                <font>
                   <Font size="40.0" />
                </font>
             </Label>
-            <Text layoutX="38.0" layoutY="234.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="instructionText" text="Initially, there are no clues, so any five-letter word will do as a guess. That's when the Wordle game truly begins. When you submit a guess, the color of each letter's box changes." wrappingWidth="686.5541990995407" />
-            <Text layoutX="30.0" layoutY="318.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="instructionText" text="If it turns green, that letter is in the daily word and you've placed it in the right spot." wrappingWidth="686.5541990995407" />
-            <Text layoutX="32.0" layoutY="358.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="instructionText" text="If it turns grey, the letter is in the word but you have it in the wrong position." wrappingWidth="686.5541931986809" />
-            <Text layoutX="35.0" layoutY="402.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="instructionText" text="If the box turns red, it means the letter isn't in the word at all.&quot;" wrappingWidth="693.15625" />
-         </children></AnchorPane>
+            <Text layoutX="25.0" layoutY="152.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="instructionText" text="Initially, there are no clues, so any five-letter word will do as a guess. That's when the Wordle game truly begins. When you submit a guess, the color of each letter's box changes." wrappingWidth="649.5541990995407" />
+            <Text layoutX="29.0" layoutY="229.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="instructionText" text="If it turns green, that letter is in the daily word and you've placed it in the right spot." wrappingWidth="558.5541990995407" />
+            <Text layoutX="29.0" layoutY="282.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="instructionText" text="If it turns grey, the letter is in the word but you have it in the wrong position." wrappingWidth="558.5541933774948" />
+            <Text layoutX="25.0" layoutY="339.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="instructionText" text="If the box turns red, it means the letter isn't in the word at all.&quot;" wrappingWidth="503.15625" />
+         </children>
+         <StackPane.margin>
+            <Insets />
+         </StackPane.margin></AnchorPane>
    </children>
 </StackPane>

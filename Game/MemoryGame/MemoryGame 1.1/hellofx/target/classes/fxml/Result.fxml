@@ -7,19 +7,19 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<StackPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="754.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ResultController">
+<StackPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ResultController">
    <children>
-      <AnchorPane fx:id="anchorRoot" prefHeight="600.0" prefWidth="700.0" styleClass="anchorPane">
+      <AnchorPane fx:id="anchorRoot" prefHeight="450.0" prefWidth="700.0" styleClass="AnchorPane">
          <children>
-            <Button fx:id="backButton" layoutX="331.0" layoutY="526.0" mnemonicParsing="false" onAction="#backToGameScene" prefHeight="39.0" prefWidth="84.0" styleClass="optionButton" text="Back" />
-            <Text fx:id="time" layoutX="32.0" layoutY="171.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="instructionText" text="Time: " wrappingWidth="686.55419921875" />
-            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="204.0" layoutY="33.0" prefHeight="46.0" prefWidth="339.0" styleClass="InstructionLabel" text="RESULT">
+            <Button fx:id="backButton" layoutX="308.0" layoutY="373.0" mnemonicParsing="false" onAction="#backToGameScene" prefHeight="46.0" prefWidth="102.0" styleClass="optionButton" text="Back" />
+            <Text fx:id="time" layoutX="167.0" layoutY="156.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="resultText" text="Time: " wrappingWidth="338.9999985694885" />
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="174.0" layoutY="37.0" prefHeight="46.0" prefWidth="339.0" styleClass="resultLabel" text="RESULT">
                <font>
                   <Font size="40.0" />
                </font>
             </Label>
-            <Text fx:id="turns" layoutX="32.0" layoutY="234.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="instructionText" text="Turns: " wrappingWidth="686.5541990995407" />
-            <Text fx:id="points" layoutX="34.0" layoutY="295.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="instructionText" text="Points: " wrappingWidth="686.5541990995407" />
+            <Text fx:id="turns" layoutX="167.0" layoutY="228.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="resultText" text="Turns: " wrappingWidth="338.9999985694885" />
+            <Text fx:id="points" layoutX="174.0" layoutY="297.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="resultText" text="Points: " wrappingWidth="376.5541990995407" />
          </children></AnchorPane>
    </children>
 </StackPane>

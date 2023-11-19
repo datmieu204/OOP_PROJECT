@@ -70,7 +70,7 @@
     -fx-max-height: 100px;
 }
 
-
+/* OptionButton */
 .optionButton{
     -fx-font-weight: bold;
     -fx-background-color: #ECD8F2;
@@ -145,4 +145,18 @@
 
 .AnchorPane.menu-button {
     -fx-background-color: #99D9F2;
+}
+
+/* Label */
+.resultLabel {
+    -fx-font-weight: bold;
+    -fx-background-color: #ECD8F2;
+    -fx-background-radius: 22;
+    -fx-border-color: #8F60BF;
+    -fx-font-family: "Comic Sans MS";
+    -fx-border-style: solid;
+    -fx-border-width: 2px;
+    -fx-border-radius: 22;
+    -fx-font-size: 16;
+    -fx-text-fill: #A0BBF2;
 }

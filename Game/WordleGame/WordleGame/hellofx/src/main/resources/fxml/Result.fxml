@@ -9,7 +9,7 @@
 
 <StackPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="754.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ResultController">
    <children>
-      <AnchorPane fx:id="anchorRoot" prefHeight="600.0" prefWidth="700.0" styleClass="anchorPane">
+      <AnchorPane fx:id="anchorRoot" prefHeight="450.0" prefWidth="700.0" styleClass="anchorPane">
          <children>
             <Button fx:id="backButton" layoutX="331.0" layoutY="526.0" mnemonicParsing="false" onAction="#backToGameScene" prefHeight="39.0" prefWidth="84.0" styleClass="optionButton" text="Back" />
             <Text fx:id="time" layoutX="32.0" layoutY="171.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="instructionText" text="Time: " wrappingWidth="686.55419921875" />

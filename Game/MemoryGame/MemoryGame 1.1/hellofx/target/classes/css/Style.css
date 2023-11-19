@@ -1,4 +1,5 @@
-.gameButton3x3{
+/* Game 3x3 */
+.gameButton{
     -fx-font-weight: bold;
     -fx-border-color: #8F60BF;
     -fx-border-style: solid;
@@ -6,95 +7,31 @@
     -fx-border-radius: 22;
     -fx-background-color: #BEB6F2;
     -fx-background-radius: 22;
-    -fx-font-size: 16;
+    -fx-font-size: 24px;
     -fx-text-fill: #079DD9;
+    -fx-font-family: "Comic Sans MS";
 }
 
-.gameButton3x3:hover{
+.gameButton:hover{
     -fx-font-weight: bold;
     -fx-background-color: #079DD9;
     -fx-background-radius: 22;
-    -fx-font-size: 16;
+    -fx-font-size: 24px;
     -fx-text-fill: #BEB6F2;
     -fx-border-color: #06457a;
     -fx-border-radius: 20;
     -fx-border-width: 3;
+    -fx-font-family: "Comic Sans MS";
 }
-.gameButton3x3.closed{
+.gameButton.closed{
     -fx-font-weight: bold;
     -fx-background-color: #BEB6F2;
     -fx-background-radius: 22;
-    -fx-font-size: 16;
+    -fx-font-size: 24px;
     -fx-text-fill: #079DD9;
+    -fx-font-family: "Comic Sans MS";
 }
-.gameButton3x3.opened {
-    -fx-background-color: #2D5F73;
-}
-
-
-.gameButton4x4{
-    -fx-font-weight: bold;
-    -fx-border-color: #8F60BF;
-    -fx-border-style: solid;
-    -fx-border-width: 2px;
-    -fx-border-radius: 22;
-    -fx-background-color: #BEB6F2;
-    -fx-background-radius: 22;
-    -fx-font-size: 17;
-    -fx-text-fill: #079DD9;
-}
-
-.gameButton4x4:hover{
-    -fx-font-weight: bold;
-    -fx-background-color: #079DD9;
-    -fx-background-radius: 22;
-    -fx-font-size: 17;
-    -fx-text-fill: #BEB6F2;
-    -fx-border-color: #06457a;
-    -fx-border-radius: 20;
-    -fx-border-width: 3;
-}
-.gameButton4x4.closed{
-    -fx-font-weight: bold;
-    -fx-background-color: #BEB6F2;
-    -fx-background-radius: 22;
-    -fx-font-size: 17;
-    -fx-text-fill: #079DD9;
-}
-.gameButton4x4.opened {
-    -fx-background-color: #2D5F73;
-}
-
-.gameButton5x5{
-    -fx-font-weight: bold;
-    -fx-border-color: #8F60BF;
-    -fx-border-style: solid;
-    -fx-border-width: 2px;
-    -fx-border-radius: 22;
-    -fx-background-color: #BEB6F2;
-    -fx-background-radius: 22;
-    -fx-font-size: 15;
-    -fx-text-fill: #079DD9;
-}
-
-.gameButton5x5:hover{
-    -fx-font-weight: bold;
-    -fx-background-color: #079DD9;
-    -fx-background-radius: 22;
-    -fx-font-size: 15;
-    -fx-text-fill: #BEB6F2;
-    -fx-border-color: #06457a;
-    -fx-border-radius: 20;
-    -fx-border-width: 3;
-}
-.gameButton5x5.closed{
-    -fx-font-weight: bold;
-    -fx-background-color: #BEB6F2;
-    -fx-background-radius: 22;
-    -fx-font-size: 15;
-    -fx-text-fill: #079DD9;
-}
-.gameButton5x5.opened {
+.gameButton.opened {
     -fx-background-color: #2D5F73;
 }
 
@@ -106,19 +43,21 @@
     -fx-border-style: solid;
     -fx-border-width: 2px;
     -fx-border-radius: 22;
-    -fx-font-size: 16;
+    -fx-font-size: 21px;
     -fx-text-fill: #A0BBF2;
+    -fx-font-family: "Comic Sans MS";
 }
 
 .optionButton:hover{
     -fx-font-weight: bold;
-    -fx-background-color: A0BBF2;
+    -fx-background-color: #A0BBF2;
     -fx-background-radius: 22;
-    -fx-font-size: 16;
+    -fx-font-size: 21px;
     -fx-text-fill: #0583F2;
     -fx-border-color: #06457a;
     -fx-border-radius: 20;
     -fx-border-width: 3;
+    -fx-font-family: "Comic Sans MS";
 }
 
 .AnchorPane {
@@ -134,21 +73,6 @@
     -fx-background-color: #99d9f2;
 }
 
-
-.gameLabel{
-
-    -fx-text-fill: #4290a5;
-    -fx-border-color: black;
-    -fx-border-style: solid;
-    -fx-font-weight: bold;
-    -fx-border-radius: 22;
-    -fx-border-width: 2px;
-    -fx-background-color: #ECD8F2;
-    -fx-background-radius: 22;
-    -fx-alignment: center;
-    -fx-font-size: 20px;
-}
-
 .soundButton{
     -fx-background-color: transparent;
 }
@@ -160,4 +84,64 @@
 
 .AnchorPane.menu-button {
     -fx-background-color: #99D9F2;
+}
+
+
+/* Result */
+.resultText {
+    -fx-fill: #000000;
+    -fx-font-weight: bold;
+    -fx-font-family: "Comic Sans MS";
+    -fx-font-size: 30px;
+}
+
+.resultLabel{
+    -fx-text-fill: #4290a5;
+    -fx-border-color: black;
+    -fx-border-style: solid;
+    -fx-font-weight: bold;
+    -fx-border-radius: 22;
+    -fx-border-width: 2px;
+    -fx-background-color: #ECD8F2;
+    -fx-background-radius: 22;
+    -fx-alignment: center;
+    -fx-font-size: 20px;
+    -fx-font-family: "Comic Sans MS";
+}
+
+/* Game Result (trong game) */
+.gameLabel{
+    -fx-text-fill: #4290a5;
+    -fx-border-color: black;
+    -fx-border-style: solid;
+    -fx-font-weight: bold;
+    -fx-border-radius: 22;
+    -fx-border-width: 2px;
+    -fx-background-color: #ECD8F2;
+    -fx-background-radius: 22;
+    -fx-alignment: center;
+    -fx-font-size: 20px;
+    -fx-font-family: "Comic Sans MS";
+}
+
+/* Instruction */
+.instructionLabel{
+    -fx-text-fill: #4290a5;
+    -fx-border-color: black;
+    -fx-border-style: solid;
+    -fx-font-weight: bold;
+    -fx-border-radius: 22;
+    -fx-border-width: 2px;
+    -fx-background-color: #ECD8F2;
+    -fx-background-radius: 22;
+    -fx-alignment: center;
+    -fx-font-size: 36px;
+    -fx-font-family: "Comic Sans MS";
+}
+
+.instructionText {
+    -fx-fill: #000000;
+    -fx-font-weight: bold;
+    -fx-font-family: "Comic Sans MS";
+    -fx-font-size: 20px;
 }

@@ -153,7 +153,7 @@ public class Controller implements Initializable {
         contentArea.getChildren().removeAll();
         contentArea.getChildren().setAll(fxml);
     
-        // Thực hiện hiệu ứng thu gọn sidebar
+        // Thc hiện hiệu ứng thu gọn sidebar
         pane1.setVisible(false);
     
         FadeTransition fadeTransition1 = new FadeTransition(Duration.seconds(0.5), pane1);
