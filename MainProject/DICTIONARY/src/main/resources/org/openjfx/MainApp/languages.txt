@@ -1,0 +1,24 @@
+en Tiếng Anh
+vi Tiếng Việt
+de  Tiếng Đức
+fr  Tiếng Pháp
+it  Tiếng Ý
+ja  Tiếng Nhật
+ko  Tiếng Hàn
+pt  Tiếng Bồ Đào Nha
+ru  Tiếng Nga
+es  Tiếng Tây Ban Nha
+th  Tiếng Thái
+tr  Tiếng Thổ Nhĩ Kỳ
+zh-CN   Tiếng Trung Quốc (giản thể)
+zh-TW   Tiếng Trung Quốc (phồn thể)
+cs Tiếng Séc
+da  Tiếng Đan Mạch
+fi  Tiếng Phần Lan
+el  Tiếng Hy Lạp
+hu  Tiếng Hungary
+nl  Tiếng Hà Lan
+no  Tiếng Na Uy
+pl  Tiếng Ba Lan
+sv  Tiếng Thụy Điển
+uk  Tiếng Ukraina
