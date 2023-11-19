@@ -101,7 +101,7 @@ public class StartScene implements Initializable{
         try {
             Parent secondView;
             secondView = (StackPane) FXMLLoader.load(getClass().getResource("/fxml/GameScene.fxml"));
-            String css = this.getClass().getResource("/css/Style.css").toExternalForm();
+            String css = this.getClass().getResource("/css/style.css").toExternalForm();
             secondView.getStylesheets().add(css);
             Scene newScene = new Scene(secondView);
             Stage curStage = (Stage) rootPane.getScene().getWindow();

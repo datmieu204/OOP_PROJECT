@@ -4,28 +4,29 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openjfx.hellofx.Controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openjfx.hellofx.Controller">
    <children>
-      <AnchorPane prefHeight="46.0" prefWidth="200.0" style="-fx-background-color: #002d40;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+      <AnchorPane prefHeight="66.0" prefWidth="900.0" style="-fx-background-color: #002d40;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <ImageView fx:id="exit" fitHeight="24.0" fitWidth="24.0" layoutX="742.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="exit" fitHeight="24.0" fitWidth="24.0" layoutX="742.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
                <image>
                   <Image url="@images/exit.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="menu" fitHeight="46.0" fitWidth="32.0" layoutX="7.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="menu" fitHeight="46.0" fitWidth="32.0" layoutX="7.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="848.0" AnchorPane.topAnchor="20.0">
                <image>
                   <Image url="@images/burger.png" />
                </image>
             </ImageView>
          </children>
       </AnchorPane>
-      <AnchorPane layoutY="46.0" prefHeight="455.0" prefWidth="44.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="-1.0" AnchorPane.leftAnchor="0.0">
+      <AnchorPane layoutY="46.0" prefHeight="575.0" prefWidth="64.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0">
          <children>
-            <VBox alignment="TOP_CENTER" layoutY="28.0" prefHeight="200.0" prefWidth="44.0" spacing="10.0" AnchorPane.topAnchor="20.0">
+            <VBox alignment="TOP_CENTER" layoutY="9.0" prefHeight="575.0" prefWidth="64.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="9.0">
                <children>
                   <ImageView fitHeight="46.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -62,9 +63,14 @@
          </children>
       </AnchorPane>
       <AnchorPane fx:id="pane1" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-      <AnchorPane layoutX="10.0" layoutY="56.0" prefHeight="455.0" prefWidth="44.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0">
+      <AnchorPane layoutX="64.0" layoutY="75.0" prefHeight="575.0" prefWidth="836.0">
          <children>
-            <VBox alignment="TOP_CENTER" layoutY="28.0" prefHeight="200.0" prefWidth="44.0" spacing="10.0" AnchorPane.topAnchor="20.0">
+            <StackPane fx:id="contentArea" layoutY="-34.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="10.0" layoutY="75.0" prefHeight="575.0" prefWidth="64.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="75.0">
+         <children>
+            <VBox alignment="TOP_CENTER" layoutY="28.0" prefHeight="584.0" prefWidth="64.0" spacing="25.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
                   <ImageView fitHeight="46.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -78,11 +84,6 @@
                   </ImageView>
                   <ImageView fitHeight="46.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@images/data.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fitHeight="46.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
                         <Image url="@images/user.png" />
                      </image>
                   </ImageView>
@@ -91,45 +92,30 @@
                         <Image url="@images/setting.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="46.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@images/backup.png" />
-                     </image>
-                  </ImageView>
                </children>
             </VBox>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="pane2" layoutX="54.0" layoutY="56.0" prefHeight="455.0" prefWidth="178.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="40.0">
+      <AnchorPane fx:id="pane2" layoutX="64.0" layoutY="75.0" prefHeight="575.0" prefWidth="162.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="64.0" AnchorPane.topAnchor="75.0">
          <children>
-            <VBox layoutY="14.0" prefHeight="435.0" prefWidth="178.0" spacing="5.0" AnchorPane.bottomAnchor="6.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="14.0">
+            <VBox prefHeight="584.0" prefWidth="162.0" spacing="15.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
-                  <Button alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#nextToScene" prefHeight="38.0" prefWidth="179.0" style="-fx-background-color: transparent;" text="Dashboard">
+                  <Button alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#Home" prefHeight="38.0" prefWidth="179.0" style="-fx-background-color: transparent;" text="Home">
                      <font>
                         <Font size="16.0" />
                      </font>
                   </Button>
-                  <Button alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="38.0" prefWidth="179.0" style="-fx-background-color: transparent;" text="Add New">
+                  <Button alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#Add" prefHeight="38.0" prefWidth="179.0" style="-fx-background-color: transparent;" text="Add New">
                      <font>
                         <Font size="16.0" />
                      </font>
                   </Button>
-                  <Button alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="38.0" prefWidth="179.0" style="-fx-background-color: transparent;" text="Data">
+                  <Button alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#User" prefHeight="38.0" prefWidth="179.0" style="-fx-background-color: transparent;" text="User">
                      <font>
                         <Font size="16.0" />
                      </font>
                   </Button>
-                  <Button alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="38.0" prefWidth="179.0" style="-fx-background-color: transparent;" text="User">
-                     <font>
-                        <Font size="16.0" />
-                     </font>
-                  </Button>
-                  <Button alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="38.0" prefWidth="179.0" style="-fx-background-color: transparent;" text="Setting">
-                     <font>
-                        <Font size="16.0" />
-                     </font>
-                  </Button>
-                  <Button alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="38.0" prefWidth="179.0" style="-fx-background-color: transparent;" text="Back Up">
+                  <Button alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#Setting" prefHeight="38.0" prefWidth="179.0" style="-fx-background-color: transparent;" text="Setting">
                      <font>
                         <Font size="16.0" />
                      </font>

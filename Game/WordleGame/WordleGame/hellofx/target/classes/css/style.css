@@ -9,7 +9,12 @@
     -fx-border-radius: 22;
     -fx-background-color: rgb(227, 195, 221);
     -fx-background-radius: 22;
-    -fx-font-size: 25px;
+    -fx-font-size: 36px;
+
+    -fx-min-width: 100px;
+    -fx-min-height: 100px;
+    -fx-max-width: 100px;
+    -fx-max-height: 100px;
 }
 .gameLabel.true{
     -fx-font-weight: bold;
@@ -21,7 +26,12 @@
     -fx-border-radius: 22;
     -fx-background-color: rgb(35, 110, 35);
     -fx-background-radius: 22;
-    -fx-font-size: 25px;
+    -fx-font-size: 36px;
+
+    -fx-min-width: 100px;
+    -fx-min-height: 100px;
+    -fx-max-width: 100px;
+    -fx-max-height: 100px;
 }
 
 .gameLabel.false{
@@ -34,7 +44,12 @@
     -fx-border-radius: 22;
     -fx-background-color: rgb(238, 118, 118);
     -fx-background-radius: 22;
-    -fx-font-size: 25px;
+    -fx-font-size: 36px;
+
+    -fx-min-width: 100px;
+    -fx-min-height: 100px;
+    -fx-max-width: 100px;
+    -fx-max-height: 100px;
 }
 
 .gameLabel.having{
@@ -47,7 +62,12 @@
     -fx-border-radius: 22;
     -fx-background-color: rgb(154, 150, 150);
     -fx-background-radius: 22;
-    -fx-font-size: 25px;
+    -fx-font-size: 36px;
+
+    -fx-min-width: 100px;
+    -fx-min-height: 100px;
+    -fx-max-width: 100px;
+    -fx-max-height: 100px;
 }
 
 

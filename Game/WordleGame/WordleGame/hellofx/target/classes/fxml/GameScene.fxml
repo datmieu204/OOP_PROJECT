@@ -9,181 +9,183 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<StackPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GameScene">
+<StackPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GameScene">
    <children>
-      <StackPane fx:id="stackPane" prefHeight="150.0" prefWidth="200.0" />
-      <AnchorPane fx:id="anchorRoot" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="800.0" styleClass="AnchorPane">
+      <StackPane fx:id="stackPane" prefHeight="150.0" prefWidth="200.0">
          <children>
-            <VBox prefHeight="500.0" prefWidth="800.0">
+            <AnchorPane fx:id="anchorRoot" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="800.0" styleClass="AnchorPane">
                <children>
-                  <HBox prefHeight="100.0" prefWidth="200.0">
+                  <VBox layoutY="50.0" prefHeight="485.0" prefWidth="496.0">
                      <children>
-                        <Label fx:id="box00" alignment="CENTER" contentDisplay="CENTER" prefHeight="100.0" prefWidth="160.0" styleClass="gameLabel">
-                           <font>
-                              <Font size="64.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="box01" alignment="CENTER" contentDisplay="CENTER" prefHeight="100.0" prefWidth="160.0" styleClass="gameLabel">
-                           <font>
-                              <Font size="64.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="box02" alignment="CENTER" contentDisplay="CENTER" prefHeight="100.0" prefWidth="160.0" styleClass="gameLabel">
-                           <font>
-                              <Font size="64.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="box03" alignment="CENTER" contentDisplay="CENTER" prefHeight="100.0" prefWidth="160.0" styleClass="gameLabel">
-                           <font>
-                              <Font size="64.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="box04" alignment="CENTER" contentDisplay="CENTER" prefHeight="100.0" prefWidth="160.0" styleClass="gameLabel">
-                           <font>
-                              <Font size="64.0" />
-                           </font>
-                        </Label>
+                        <HBox prefHeight="100.0" prefWidth="706.0">
+                           <children>
+                              <Label fx:id="box00" alignment="CENTER" contentDisplay="CENTER" prefHeight="100.0" prefWidth="160.0" styleClass="gameLabel" stylesheets="@../css/style.css">
+                                 <font>
+                                    <Font size="64.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="box01" alignment="CENTER" contentDisplay="CENTER" prefHeight="100.0" prefWidth="160.0" styleClass="gameLabel">
+                                 <font>
+                                    <Font size="64.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="box02" alignment="CENTER" contentDisplay="CENTER" prefHeight="100.0" prefWidth="160.0" styleClass="gameLabel">
+                                 <font>
+                                    <Font size="64.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="box03" alignment="CENTER" contentDisplay="CENTER" prefHeight="100.0" prefWidth="160.0" styleClass="gameLabel">
+                                 <font>
+                                    <Font size="64.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="box04" alignment="CENTER" contentDisplay="CENTER" prefHeight="100.0" prefWidth="160.0" styleClass="gameLabel">
+                                 <font>
+                                    <Font size="64.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Label fx:id="box05" alignment="CENTER" contentDisplay="CENTER" prefHeight="100.0" prefWidth="160.0" styleClass="gameLabel">
+                                 <font>
+                                    <Font size="64.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="box06" alignment="CENTER" contentDisplay="CENTER" prefHeight="100.0" prefWidth="160.0" styleClass="gameLabel">
+                                 <font>
+                                    <Font size="64.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="box07" alignment="CENTER" contentDisplay="CENTER" prefHeight="100.0" prefWidth="160.0" styleClass="gameLabel">
+                                 <font>
+                                    <Font size="64.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="box08" alignment="CENTER" contentDisplay="CENTER" prefHeight="100.0" prefWidth="160.0" styleClass="gameLabel">
+                                 <font>
+                                    <Font size="64.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="box09" alignment="CENTER" contentDisplay="CENTER" prefHeight="100.0" prefWidth="160.0" styleClass="gameLabel">
+                                 <font>
+                                    <Font size="64.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Label fx:id="box10" alignment="CENTER" contentDisplay="CENTER" prefHeight="100.0" prefWidth="160.0" styleClass="gameLabel">
+                                 <font>
+                                    <Font size="64.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="box11" alignment="CENTER" contentDisplay="CENTER" prefHeight="100.0" prefWidth="160.0" styleClass="gameLabel">
+                                 <font>
+                                    <Font size="64.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="box12" alignment="CENTER" contentDisplay="CENTER" prefHeight="100.0" prefWidth="160.0" styleClass="gameLabel">
+                                 <font>
+                                    <Font size="64.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="box13" alignment="CENTER" contentDisplay="CENTER" prefHeight="100.0" prefWidth="160.0" styleClass="gameLabel">
+                                 <font>
+                                    <Font size="64.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="box14" alignment="CENTER" contentDisplay="CENTER" prefHeight="100.0" prefWidth="160.0" styleClass="gameLabel">
+                                 <font>
+                                    <Font size="64.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Label fx:id="box15" alignment="CENTER" contentDisplay="CENTER" prefHeight="100.0" prefWidth="160.0" styleClass="gameLabel">
+                                 <font>
+                                    <Font size="64.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="box16" alignment="CENTER" contentDisplay="CENTER" prefHeight="100.0" prefWidth="160.0" styleClass="gameLabel">
+                                 <font>
+                                    <Font size="64.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="box17" alignment="CENTER" contentDisplay="CENTER" prefHeight="100.0" prefWidth="160.0" styleClass="gameLabel">
+                                 <font>
+                                    <Font size="64.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="box18" alignment="CENTER" contentDisplay="CENTER" prefHeight="100.0" prefWidth="160.0" styleClass="gameLabel">
+                                 <font>
+                                    <Font size="64.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="box19" alignment="CENTER" contentDisplay="CENTER" prefHeight="100.0" prefWidth="160.0" styleClass="gameLabel">
+                                 <font>
+                                    <Font size="64.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Label fx:id="box20" alignment="CENTER" contentDisplay="CENTER" prefHeight="100.0" prefWidth="160.0" styleClass="gameLabel">
+                                 <font>
+                                    <Font size="64.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="box21" alignment="CENTER" contentDisplay="CENTER" prefHeight="100.0" prefWidth="160.0" styleClass="gameLabel">
+                                 <font>
+                                    <Font size="64.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="box22" alignment="CENTER" contentDisplay="CENTER" prefHeight="100.0" prefWidth="160.0" styleClass="gameLabel">
+                                 <font>
+                                    <Font size="64.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="box23" alignment="CENTER" contentDisplay="CENTER" prefHeight="100.0" prefWidth="160.0" styleClass="gameLabel">
+                                 <font>
+                                    <Font size="64.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="box24" alignment="CENTER" contentDisplay="CENTER" prefHeight="100.0" prefWidth="160.0" styleClass="gameLabel">
+                                 <font>
+                                    <Font size="64.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
                      </children>
-                  </HBox>
-                  <HBox prefHeight="100.0" prefWidth="200.0">
-                     <children>
-                        <Label fx:id="box05" alignment="CENTER" contentDisplay="CENTER" prefHeight="100.0" prefWidth="160.0" styleClass="gameLabel">
-                           <font>
-                              <Font size="64.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="box06" alignment="CENTER" contentDisplay="CENTER" prefHeight="100.0" prefWidth="160.0" styleClass="gameLabel">
-                           <font>
-                              <Font size="64.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="box07" alignment="CENTER" contentDisplay="CENTER" prefHeight="100.0" prefWidth="160.0" styleClass="gameLabel">
-                           <font>
-                              <Font size="64.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="box08" alignment="CENTER" contentDisplay="CENTER" prefHeight="100.0" prefWidth="160.0" styleClass="gameLabel">
-                           <font>
-                              <Font size="64.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="box09" alignment="CENTER" contentDisplay="CENTER" prefHeight="100.0" prefWidth="160.0" styleClass="gameLabel">
-                           <font>
-                              <Font size="64.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </HBox>
-                  <HBox prefHeight="100.0" prefWidth="200.0">
-                     <children>
-                        <Label fx:id="box10" alignment="CENTER" contentDisplay="CENTER" prefHeight="100.0" prefWidth="160.0" styleClass="gameLabel">
-                           <font>
-                              <Font size="64.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="box11" alignment="CENTER" contentDisplay="CENTER" prefHeight="100.0" prefWidth="160.0" styleClass="gameLabel">
-                           <font>
-                              <Font size="64.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="box12" alignment="CENTER" contentDisplay="CENTER" prefHeight="100.0" prefWidth="160.0" styleClass="gameLabel">
-                           <font>
-                              <Font size="64.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="box13" alignment="CENTER" contentDisplay="CENTER" prefHeight="100.0" prefWidth="160.0" styleClass="gameLabel">
-                           <font>
-                              <Font size="64.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="box14" alignment="CENTER" contentDisplay="CENTER" prefHeight="100.0" prefWidth="160.0" styleClass="gameLabel">
-                           <font>
-                              <Font size="64.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </HBox>
-                  <HBox prefHeight="100.0" prefWidth="200.0">
-                     <children>
-                        <Label fx:id="box15" alignment="CENTER" contentDisplay="CENTER" prefHeight="100.0" prefWidth="160.0" styleClass="gameLabel">
-                           <font>
-                              <Font size="64.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="box16" alignment="CENTER" contentDisplay="CENTER" prefHeight="100.0" prefWidth="160.0" styleClass="gameLabel">
-                           <font>
-                              <Font size="64.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="box17" alignment="CENTER" contentDisplay="CENTER" prefHeight="100.0" prefWidth="160.0" styleClass="gameLabel">
-                           <font>
-                              <Font size="64.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="box18" alignment="CENTER" contentDisplay="CENTER" prefHeight="100.0" prefWidth="160.0" styleClass="gameLabel">
-                           <font>
-                              <Font size="64.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="box19" alignment="CENTER" contentDisplay="CENTER" prefHeight="100.0" prefWidth="160.0" styleClass="gameLabel">
-                           <font>
-                              <Font size="64.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </HBox>
-                  <HBox prefHeight="100.0" prefWidth="200.0">
-                     <children>
-                        <Label fx:id="box20" alignment="CENTER" contentDisplay="CENTER" prefHeight="100.0" prefWidth="160.0" styleClass="gameLabel">
-                           <font>
-                              <Font size="64.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="box21" alignment="CENTER" contentDisplay="CENTER" prefHeight="100.0" prefWidth="160.0" styleClass="gameLabel">
-                           <font>
-                              <Font size="64.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="box22" alignment="CENTER" contentDisplay="CENTER" prefHeight="100.0" prefWidth="160.0" styleClass="gameLabel">
-                           <font>
-                              <Font size="64.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="box23" alignment="CENTER" contentDisplay="CENTER" prefHeight="100.0" prefWidth="160.0" styleClass="gameLabel">
-                           <font>
-                              <Font size="64.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="box24" alignment="CENTER" contentDisplay="CENTER" prefHeight="100.0" prefWidth="160.0" styleClass="gameLabel">
-                           <font>
-                              <Font size="64.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </HBox>
+                  </VBox>
+                  <TextField fx:id="guessInput" alignment="CENTER" layoutX="514.0" layoutY="79.0" prefHeight="51.0" prefWidth="289.0" promptText="Enter an Enlish word" styleClass="textfield" />
+                  <Button fx:id="checkButton" defaultButton="true" layoutX="658.0" layoutY="418.0" mnemonicParsing="false" onAction="#checkGuess" styleClass="optionButton" text="Check" />
+                  <Label fx:id="guessWord" alignment="CENTER" contentDisplay="CENTER" layoutY="5.0" prefHeight="41.0" prefWidth="500.0" styleClass="guessLabel">
+                     <font>
+                        <Font size="30.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="back" layoutX="570.0" layoutY="416.0" mnemonicParsing="false" onAction="#backToStartScene" prefHeight="41.0" prefWidth="80.0" styleClass="optionButton" text="Back" />
+                  <Button fx:id="soundButton" layoutX="567.0" layoutY="211.0" mnemonicParsing="false" onAction="#onOffSound" prefHeight="64.0" prefWidth="64.0" style="-fx-background-color: transparent;" />
+                  <Label fx:id="noticeLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="526.0" layoutY="152.0" prefHeight="40.0" prefWidth="265.0" styleClass="noticeLabel">
+                     <font>
+                        <Font size="21.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="restart" layoutX="687.0" layoutY="473.0" mnemonicParsing="false" onAction="#restartGame" styleClass="optionButton" text="Restart" />
+                  <Label fx:id="point" layoutX="520.0" layoutY="26.0" text="Points: 0" />
+                  <Label fx:id="time" layoutX="610.0" layoutY="26.0" text="Time: 0" />
+                  <Button fx:id="instructionButton" layoutX="703.0" layoutY="213.0" mnemonicParsing="false" onAction="#nextToInstruction" prefHeight="64.0" prefWidth="64.0" style="-fx-background-color: transparent;" />
+                  <Button layoutX="526.0" layoutY="473.0" mnemonicParsing="false" onAction="#nextRound" styleClass="optionButton" text="Next Round" />
+                  <Label fx:id="turn" layoutX="703.0" layoutY="26.0" text="Turns: 0" />
                </children>
-            </VBox>
-            <TextField fx:id="guessInput" alignment="CENTER" layoutX="84.0" layoutY="579.0" prefHeight="51.0" prefWidth="633.0" styleClass="textfield" />
-            <Button fx:id="checkButton" defaultButton="true" layoutX="365.0" layoutY="649.0" mnemonicParsing="false" onAction="#checkGuess" styleClass="optionButton" text="Check" />
-            <Label fx:id="guessWord" alignment="CENTER" contentDisplay="CENTER" layoutX="78.0" layoutY="515.0" prefHeight="53.0" prefWidth="651.0" styleClass="guessLabel">
-               <font>
-                  <Font size="30.0" />
-               </font>
-            </Label>
-            <Button fx:id="back" layoutX="17.0" layoutY="646.0" mnemonicParsing="false" onAction="#backToStartScene" prefHeight="41.0" prefWidth="80.0" styleClass="optionButton" text="Back" />
-            <Button fx:id="soundButton" layoutX="729.0" layoutY="499.0" mnemonicParsing="false" onAction="#onOffSound" prefHeight="64.0" prefWidth="64.0" style="-fx-background-color: transparent;" />
-            <Label fx:id="noticeLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="467.0" layoutY="648.0" prefHeight="38.0" prefWidth="313.0" styleClass="noticeLabel">
-               <font>
-                  <Font size="21.0" />
-               </font>
-            </Label>
-            <Button fx:id="restart" layoutX="126.0" layoutY="647.0" mnemonicParsing="false" onAction="#restartGame" styleClass="optionButton" text="Restart" />
-            <Label fx:id="point" layoutX="5.0" layoutY="510.0" text="Points: 0" />
-            <Label fx:id="time" layoutX="9.0" layoutY="558.0" text="Time: 0" />
-            <Label fx:id="turn" layoutX="7.0" layoutY="605.0" text="Turns: 0" />
-            <Button layoutX="225.0" layoutY="647.0" mnemonicParsing="false" onAction="#nextRound" styleClass="optionButton" text="Next Round" />
-            <Button fx:id="instructionButton" layoutX="729.0" layoutY="573.0" mnemonicParsing="false" onAction="#nextToInstruction" prefHeight="64.0" prefWidth="64.0" style="-fx-background-color: transparent;" />
-         </children>
-      </AnchorPane>
+            </AnchorPane>
+         </children></StackPane>
    </children>
 </StackPane>
