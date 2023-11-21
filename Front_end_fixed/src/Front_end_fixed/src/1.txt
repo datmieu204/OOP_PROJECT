@@ -1,0 +1,10 @@
+SceneApp :
+= chinh lai Dictionary =? phan tim kiem 
+SceneUer :
+= để căn lề trái cho thanh công cụ giống SceneApp
+= thay thế chữ bằng hình ảnh tương ứng
+- xóa = thùng rác
+- thêm = dấu cộng
+- sửa = thanh cờ lê 
+- save = nút tải xuống 
+- Back : bỏ nút Back
