@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="530.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ControllerScene3">
+   <children>
+      <ImageView fitHeight="545.0" fitWidth="785.0" layoutX="-32.0" layoutY="-14.0" AnchorPane.bottomAnchor="-1.0" AnchorPane.leftAnchor="-32.0" AnchorPane.rightAnchor="-3.0" AnchorPane.topAnchor="-14.0">
+         <image>
+            <Image url="@../../../../Downloads/7ccce8788b5426c5f439c98f329e8724.jpg" />
+         </image>
+      </ImageView>
+      <Button layoutX="647.0" layoutY="450.0" mnemonicParsing="false" onAction="#switchToScene2" stylesheets="@CSS22.css" text="EXIT" textFill="#3681d7">
+         <font>
+            <Font name="Segoe Print" size="17.0" />
+         </font>
+      </Button>
+      <AnchorPane prefHeight="530.0" prefWidth="750.0">
+         <children>
+            <AnchorPane prefHeight="448.0" prefWidth="198.0" style="-fx-background-color: #a4d0f5;">
+               <children>
+                  <VBox layoutY="183.0" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="-83.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="183.0">
+                     <children>
+                        <Button alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="71.0" prefWidth="198.0" style="-fx-background-color: #FFFFFF;" text="VOCAB">
+                           <graphic>
+                              <ImageView fitHeight="53.0" fitWidth="55.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../../Downloads/b82616d086be1a9f5ffd27b59a3c655d.jpg" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Button>
+                        <Button alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="71.0" prefWidth="198.0" style="-fx-background-color: #FFFFFF;" text="GAME">
+                           <graphic>
+                              <ImageView fitHeight="53.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../../Downloads/448d29a8a3fdbf801618835073831e9d.jpg" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Button>
+                        <Button alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="71.0" prefWidth="198.0" style="-fx-background-color: #FFFFFF;" text="ABOUT">
+                           <graphic>
+                              <ImageView fitHeight="53.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../../Downloads/03fb86640a39f8b681e495533b83c62d.jpg" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </VBox>
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="112.0" prefWidth="750.0">
+               <children>
+                  <Pane layoutX="86.0" layoutY="69.0" prefHeight="44.0" prefWidth="750.0" style="-fx-background-color: #a4d0f5;" AnchorPane.bottomAnchor="57.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <ImageView fx:id="Exit" fitHeight="44.0" fitWidth="47.0" layoutX="706.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../Downloads/1f7d1c1b4939162da845eda06f7f3063.jpg" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </Pane>
+                  <HBox layoutX="198.0" layoutY="56.0" prefHeight="56.0" prefWidth="552.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="198.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="56.0">
+                     <children>
+                        <Button alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="75.0" prefWidth="171.0" style="-fx-background-color: #FFFFFF;" text="VOCAB">
+                           <graphic>
+                              <ImageView fitHeight="46.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../../Downloads/b82616d086be1a9f5ffd27b59a3c655d.jpg" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Button>
+                        <Button alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="74.0" prefWidth="171.0" style="-fx-background-color: #FFFFFF;" text="GAME">
+                           <graphic>
+                              <ImageView fitHeight="46.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../../Downloads/448d29a8a3fdbf801618835073831e9d.jpg" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Button>
+                        <Button alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="73.0" prefWidth="171.0" style="-fx-background-color: #FFFFFF;" text="ABOUT">
+                           <graphic>
+                              <ImageView fitHeight="46.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../../Downloads/03fb86640a39f8b681e495533b83c62d.jpg" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </HBox>
+                  <Label fx:id="Menu" alignment="BASELINE_RIGHT" layoutX="14.0" layoutY="55.0" prefHeight="44.0" prefWidth="115.0" text="MENU">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="44.0" fitWidth="47.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../Downloads/22d97ef12a571d1263b2615afdfc8a95.jpg" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Label>
+                  <Label alignment="BASELINE_RIGHT" layoutX="14.0" layoutY="55.0" prefHeight="44.0" prefWidth="115.0" text="MENU">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fx:id="MenuBack" fitHeight="44.0" fitWidth="47.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../Downloads/22d97ef12a571d1263b2615afdfc8a95.jpg" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Label>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
