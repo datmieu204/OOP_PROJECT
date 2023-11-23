@@ -22,6 +22,7 @@ import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -88,14 +89,15 @@ public class HelloController3x3 implements Initializable {
     private ImageView soundOnImage;
     private ImageView soundOffImage;
     private ImageView instructionImage;
+    
 
-    // Image soundOnImg = new Image("/image/soundOn.png");
-    // Image soundOffImg = new Image("/image/soundOff.png");
-    // Image instructionImg = new Image("/image/instruction.png");
+    private String pathSoundOn =  "DJTMEEMMMMMMMMMMMMMMMMM\\src\\main\\resources\\image\\soundOn.png";
+    private String pathSoundOff = "DJTMEEMMMMMMMMMMMMMMMMM\\src\\main\\resources\\image\\soundOff.png";
+    private String pathInstruction = "DJTMEEMMMMMMMMMMMMMMMMM\\src\\main\\resources\\image\\instruction.png";
 
-    Image soundOnImg = new Image("src\\main\\resources\\image\\soundOn.png");
-    Image soundOffImg = new Image("src\\main\\resources\\image\\soundOff.png");
-    Image instructionImg = new Image("src\\main\\resources\\image\\instruction.png");
+    Image soundOnImg = new Image(new File(pathSoundOn).toURI().toString());
+    Image soundOffImg = new Image(new File(pathSoundOff).toURI().toString());
+    Image instructionImg = new Image(new File(pathInstruction).toURI().toString());
 
     String correct_sound = getClass().getResource("/sound/correct.mp3").toExternalForm();
     String wrong_sound = getClass().getResource("/sound/wrong.mp3").toExternalForm();

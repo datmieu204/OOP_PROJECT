@@ -1,0 +1,32 @@
+/* Button */
+.startButton{
+    -fx-font-weight: bold;
+    -fx-border-color: #8F60BF;
+    -fx-border-style: solid;
+    -fx-border-width: 2px;
+    -fx-background-color: #BEB6F2;
+    -fx-font-size: 24px;
+    -fx-text-fill: #079DD9;
+    -fx-font-family: "Comic Sans MS";
+}
+
+.startButton:hover{
+    -fx-font-weight: bold;
+    -fx-background-color: #079DD9;
+    -fx-font-size: 24px;
+    -fx-text-fill: #BEB6F2;
+    -fx-border-color: #06457a;
+    -fx-border-width: 3;
+    -fx-font-family: "Comic Sans MS";
+}
+/* Text */
+.startText {
+    -fx-fill: #000000;
+    -fx-font-weight: bold;
+    -fx-font-family: "Comic Sans MS";
+    -fx-font-size: 30px;
+}
+/* AnchorPane */
+.startPane{
+    -fx-background-color: #99D9F2;
+}

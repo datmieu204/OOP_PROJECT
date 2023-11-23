@@ -21,24 +21,14 @@ public class Word {
             engwords.clear();
             vietwords.clear();
         }
-
-        //"D:/DJTMEEMMMMMMMMMMMMMMMMM/src/main/resources/topics/Wordle/Animal.txt"
-        String filePath = "D:/DJTMEEMMMMMMMMMMMMMMMMM/src/main/resources/topics/Wordle/Animal.txt";
+        String filePath = "D:\\Visual Studio Code\\OOP_PROJECT\\Merge_1\\DJTMEEMMMMMMMMMMMMMMMMM\\src\\main\\resources\\topics\\MemoryGame\\Animal.txt";
         if (topic != null && topic.equals("Animal")) {
-            filePath = "D:/DJTMEEMMMMMMMMMMMMMMMMM/src/main/resources/topics/Wordle/Animal.txt";
+            filePath = "D:\\Visual Studio Code\\OOP_PROJECT\\Merge_1\\DJTMEEMMMMMMMMMMMMMMMMM\\src\\main\\resources\\topics\\MemoryGame\\Animal.txt";
         } else if (topic != null && topic.equals("Body")) {
-            filePath = "D:/DJTMEEMMMMMMMMMMMMMMMMM/src/main/resources/topics/Wordle/Body.txt";
-        } else if (topic != null && topic.equals("Family")) {
-            filePath = "D:/DJTMEEMMMMMMMMMMMMMMMMM/src/main/resources/topics/Wordle/Family.txt";
+            filePath = "D:\\Visual Studio Code\\OOP_PROJECT\\Merge_1\\DJTMEEMMMMMMMMMMMMMMMMM\\src\\main\\resources\\topics\\MemoryGame\\Body.txt";
+        } else if (topic != null && topic.equals("Person")) {
+            filePath = "D:\\Visual Studio Code\\OOP_PROJECT\\Merge_1\\DJTMEEMMMMMMMMMMMMMMMMM\\src\\main\\resources\\topics\\MemoryGame\\Person.txt";
         }
-        // String filePath = "/hellofx/src/main/resources/topics/MemoryGame/Animal.txt";
-        // if (topic != null && topic.equals("Animal")) {
-        //     filePath = "/hellofx/src/main/resources/topics/MemoryGame/Animal.txt";
-        // } else if (topic != null && topic.equals("Body")) {
-        //     filePath = "/hellofx/src/main/resources/topics/MemoryGame/Body.txt";
-        // } else if (topic != null && topic.equals("Family")) {
-        //     filePath = "/hellofx/src/main/resources/topics/MemoryGame/Family.txt";
-        // }
         try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
             String line;
             HashMap<String, String> wordMap = new HashMap<>();

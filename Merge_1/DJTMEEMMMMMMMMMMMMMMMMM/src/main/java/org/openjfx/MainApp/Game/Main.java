@@ -16,7 +16,7 @@ public class Main extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/fxml/Start.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
 
-        String css = this.getClass().getResource("/css/Style.css").toExternalForm();
+        String css = this.getClass().getResource("/css/style.css").toExternalForm();
         scene.getStylesheets().add(css);
 
         stage.setTitle("Game");

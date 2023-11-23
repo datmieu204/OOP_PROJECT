@@ -79,10 +79,24 @@
             if(!memoryOptions.isEmpty()){
                 memoryOptions.clear();
             }
-            for (int i = 0; i <= boardSize / 2; i++) {
-                int randomIndex = random.nextInt(englishWords.size());
-                memoryOptions.add(englishWords.get(randomIndex));
-                memoryOptions.add(vietnameseWords.get(randomIndex));
+            if(boardSize % 2 == 1){
+                for (int i = 0; i <= boardSize / 2; i++) {
+                    int randomIndex = random.nextInt(englishWords.size());
+                    memoryOptions.add(englishWords.get(randomIndex));
+                    if (memoryOptions.size()!= boardSize){
+                        memoryOptions.add(vietnameseWords.get(randomIndex));
+                    }
+                    else{
+                        break;
+                    }
+                }
+            }
+            else{
+                for (int i = 0; i < boardSize / 2; i++) {
+                    int randomIndex = random.nextInt(englishWords.size());
+                    memoryOptions.add(englishWords.get(randomIndex));
+                    memoryOptions.add(vietnameseWords.get(randomIndex));
+                }
             }
         }
 

@@ -1,5 +1,6 @@
 package org.openjfx.MainApp.Game.Wordle;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import javafx.util.Duration;
@@ -132,9 +133,14 @@ public class GameScene implements Initializable {
     private ImageView soundOffImage;
     private ImageView instructionImage;
 
-    Image soundOnImg = new Image("/image/soundOn.png");
-    Image soundOffImg = new Image("/image/soundOff.png");
-    Image instructionImg = new Image("/image/instruction.png");
+    private String pathSoundOn =  "DJTMEEMMMMMMMMMMMMMMMMM\\src\\main\\resources\\image\\soundOn.png";
+    private String pathSoundOff = "DJTMEEMMMMMMMMMMMMMMMMM\\src\\main\\resources\\image\\soundOff.png";
+    private String pathInstruction = "DJTMEEMMMMMMMMMMMMMMMMM\\src\\main\\resources\\image\\instruction.png";
+
+    Image soundOnImg = new Image(new File(pathSoundOn).toURI().toString());
+    Image soundOffImg = new Image(new File(pathSoundOff).toURI().toString());
+    Image instructionImg = new Image(new File(pathInstruction).toURI().toString());
+
 
     String correct_sound = getClass().getResource("/sound/correct.mp3").toExternalForm();
     String almostCorrect_sound = getClass().getResource("/sound/almostCorrect.mp3").toExternalForm();

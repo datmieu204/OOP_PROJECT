@@ -1,0 +1,88 @@
+Mother: Me
+Father: Bo
+Husband: Chong
+Wife: Vo
+Daughter: Con gai
+Son: Con trai
+Parent: Bo me
+Child: Con
+Nephew: Chau trai
+Niece: Chau gai
+Grandparent: Ong ba
+Grandmother: Ba
+Grandfather: Ong
+Grandson: Chau trai
+Granddaughter: Chau gai
+Grandchild: Chau
+Relative: Ho hang
+Extended family: Dai gia dinh
+Only child: Con mot
+Son-in-law: Con re
+Daughter-in-law: Con dau
+Stepfather: Duong
+Stepmother: Me ke
+Brave: Anh hung
+Careful: Can than
+Cheerful: Vui ve
+Easy going: De gan
+Exciting: Thu vi
+Friendly: Than thien
+Funny: Vui ve
+Generous: Hao phong
+Hardworking: Cham chi
+Kind: Tot bung
+Out going: Coi mo
+Polite: Lich su
+Quiet: It noi
+Smart: Thong minh
+Sociable: Hoa dong
+Soft: Diu dang
+Talented: Tai nang, co tai
+Ambitious: Nhieu tham vong
+Cautious: Than trong
+Confident: Tu tin
+Serious: Nghiem tuc
+Creative: Sang tao
+Dependable: Dang tin tuong
+Extroverted: Huong ngoai
+Introverted: Huong noi
+Observant: Tinh y
+Optimistic: Lac quan
+Sincere: Thanh that
+Understanding: Biet thau hieu
+Clever: Kheo leo
+Tactful: Lich thiep
+Faithful: Chung thuy
+Gentle: Nhe nhang
+Humorous: Hai huoc
+Honest: Trung thuc
+Loyal: Trung thanh
+Patient: Kien nhan
+Open-minded: Khoang dat
+Talkative: Hoat ngon
+Bad-tempered: Nong tinh
+Boring: Buon chan
+Careless: Bat can
+Crazy: Dien khung
+Impolite: Bat lich su
+Lazy: Luoi bieng
+Mean: Keo kiet
+Shy: Nhut nhat
+Stupid: Ngu ngoc
+Aggressive: Xong xao
+Pessimistic: Bi quan
+Reckless: Hap tap
+Strict: Nghiem khac
+Stubborn: Buong binh
+Selfish: Ich ky
+Hot-temper: Nong tinh
+Cold: Lanh lung
+Mad: Dien, khung
+Aggressive: Xau bung
+Unkind: Khong tot
+Unpleasant: Kho chiu
+Cruel: Doc ac
+Gruff: Tho lo
+Insolent: Lao xuoc
+Haughty: Kieu cang
+Boast: Khoe khoang

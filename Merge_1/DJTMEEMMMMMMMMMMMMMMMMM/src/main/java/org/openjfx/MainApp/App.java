@@ -14,7 +14,7 @@ public class App extends Application{
 
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("Scene/Dashboard.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("D://Visual Studio Code//OOP_PROJECT//Merge_1//DJTMEEMMMMMMMMMMMMMMMMM//src//main//resources//fxml//Start.fxml"));
         stage.initStyle(StageStyle.UNDECORATED);
 
         root.setOnMousePressed(event -> {

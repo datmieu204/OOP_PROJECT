@@ -31,7 +31,7 @@ public class ChooseTopic implements Initializable{
     private StackPane rootPane;
     @FXML
     private Button backToStart;
-    private String[] topic = {"Animal", "Body", "Family"};
+    private String[] topic = {"Animal", "Body", "Person"};
     TextAnimator textAnimator;
 
     String option_sound = getClass().getResource("/sound/option.mp3").toExternalForm();

@@ -173,7 +173,7 @@ public class ControllerScene implements Initializable {
     }
 
     public void Game(ActionEvent actionEvent) throws IOException {
-        Parent fxml = FXMLLoader.load(getClass().getResource("src//main//resources//fxml//Start.fxml"));
+        Parent fxml = FXMLLoader.load(getClass().getResource("D:\\Visual Studio Code\\OOP_PROJECT\\Merge_1\\DJTMEEMMMMMMMMMMMMMMMMM\\src\\main\\resources\\fxml\\Start.fxml"));
         contentArea.getChildren().removeAll();
         contentArea.getChildren().setAll(fxml);
 
