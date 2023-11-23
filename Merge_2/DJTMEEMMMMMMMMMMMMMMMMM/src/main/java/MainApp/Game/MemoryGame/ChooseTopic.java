@@ -16,6 +16,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
@@ -24,13 +26,37 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 
 public class ChooseTopic implements Initializable{
-
+    static MemStartScene memStartScene;
+    public static void setMemStartScene(MemStartScene memStart){
+        ChooseTopic.memStartScene = memStart;
+    }
+    static HelloController3x3 game3x3;
+    static HelloController4x4 game4x4;
+    static HelloController5x5 game5x5;
+    public static void setGame3x3(HelloController3x3 game3x3){
+        ChooseTopic.game3x3 = game3x3;
+    }
+    public static void setGame4x4(HelloController4x4 game4x4){
+        ChooseTopic.game4x4 = game4x4;
+    }
+    public static void setGame5x5(HelloController5x5 game5x5){
+        ChooseTopic.game5x5 = game5x5;
+    }
     @FXML
     private ChoiceBox<String> choiceBox;
     @FXML
     private StackPane rootPane;
     @FXML
     private Button backToStart;
+    @FXML
+    private Pane memory3x3;
+    @FXML
+    private Pane memory4x4;
+    @FXML
+    private Pane memory5x5;
+    @FXML
+    private AnchorPane chooseTopicPane;
+    
     private String[] topic = {"Animal", "Body", "Family"};
     TextAnimator textAnimator;
 
@@ -41,8 +67,65 @@ public class ChooseTopic implements Initializable{
     @FXML
     private Text text;
 
+    public void show3x3Pane(){
+        chooseTopicPane.setVisible(false);
+        memory3x3.setVisible(true);
+        memory3x3.toFront();
+    }
+    public void show4x4Pane(){
+        chooseTopicPane.setVisible(false);
+        memory4x4.setVisible(true);
+        memory4x4.toFront();
+    }
+    public void show5x5Pane(){
+        chooseTopicPane.setVisible(false);
+        memory5x5.setVisible(true);
+        memory5x5.toFront();
+    }
+    public void hide3x3Pane(){
+        chooseTopicPane.setVisible(true);
+        memory3x3.setVisible(false);
+        memory3x3.toFront();
+    }
+    public void hide4x4Pane(){
+        chooseTopicPane.setVisible(true);
+        memory4x4.setVisible(false);
+        memory4x4.toFront();
+    }
+    public void hide5x5Pane(){
+        chooseTopicPane.setVisible(true);
+        memory5x5.setVisible(false);
+        memory5x5.toFront();
+    }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        try {
+            StackPane pane3x3 = (StackPane) FXMLLoader.load(getClass().getResource("/fxml/MemoryGame/GameScene3x3.fxml"));
+            StackPane pane4x4 = (StackPane) FXMLLoader.load(getClass().getResource("/fxml/MemoryGame/GameScene4x4.fxml"));
+            StackPane pane5x5 = (StackPane) FXMLLoader.load(getClass().getResource("/fxml/MemoryGame/GameScene5x5.fxml"));
+            memory3x3.getChildren().add(pane3x3);
+            memory4x4.getChildren().add(pane4x4);
+            memory5x5.getChildren().add(pane5x5);
+            String css1 = this.getClass().getResource("/css/MemoryGame/Game.css").toExternalForm();
+            String css2 = this.getClass().getResource("/css/MemoryGame/Game.css").toExternalForm();
+            String css3 = this.getClass().getResource("/css/MemoryGame/Game.css").toExternalForm();
+            pane3x3.getStylesheets().add(css1);
+            pane4x4.getStylesheets().add(css2);
+            pane5x5.getStylesheets().add(css3);
+            hide3x3Pane();
+            hide4x4Pane();
+            hide5x5Pane();
+            HelloController3x3.setChooseTopicScene(this);
+            HelloController4x4.setChooseTopicScene(this);
+            HelloController5x5.setChooseTopicScene(this);
+
+
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+
         optionSound.play();
         optionSound.stop();
         makeClearTransition(); 
@@ -93,22 +176,25 @@ public class ChooseTopic implements Initializable{
         fadeTransition.setToValue(0);
         
         fadeTransition.setOnFinished( (ActionEvent event) -> {
+            rootPane.setOpacity(1);
             loadNextScene();
         });
         fadeTransition.play();
     }
 
     public void loadNextScene(){
-        try {
-            Parent secondView;
-            secondView = (StackPane) FXMLLoader.load(getClass().getResource(MemStartScene.matrixFxml));
-            String css = this.getClass().getResource("/css/MemoryGame/Game.css").toExternalForm();
-            secondView.getStylesheets().add(css);
-            Scene newScene = new Scene(secondView);
-            Stage curStage = (Stage) rootPane.getScene().getWindow();
-            curStage.setScene(newScene);
-        } catch (IOException ex) {
-            Logger.getLogger(ChooseTopic.class.getName()).log(Level.SEVERE, null, ex);
+        if(MemStartScene.matrixType.equals("3x3")){
+            show3x3Pane();
+            game3x3.startGame();
+            System.out.println("3x3");
+        } else if(MemStartScene.matrixType.equals("4x4")){
+            show4x4Pane();
+            game4x4.startGame();
+            System.out.println("4x4");
+        } else if(MemStartScene.matrixType.equals("5x5")){
+            show5x5Pane();
+            game5x5.startGame();
+            System.out.println("5x5");
         }
     }
 
@@ -139,22 +225,13 @@ public class ChooseTopic implements Initializable{
         fadeTransition.setToValue(0);
         
         fadeTransition.setOnFinished( (ActionEvent event) -> {
+            rootPane.setOpacity(1);
             back();
         });
         fadeTransition.play();
     }
 
     public void back(){
-        try {
-            Parent secondView;
-            secondView = (StackPane) FXMLLoader.load(getClass().getResource("/fxml/MemoryGame/MemStartScene.fxml"));
-            String css = this.getClass().getResource("/css/MemoryGame/Start.css").toExternalForm();
-            secondView.getStylesheets().add(css);
-            Scene newScene = new Scene(secondView);
-            Stage curStage = (Stage) rootPane.getScene().getWindow();
-            curStage.setScene(newScene);
-        } catch (IOException ex) {
-            Logger.getLogger(ChooseTopic.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        memStartScene.hideChooseTopicPane();
     }
 }

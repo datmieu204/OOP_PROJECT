@@ -8,6 +8,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import MainApp.App;
+import MainApp.Game.StartScene;
 import javafx.animation.FadeTransition;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -18,6 +19,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.media.Media;
@@ -27,14 +29,29 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 
 public class WordleStartScene implements Initializable {
+    static GameScene gameScene;
+    public static void setGameScene(GameScene gameScene) {
+        WordleStartScene.gameScene = gameScene;
+    }
+
+    static StartScene startScene;
+    public static void setStartScene(StartScene startScene) {
+        WordleStartScene.startScene = startScene;
+    }
 
     @FXML
     private ChoiceBox<String> choiceBox;
 
     @FXML
     private Pane rootPane;
+
     @FXML
     private Button backButton;
+    @FXML
+    private StackPane wordleGame;
+    @FXML
+    private AnchorPane selectTopic;
+
     private String[] topic = { "Animal", "Body", "Environment" };
     TextAnimator textAnimator;
 
@@ -45,11 +62,36 @@ public class WordleStartScene implements Initializable {
     @FXML
     private Text text;
 
+    public void showWordleGame(){
+        selectTopic.setVisible(false);
+        wordleGame.setVisible(true);
+        wordleGame.toFront();
+    }
+
+    public void hideWordleGame(){
+        selectTopic.setVisible(true);
+        wordleGame.setVisible(false);
+        wordleGame.toBack();
+    }
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         optionSound.play();
         optionSound.stop();
         rootPane.setOpacity(0);
+
+        try {
+            StackPane tmpPane = (StackPane) FXMLLoader.load(getClass().getResource("/fxml/Wordle/GameScene.fxml"));
+            String css = this.getClass().getResource("/css/Wordle/Game.css").toExternalForm();
+            tmpPane.getStylesheets().add(css);
+            wordleGame.getChildren().add(tmpPane);
+            hideWordleGame();
+
+            GameScene.setWordleStartScene(this);
+
+        } catch (IOException ex) {
+            Logger.getLogger(WordleStartScene.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
         makeClearTransition();
         choiceBox.getSelectionModel().select("Animal");
         TextOutput textOutput = new TextOutput() {
@@ -87,34 +129,26 @@ public class WordleStartScene implements Initializable {
         optionSound.setVolume(1.0);
         optionSound.seek(Duration.ZERO);
         optionSound.play();
+        gameScene.startGame();
         makeFadeOut();
     }
 
     private void makeFadeOut() {
         FadeTransition fadeTransition = new FadeTransition();
         fadeTransition.setDuration(Duration.millis(1000));
-        fadeTransition.setNode(rootPane);
+        fadeTransition.setNode(selectTopic);
         fadeTransition.setFromValue(1);
         fadeTransition.setToValue(0);
 
         fadeTransition.setOnFinished((ActionEvent event) -> {
             loadNextScene();
+            selectTopic.setOpacity(1);
         });
         fadeTransition.play();
     }
 
     public void loadNextScene() {
-        try {
-            Parent secondView;
-            secondView = (StackPane) FXMLLoader.load(getClass().getResource("/fxml/Wordle/GameScene.fxml"));
-            String css = this.getClass().getResource("/css/Wordle/Game.css").toExternalForm();
-            secondView.getStylesheets().add(css);
-            Scene newScene = new Scene(secondView);
-            Stage curStage = (Stage) rootPane.getScene().getWindow();
-            curStage.setScene(newScene);
-        } catch (IOException ex) {
-            Logger.getLogger(WordleStartScene.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        showWordleGame();
     }
 
     private void makeClearTransition() {
@@ -131,11 +165,9 @@ public class WordleStartScene implements Initializable {
         optionSound.setVolume(0.7);
         optionSound.seek(Duration.ZERO);
         optionSound.play();
-        FXMLLoader fxmlLoader = new FXMLLoader(WordleStartScene.class.getResource("/fxml/Start.fxml"));
-        Parent root = fxmlLoader.load();
-        Scene scene = new Scene(root);
-        Stage stage = (Stage) backButton.getScene().getWindow();
-        stage.setScene(scene);
+        
+        startScene.hideWordlePane();
+
     }
 
 }

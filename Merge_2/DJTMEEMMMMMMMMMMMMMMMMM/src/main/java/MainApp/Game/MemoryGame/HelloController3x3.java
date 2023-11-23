@@ -31,6 +31,10 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class HelloController3x3 implements Initializable {
+    static ChooseTopic chooseTopicScene;
+    public static void setChooseTopicScene(ChooseTopic ct){
+        HelloController3x3.chooseTopicScene = ct;
+    }
     //BIẾN THỜI GIAN
     public int timeCount = 0;
     private Timeline gameTimer;
@@ -118,10 +122,36 @@ public class HelloController3x3 implements Initializable {
     private int firstButtonIndex;
     private int secondButtonIndex;
     private boolean match;
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
+
+    public void startGame(){
         rootPane.setOpacity(0);
         makeClearTransition(); 
+        gameTimer = new Timeline(new KeyFrame(Duration.seconds(1), e -> {
+            timeCount++;
+            time.setText("Time: " + String.valueOf(timeCount));
+
+            //ĐIỀU KIỆN ĐỂ GAME DỪNG VÀ SHOW RA BẢNG KẾT QUẢ
+
+            if(timeCount >= GameData.TIMELIMIT){
+                gameTimer.stop();
+                try {
+                    showResult();
+                } catch (IOException e1) {
+                    // TODO Auto-generated catch block
+                    e1.printStackTrace();
+                }
+            }
+        }));
+        gameTimer.setCycleCount(Animation.INDEFINITE);
+        gameTimer.play();
+        buttons.addAll(Arrays.asList(button0, button1, button2, button3, button4,
+                button5, button6, button7, button8));
+        memoryGame.setupGame();
+        restartGame();
+    }
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        ChooseTopic.setGame3x3(this);
         GameData.gameMatrix = "3x3";
         soundOnImage = new ImageView(soundOnImg);
         soundOffImage = new ImageView(soundOffImg);
@@ -151,28 +181,6 @@ public class HelloController3x3 implements Initializable {
         backgroundSound.stop();
         soundOn = false;
 
-        gameTimer = new Timeline(new KeyFrame(Duration.seconds(1), e -> {
-            timeCount++;
-            time.setText("Time: " + String.valueOf(timeCount));
-
-            //ĐIỀU KIỆN ĐỂ GAME DỪNG VÀ SHOW RA BẢNG KẾT QUẢ
-
-            if(timeCount >= GameData.TIMELIMIT){
-                gameTimer.stop();
-                try {
-                    showResult();
-                } catch (IOException e1) {
-                    // TODO Auto-generated catch block
-                    e1.printStackTrace();
-                }
-            }
-        }));
-        gameTimer.setCycleCount(Animation.INDEFINITE);
-        gameTimer.play();
-
-        buttons.addAll(Arrays.asList(button0, button1, button2, button3, button4,
-                button5, button6, button7, button8));
-        memoryGame.setupGame();
     }   
 
     @FXML
@@ -348,26 +356,21 @@ public class HelloController3x3 implements Initializable {
         fadeTransition.setFromValue(1);
         fadeTransition.setToValue(0);
         
+        
         fadeTransition.setOnFinished( (ActionEvent event) -> {
-            backToScene1();
+            rootPane.setOpacity(1);
+            backToScene();
+            gameTimer.stop();
+
         });
         fadeTransition.play();
     }
 
-    public void backToScene1(){
+    public void backToScene(){
         backgroundSound.stop();
         soundOn = false; 
-        try {
-            Parent secondView;
-            secondView = (StackPane) FXMLLoader.load(getClass().getResource("/fxml/MemoryGame/ChooseTopic.fxml"));
-            String css = this.getClass().getResource("/css/MemoryGame/ChooseTopic.css").toExternalForm();
-            secondView.getStylesheets().add(css);
-            Scene newScene = new Scene(secondView);
-            Stage curStage = (Stage) rootPane.getScene().getWindow();
-            curStage.setScene(newScene);
-        } catch (IOException ex) {
-            Logger.getLogger(HelloController3x3.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        chooseTopicScene.hide3x3Pane();
+
     }
 
     private void makeClearTransition() {

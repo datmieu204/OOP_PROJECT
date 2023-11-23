@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<StackPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="584.0" prefWidth="836.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainApp.Game.MemoryGame.HelloController5x5">
+<StackPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="584.0" prefWidth="836.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainApp.Game.MemoryGame.HelloController5x5">
    <children>
       <AnchorPane fx:id="anchorRoot" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="584.0" prefWidth="836.0" styleClass="AnchorPane">
          <children>
@@ -164,7 +164,7 @@
             <Button fx:id="restart" layoutX="101.0" layoutY="396.0" mnemonicParsing="false" onAction="#restartGame" styleClass="optionButton" text="Restart" />
             <Label fx:id="turn" layoutX="480.0" layoutY="8.0" prefHeight="41.0" prefWidth="120.0" styleClass="gameLabel" text="Turns = 0" AnchorPane.topAnchor="8.0" />
             <Label fx:id="point" layoutX="255.0" layoutY="14.0" prefHeight="41.0" prefWidth="120.0" styleClass="gameLabel" text="Points = 0" AnchorPane.topAnchor="8.0" />
-            <Label fx:id="time" layoutX="726.0" layoutY="8.0" prefHeight="41.0" prefWidth="80.0" styleClass="gameLabel" text="Time: " AnchorPane.topAnchor="8.0" />
+            <Label fx:id="time" layoutX="662.0" layoutY="8.0" prefHeight="41.0" prefWidth="144.0" styleClass="gameLabel" text="Time: " AnchorPane.topAnchor="8.0" />
             <Button fx:id="back" layoutX="112.0" layoutY="502.0" mnemonicParsing="false" onAction="#backToStartScene" styleClass="optionButton" text="Back" />
             <Button fx:id="soundButton" layoutX="105.0" layoutY="233.0" mnemonicParsing="false" onAction="#onOffSound" prefHeight="100.0" prefWidth="100.0" styleClass="soundButton" />
             <Button fx:id="instructionButton" layoutX="105.0" layoutY="76.0" mnemonicParsing="false" onAction="#nextToInstruction" prefHeight="100.0" prefWidth="100.0" styleClass="soundButton" />

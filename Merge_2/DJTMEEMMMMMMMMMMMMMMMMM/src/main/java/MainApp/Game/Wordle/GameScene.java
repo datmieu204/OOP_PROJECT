@@ -34,6 +34,12 @@ import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 
 public class GameScene implements Initializable {
+    static WordleStartScene wordleStartScene;
+    
+    public static void setWordleStartScene(WordleStartScene wordleStartScene){
+        GameScene.wordleStartScene = wordleStartScene;
+    } 
+
     @FXML
     private TextField guessInput;
     @FXML
@@ -176,9 +182,45 @@ public class GameScene implements Initializable {
     public String getWord() {
         return wordTarget;
     }
+    
+    public void startGame(){
+        noticeLabel.setText("");
+        randomizeWord();  
+  
+        for(Label label : boxes1){
+            label.setText("");
+            label.getStyleClass().clear();
+            label.getStyleClass().add("gameLabel");
+        }
+        correctAnswer = false;
+        rows = 0;
+        turns = 0;
+        points = 0;
+        timeCount = 0;
+        turn.setText("Turns = " + turns);
+        point.setText("Points = " + points);
+        time.setText("Time: " + timeCount);
+        noticeLabel.setText("");
+        guessWord.setText("");
+        guessInput.setText("");
+
+        for (int i = 0; i < checkCorrect.length; i++) {
+            checkCorrect[i] = false;
+        }
+        randomizeWord();
+
+
+        gameTimer = new Timeline(new KeyFrame(Duration.seconds(1), e -> {
+            timeCount++;
+            time.setText("Time: " + String.valueOf(timeCount));
+        }));
+        gameTimer.setCycleCount(Animation.INDEFINITE);
+        gameTimer.play();
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        WordleStartScene.setGameScene(this);
         try {
             Word.importFile();
         } catch (IOException e) {
@@ -199,17 +241,7 @@ public class GameScene implements Initializable {
             label.getStyleClass().clear();
             label.getStyleClass().add("gameLabel");
         }
-        noticeLabel.setText("");
-        randomizeWord();
-
-        soundOnImage = new ImageView(soundOnImg);
-        soundOffImage = new ImageView(soundOffImg);
-        instructionImage = new ImageView(instructionImg);
         
-        instructionButton.setGraphic(instructionImage);
-        soundButton.setGraphic(soundOffImage);
-
-
         correctSound.play();
         correctSound.stop();
         correctSound.seek(Duration.ZERO);
@@ -234,13 +266,14 @@ public class GameScene implements Initializable {
         backgroundSound.setVolume(0.5);
         backgroundSound.play();
         backgroundSound.stop();
-        soundOn = false;    
-        gameTimer = new Timeline(new KeyFrame(Duration.seconds(1), e -> {
-            timeCount++;
-            time.setText("Time: " + String.valueOf(timeCount));
-        }));
-        gameTimer.setCycleCount(Animation.INDEFINITE);
-        gameTimer.play();
+        soundOn = false;  
+
+        soundOnImage = new ImageView(soundOnImg);
+        soundOffImage = new ImageView(soundOffImg);
+        instructionImage = new ImageView(instructionImg);
+        
+        instructionButton.setGraphic(instructionImage);
+        soundButton.setGraphic(soundOffImage);
     }
 
     @FXML
@@ -393,34 +426,29 @@ public class GameScene implements Initializable {
         optionSound.setVolume(0.7);
         optionSound.seek(Duration.ZERO);
         optionSound.play();  
+        // wordleStartScene.hideWordleGame();
+        gameTimer.stop();
         makeFadeOutToStart();
     }
 
     public void backToStart(){
         backgroundSound.stop();
         soundOn = false; 
-        try {
-            Parent secondView;
-            secondView = (StackPane) FXMLLoader.load(getClass().getResource("/fxml/Wordle/WordleStartScene.fxml"));
-            String css = this.getClass().getResource("/css/Wordle/Start.css").toExternalForm();
-            secondView.getStylesheets().add(css);
-            Scene newScene = new Scene(secondView);
-            Stage curStage = (Stage) rootPane.getScene().getWindow();
-            curStage.setScene(newScene);
-        } catch (IOException ex) {
-            Logger.getLogger(GameScene.class.getName()).log(Level.SEVERE, null, ex);
-        }
+
+        wordleStartScene.hideWordleGame();
+        
     }
 
     private void makeFadeOutToStart() {
         FadeTransition fadeTransition = new FadeTransition();
         fadeTransition.setDuration(javafx.util.Duration.millis(TimeUnit.SECONDS.toMillis(1 )));
-        fadeTransition.setNode(rootPane);
+        fadeTransition.setNode(stackPane);
         fadeTransition.setFromValue(1);
         fadeTransition.setToValue(0);
         
         fadeTransition.setOnFinished( (ActionEvent event) -> {
             backToStart();
+            stackPane.setOpacity(1);
         });
         fadeTransition.play();
     }
@@ -458,7 +486,6 @@ public class GameScene implements Initializable {
         for (int i = 0; i < checkCorrect.length; i++) {
             checkCorrect[i] = false;
         }
-
         randomizeWord();
         gameTimer.play();
     }

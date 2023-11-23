@@ -31,14 +31,7 @@ public class Word {
         } else if (topic != null && topic.equals("Family")) {
             filePath = "D:/DJTMEEMMMMMMMMMMMMMMMMM/src/main/resources/topics/MemoryGame/Family.txt";
         }
-        // String filePath = "/hellofx/src/main/resources/topics/MemoryGame/Animal.txt";
-        // if (topic != null && topic.equals("Animal")) {
-        //     filePath = "/hellofx/src/main/resources/topics/MemoryGame/Animal.txt";
-        // } else if (topic != null && topic.equals("Body")) {
-        //     filePath = "/hellofx/src/main/resources/topics/MemoryGame/Body.txt";
-        // } else if (topic != null && topic.equals("Family")) {
-        //     filePath = "/hellofx/src/main/resources/topics/MemoryGame/Family.txt";
-        // }
+
         try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
             String line;
             HashMap<String, String> wordMap = new HashMap<>();

@@ -101,6 +101,7 @@
         }
 
         public void setupMemoryBoard(){
+            boardSize = boardLength *boardLength;
             generateMemorySource();
             System.out.println("setupMemoryBoard length = " + boardLength);
             System.out.println("setupMemoryBoard size = " + boardSize);

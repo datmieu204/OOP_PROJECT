@@ -8,13 +8,15 @@
 <?import javafx.scene.effect.Lighting?>
 <?import javafx.scene.effect.Shadow?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<StackPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="584.0" prefWidth="836.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainApp.Game.MemoryGame.MemStartScene">
+
+<Pane fx:id="rootPane" prefHeight="575.2" prefWidth="836.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainApp.Game.MemoryGame.MemStartScene">
    <children>
-      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="584.0" prefWidth="836.0" styleClass="AnchorPane">
+      <Pane fx:id="chooseTopicPane" prefHeight="575.2" prefWidth="836.0" />
+      <AnchorPane fx:id="memStartPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="575.2" prefWidth="836.0" styleClass="AnchorPane">
          <children>
             <ChoiceBox fx:id="choiceBox" accessibleRole="CHECK_BOX" blendMode="MULTIPLY" cache="true" layoutX="286.0" layoutY="320.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="33.0" prefWidth="242.0" styleClass="ChoiceBox">
                <effect>
@@ -46,4 +48,4 @@
          </children>
       </AnchorPane>
    </children>
-</StackPane>
+</Pane>

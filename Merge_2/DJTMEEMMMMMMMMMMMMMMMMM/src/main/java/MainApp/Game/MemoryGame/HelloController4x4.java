@@ -32,6 +32,10 @@ import java.util.logging.Logger;
 
 
 public class HelloController4x4 implements Initializable {
+    static ChooseTopic chooseTopicScene;
+    public static void setChooseTopicScene(ChooseTopic ct){
+        HelloController4x4.chooseTopicScene = ct;
+    }
     // Biến thời gian
     public int timeCount = 0;
     ArrayList<Button> buttons = new ArrayList<>();
@@ -132,11 +136,39 @@ public class HelloController4x4 implements Initializable {
     private int firstButtonIndex;
     private int secondButtonIndex;
     private boolean match;
+    public void startGame(){
+        rootPane.setOpacity(0);
+        makeClearTransition();
 
+        time.setText("Time: " + String.valueOf(timeCount));
+
+        // Set time
+        gameTimer = new Timeline(new KeyFrame(Duration.seconds(1), e -> {
+            timeCount++;
+            time.setText("Time: " + String.valueOf(timeCount));
+            if(timeCount >= GameData.TIMELIMIT){
+                gameTimer.stop();
+                try {
+                    showResult();
+                } catch (IOException e1) {
+                    // TODO Auto-generated catch block
+                    e1.printStackTrace();
+                }
+            }
+        }));
+        gameTimer.setCycleCount(Animation.INDEFINITE);
+        gameTimer.play();
+
+        buttons.addAll(Arrays.asList(button0, button1, button2, button3, button4, button5, button6,
+                button7, button8, button9, button10, button11, button12, button13, button14, button15));
+        memoryGame.setupGame();
+        restartGame();
+
+    }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        rootPane.setOpacity(0);
-        makeClearTransition(); 
+        ChooseTopic.setGame4x4(this);
+
         GameData.gameMatrix = "4x4";
 
         soundOnImage = new ImageView(soundOnImg);
@@ -167,30 +199,6 @@ public class HelloController4x4 implements Initializable {
         backgroundSound.play();
         backgroundSound.stop();
         soundOn = false;
-
-        time.setText("Time: " + String.valueOf(timeCount));
-
-        // Set time
-        gameTimer = new Timeline(new KeyFrame(Duration.seconds(1), e -> {
-            timeCount++;
-            time.setText("Time: " + String.valueOf(timeCount));
-            if(timeCount >= GameData.TIMELIMIT){
-                gameTimer.stop();
-                try {
-                    showResult();
-                } catch (IOException e1) {
-                    // TODO Auto-generated catch block
-                    e1.printStackTrace();
-                }
-            }
-        }));
-        gameTimer.setCycleCount(Animation.INDEFINITE);
-        gameTimer.play();
-
-        buttons.addAll(Arrays.asList(button0, button1, button2, button3, button4, button5, button6,
-                button7, button8, button9, button10, button11, button12, button13, button14, button15));
-        memoryGame.setupGame();
-
     }
 
     @FXML
@@ -374,18 +382,8 @@ public class HelloController4x4 implements Initializable {
     public void backToScene(){  
         backgroundSound.stop();
         soundOn = false; 
+        chooseTopicScene.hide4x4Pane();
 
-        try {
-            Parent secondView;
-            secondView = (StackPane) FXMLLoader.load(getClass().getResource("/fxml/MemoryGame/ChooseTopic.fxml"));
-            String css = this.getClass().getResource("/css/MemoryGame/ChooseTopic.css").toExternalForm();
-            secondView.getStylesheets().add(css);
-            Scene newScene = new Scene(secondView);
-            Stage curStage = (Stage) rootPane.getScene().getWindow();
-            curStage.setScene(newScene);
-        } catch (IOException ex) {
-            Logger.getLogger(HelloController4x4.class.getName()).log(Level.SEVERE, null, ex);
-        }
     }
 
     private void makeFadeOut() {
@@ -396,7 +394,10 @@ public class HelloController4x4 implements Initializable {
         fadeTransition.setToValue(0);
         
         fadeTransition.setOnFinished( (ActionEvent event) -> {
+            rootPane.setOpacity(1);
             backToScene();
+            gameTimer.stop();
+
         });
         fadeTransition.play();
     }

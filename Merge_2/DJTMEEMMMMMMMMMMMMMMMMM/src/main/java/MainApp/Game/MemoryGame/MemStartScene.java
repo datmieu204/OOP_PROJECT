@@ -7,7 +7,9 @@ import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import MainApp.Game.StartScene;
 import MainApp.Game.Wordle.GameScene;
+import MainApp.Game.Wordle.WordleStartScene;
 import javafx.animation.FadeTransition;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -17,6 +19,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
@@ -25,14 +29,21 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 
 public class MemStartScene implements Initializable{
-
+    static StartScene startScene;
+    public static void setStartScene(StartScene startScene) {
+        MemStartScene.startScene = startScene;
+    }
     @FXML
     private ChoiceBox<String> choiceBox;
     @FXML
-    private StackPane rootPane;
+    private Pane rootPane;
+    @FXML
+    private Pane chooseTopicPane;
+    @FXML
+    private AnchorPane memStartPane;
 
     private String[] level = {"3x3", "4x4", "5x5"};
-    public static String matrixFxml;
+    public static String matrixType;
     private int boardLength = 3;
 
     TextAnimator textAnimator;
@@ -44,8 +55,34 @@ public class MemStartScene implements Initializable{
     @FXML
     private Text text;
 
+    
+
+    public void showChooseTopicPane(){
+        memStartPane.setVisible(false);
+        chooseTopicPane.setVisible(true);
+        chooseTopicPane.toFront();
+    }
+    public void hideChooseTopicPane(){
+        memStartPane.setVisible(true);
+        chooseTopicPane.setVisible(false);
+        chooseTopicPane.toBack();
+    }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        try {
+            StackPane tmpPane = (StackPane) FXMLLoader.load(getClass().getResource("/fxml/MemoryGame/ChooseTopic.fxml"));
+            String css = this.getClass().getResource("/css/MemoryGame/ChooseTopic.css").toExternalForm();
+            tmpPane.getStylesheets().add(css);
+            chooseTopicPane.getChildren().add(tmpPane);
+            hideChooseTopicPane();
+
+            ChooseTopic.setMemStartScene(this);
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+
         optionSound.play();
         optionSound.stop();
         makeClearTransition(); 
@@ -81,6 +118,7 @@ public class MemStartScene implements Initializable{
         }
         else if(myLevel.equals("4x4")){
             MemoryGame.setBoardLength(4);
+            
             boardLength = 4;
         }
         else if(myLevel.equals("5x5")){
@@ -105,34 +143,25 @@ public class MemStartScene implements Initializable{
         fadeTransition.setToValue(0);
         
         fadeTransition.setOnFinished( (ActionEvent event) -> {
+            rootPane.setOpacity(1);
             loadNextScene();
         });
         fadeTransition.play();
     }
 
     public void loadNextScene(){
-        matrixFxml = "/fxml/MemoryGame/GameScene3x3.fxml";
+        matrixType = "3x3";
         if(boardLength == 3){
-            matrixFxml = "/fxml/MemoryGame/GameScene3x3.fxml";
+            matrixType = "3x3";
         }
         else if(boardLength == 4){
-            matrixFxml ="/fxml/MemoryGame/GameScene4x4.fxml";
+            matrixType ="4x4";
         }
         else if(boardLength == 5){
-            matrixFxml = "/fxml/MemoryGame/GameScene5x5.fxml";
+            matrixType = "5x5";
         }
+        showChooseTopicPane();
 
-        try {
-            Parent secondView;
-            secondView = (StackPane) FXMLLoader.load(getClass().getResource("/fxml/MemoryGame/ChooseTopic.fxml"));
-            String css = this.getClass().getResource("/css/MemoryGame/ChooseTopic.css").toExternalForm();
-            secondView.getStylesheets().add(css);
-            Scene newScene = new Scene(secondView);
-            Stage curStage = (Stage) rootPane.getScene().getWindow();
-            curStage.setScene(newScene);
-        } catch (IOException ex) {
-            Logger.getLogger(MemStartScene.class.getName()).log(Level.SEVERE, null, ex);
-        }
     }
 
     private void makeClearTransition() {
@@ -153,17 +182,18 @@ public class MemStartScene implements Initializable{
     }
 
     public void backToStart(){
-        try {
-            Parent secondView;
-            secondView = (StackPane) FXMLLoader.load(getClass().getResource("/fxml/Start.fxml"));
-            String css = this.getClass().getResource("/css/style.css").toExternalForm();
-            secondView.getStylesheets().add(css);
-            Scene newScene = new Scene(secondView);
-            Stage curStage = (Stage) rootPane.getScene().getWindow();
-            curStage.setScene(newScene);
-        } catch (IOException ex) {
-            Logger.getLogger(GameScene.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        startScene.hideMemoryPane();
+        // try {
+        //     Parent secondView;
+        //     secondView = (StackPane) FXMLLoader.load(getClass().getResource("/fxml/Start.fxml"));
+        //     String css = this.getClass().getResource("/css/style.css").toExternalForm();
+        //     secondView.getStylesheets().add(css);
+        //     Scene newScene = new Scene(secondView);
+        //     Stage curStage = (Stage) rootPane.getScene().getWindow();
+        //     curStage.setScene(newScene);
+        // } catch (IOException ex) {
+        //     Logger.getLogger(GameScene.class.getName()).log(Level.SEVERE, null, ex);
+        // }
     }
 
     private void makeFadeOutToStart() {
@@ -174,7 +204,9 @@ public class MemStartScene implements Initializable{
         fadeTransition.setToValue(0);
         
         fadeTransition.setOnFinished( (ActionEvent event) -> {
+            rootPane.setOpacity(1);
             backToStart();
+            
         });
         fadeTransition.play();
     }

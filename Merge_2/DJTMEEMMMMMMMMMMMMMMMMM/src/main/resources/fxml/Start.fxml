@@ -6,10 +6,11 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Text?>
 
-<Pane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="575.2" prefWidth="836.0" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainApp.Game.StartScene">
+<Pane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="575.2" prefWidth="836.0" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainApp.Game.StartScene">
    <children>
+      <Pane fx:id="memoryPane" prefHeight="575.2" prefWidth="836.0" />
       <Pane fx:id="wordlePane" prefHeight="575.2" prefWidth="836.0" />
-      <AnchorPane fx:id="gamePane" prefHeight="584.0" prefWidth="836.0" styleClass="startPane">
+      <AnchorPane fx:id="chooseGamePane" prefHeight="584.0" prefWidth="836.0" styleClass="startPane">
          <children>
             <Text fx:id="text" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="startText" textAlignment="CENTER" wrappingWidth="836.0" />
             <HBox layoutY="117.0" prefHeight="469.0" prefWidth="836.0">
