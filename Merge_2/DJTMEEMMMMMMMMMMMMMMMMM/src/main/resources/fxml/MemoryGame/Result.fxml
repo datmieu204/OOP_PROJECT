@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<StackPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainApp.Game.MemoryGame.ResultController">
+   <children>
+      <AnchorPane fx:id="anchorRoot" prefHeight="450.0" prefWidth="700.0" styleClass="AnchorPane">
+         <children>
+            <Button fx:id="backButton" layoutX="308.0" layoutY="373.0" mnemonicParsing="false" onAction="#backToGameScene" prefHeight="46.0" prefWidth="102.0" styleClass="optionButton" text="Back" />
+            <Text fx:id="time" layoutX="167.0" layoutY="156.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="resultText" text="Time: " wrappingWidth="338.9999985694885" />
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="174.0" layoutY="37.0" prefHeight="46.0" prefWidth="339.0" styleClass="resultLabel" text="RESULT">
+               <font>
+                  <Font size="40.0" />
+               </font>
+            </Label>
+            <Text fx:id="turns" layoutX="167.0" layoutY="228.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="resultText" text="Turns: " wrappingWidth="338.9999985694885" />
+            <Text fx:id="points" layoutX="174.0" layoutY="297.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="resultText" text="Points: " wrappingWidth="376.5541990995407" />
+         </children></AnchorPane>
+   </children>
+</StackPane>

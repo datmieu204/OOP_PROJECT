@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #99CCFF;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainApp.UserController">
+   <children>
+      <Label layoutX="202.0" layoutY="27.0" text="USER DICTIONARY">
+         <font>
+            <Font name="Comic Sans MS Bold Italic" size="40.0" />
+         </font>
+      </Label>
+      <ListView fx:id="listView" layoutX="31.0" layoutY="168.0" prefHeight="402.0" prefWidth="174.0" style="-fx-background-radius: 10px;" />
+      <TextArea fx:id="txtExplain" layoutX="234.0" layoutY="168.0" prefHeight="378.0" prefWidth="527.0" promptText="Ouput" style="-fx-background-radius: 10px; -fx-font-family: Arial;">
+         <font>
+            <Font name="Comic Sans MS Bold" size="16.0" />
+         </font>
+      </TextArea>
+      <Button fx:id="btnAdd" layoutX="382.0" layoutY="132.0" mnemonicParsing="false" onAction="#addNewWord" text="THÊM TỪ" />
+      <Button fx:id="btnDelete" layoutX="472.0" layoutY="132.0" mnemonicParsing="false" onAction="#deleteWord" text="XÓA TỪ" />
+      <Button fx:id="btnFix" layoutX="558.0" layoutY="132.0" mnemonicParsing="false" onAction="#fixWord" text="SỬA TỪ" />
+      <Label fx:id="labelSearch" layoutX="236.0" layoutY="128.0" prefHeight="30.0" prefWidth="158.0" style="-fx-background-radius: 5px;" text="Label">
+         <font>
+            <Font name="Comic Sans MS Bold" size="20.0" />
+         </font>
+      </Label>
+      <Button fx:id="btnSave" layoutX="578.0" layoutY="557.0" mnemonicParsing="false" onAction="#saveWord" prefHeight="26.0" prefWidth="120.0" text="LƯU TỪ KHI SỬA" />
+   </children>
+</AnchorPane>
