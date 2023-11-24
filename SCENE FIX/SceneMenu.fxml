@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="900.0" style="-fx-background-color: linear-gradient(to right,#E0709F, #FFA9F9)linear-gradient(to right,#E0709F, #FFA9F9);" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <AnchorPane layoutX="121.0" layoutY="56.0" prefHeight="66.0" prefWidth="900.0" style="-fx-background-color: #ffffff;" AnchorPane.bottomAnchor="584.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+      <AnchorPane layoutX="-1.0" layoutY="62.0" prefHeight="591.0" prefWidth="211.0" />
+      <AnchorPane layoutX="321.0" layoutY="114.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <AnchorPane layoutY="63.0" prefHeight="591.0" prefWidth="64.0" style="-fx-background-color: #ffffff;" AnchorPane.bottomAnchor="0.0">
+               <children>
+                  <VBox layoutY="18.0" prefHeight="565.0" prefWidth="64.0" AnchorPane.bottomAnchor="1.0">
+                     <children>
+                        <AnchorPane prefHeight="509.0" prefWidth="64.0">
+                           <children>
+                              <ImageView fitHeight="46.0" fitWidth="46.0" layoutX="9.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@book.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="46.0" fitWidth="47.0" layoutX="10.0" layoutY="102.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@api.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="46.0" fitWidth="53.0" layoutX="10.0" layoutY="162.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@game.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="46.0" fitWidth="47.0" layoutX="10.0" layoutY="217.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@user%20menu.png" />
+                                 </image>
+                              </ImageView>
+                           </children></AnchorPane>
+                        <Button mnemonicParsing="false" prefHeight="53.0" prefWidth="63.0" style="-fx-background-color: transparent;">
+                           <graphic>
+                              <ImageView fitHeight="140.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@setting.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                     </children>
+                  </VBox>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="64.0" layoutY="66.0" prefHeight="584.0" prefWidth="195.0" style="-fx-background-color: #FFC0D6;">
+               <children>
+                  <VBox layoutX="11.0" layoutY="54.0" prefHeight="527.0" prefWidth="184.0">
+                     <children>
+                        <Button mnemonicParsing="false" prefHeight="62.0" prefWidth="162.0" style="-fx-background-color: transparent;">
+                           <font>
+                              <Font name="Comic Sans MS" size="20.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="38.0" fitWidth="149.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@Dictionary%20menu%20.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Button mnemonicParsing="false" prefHeight="62.0" prefWidth="172.0" style="-fx-background-color: transparent;">
+                           <font>
+                              <Font name="Comic Sans MS" size="20.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="39.0" fitWidth="145.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@Translate%20API.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Button mnemonicParsing="false" prefHeight="62.0" prefWidth="172.0" style="-fx-background-color: transparent;">
+                           <font>
+                              <Font name="Comic Sans MS" size="20.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="39.0" fitWidth="180.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@Game%20menu.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Button mnemonicParsing="false" prefHeight="62.0" prefWidth="172.0" style="-fx-background-color: transparent;">
+                           <font>
+                              <Font name="Comic Sans MS" size="20.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="39.0" fitWidth="149.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@User.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                     </children>
+                  </VBox>
+               </children>
+            </AnchorPane>
+            <ImageView fitHeight="53.0" fitWidth="54.0" layoutX="6.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@menu.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="39.0" fitWidth="37.0" layoutX="849.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@exit.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

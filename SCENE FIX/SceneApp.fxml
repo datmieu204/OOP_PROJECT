@@ -11,14 +11,14 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="584.0" prefWidth="836.0" style="-fx-background-color: linear-gradient(to right, #635ee2,#a8dbfa, #d3f5cf);" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openjfx.MainApp.MainController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="584.0" prefWidth="836.0" style="-fx-background-color: linear-gradient(to right,#E0709F, #FFA9F9)linear-gradient(to right,#E0709F, #FFA9F9);" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openjfx.MainApp.MainController">
    <children>
       <TextField fx:id="txtSearch" layoutX="83.0" layoutY="137.0" prefHeight="38.0" prefWidth="241.0" promptText="search here" style="-fx-background-color: #ffffff; -fx-border-color: #ffffff; -fx-background-radius: 20px; -fx-border-radius: 20px;">
          <font>
             <Font name="Comic Sans MS Bold" size="16.0" />
          </font>
          <effect>
-            <DropShadow color="#2f79bf" height="42.5" offsetX="2.0" offsetY="2.0" radius="24.33" spread="0.16" width="56.82" />
+            <DropShadow color="#ff2383" height="49.66" offsetX="2.0" offsetY="2.0" radius="26.119999999999997" spread="0.16" width="56.82" />
          </effect>
       </TextField>
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="-1.0" layoutY="3.0" prefHeight="124.0" prefWidth="837.0" textFill="#5c6d9b">
@@ -35,7 +35,7 @@
       </Label>
       <TextField layoutX="391.0" layoutY="185.0" prefHeight="334.0" prefWidth="381.0" style="-fx-background-color: #ffffff; -fx-background-radius: 20px; -fx-border-color: #ffffff; -fx-border-radius: 20px;">
          <effect>
-            <DropShadow color="#2f79bf" height="42.5" offsetX="2.0" offsetY="2.0" radius="24.33" spread="0.16" width="56.82" />
+            <DropShadow color="#ff2383" height="49.66" offsetX="2.0" offsetY="2.0" radius="26.119999999999997" spread="0.16" width="56.82" />
          </effect></TextField>
       <TextArea fx:id="txtExplain" editable="false" layoutX="406.0" layoutY="185.0" prefHeight="334.0" prefWidth="353.0" promptText="Ouput" style="-fx-background-color: #ffffff; -fx-border-color: #ffffff; -fx-border-radius: 20px; -fx-background-radius: 20px;">
          <font>
@@ -44,17 +44,14 @@
       </TextArea>
       <ListView fx:id="listView" layoutX="83.0" layoutY="187.0" prefHeight="334.0" prefWidth="241.0" style="-fx-background-color: #ffffff; -fx-background-radius: 20px; -fx-border-color: #ffffff; -fx-border-radius: 20px;">
          <effect>
-            <DropShadow color="#2f79bf" height="42.5" offsetX="2.0" offsetY="2.0" radius="24.33" spread="0.16" width="56.82" />
+            <DropShadow color="#ff2383" height="49.66" offsetX="2.0" offsetY="2.0" radius="26.119999999999997" spread="0.16" width="56.82" />
          </effect></ListView>
       <Label fx:id="labelSearch" layoutX="338.0" layoutY="128.0" prefHeight="48.0" prefWidth="217.0" style="-fx-background-radius: 5px;" textFill="#5c6d9b">
          <font>
             <Font name="Comic Sans MS Bold" size="20.0" />
          </font>
       </Label>
-      <Button layoutX="686.0" layoutY="200.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="51.0" style="-fx-background-color: linear-gradient(to right, #635ee2,#a8dbfa, #d3f5cf);" stylesheets="@.button.css">
-         <effect>
-            <DropShadow color="#635ee2" height="60.63" offsetX="2.0" offsetY="2.0" radius="29.9075" spread="0.16" width="61.0" />
-         </effect>
+      <Button layoutX="702.0" layoutY="196.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="51.0" stylesheets="@.button.css">
          <graphic>
             <ImageView fitHeight="47.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
                <image>

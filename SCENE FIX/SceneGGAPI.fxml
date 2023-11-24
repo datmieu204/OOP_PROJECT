@@ -13,7 +13,7 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="584.0" prefWidth="836.0" style="-fx-background-color: linear-gradient(to right, #635ee2,#a8dbfa, #d3f5cf);" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openjfx.MainApp.GoogleAPI">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="584.0" prefWidth="836.0" style="-fx-background-color: linear-gradient(to right,#E0709F, #FFA9F9)linear-gradient(to right,#E0709F, #FFA9F9);" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openjfx.MainApp.GoogleAPI">
    <children>
       <Label layoutX="1.0" layoutY="-1.0" prefHeight="99.0" prefWidth="835.0" textFill="#5c6d9b">
          <font>
@@ -22,7 +22,7 @@
       </Label>
       <TextField layoutX="74.0" layoutY="160.0" prefHeight="355.0" prefWidth="302.0" style="-fx-background-color: #ffffff; -fx-border-color: #ffffff; -fx-background-radius: 20px; -fx-border-radius: 20px;">
          <effect>
-            <DropShadow color="#2f79bf" height="49.66" offsetX="2.0" offsetY="2.0" radius="26.119999999999997" spread="0.16" width="56.82" />
+            <DropShadow color="#ff2383" height="53.24" offsetX="2.0" offsetY="2.0" radius="27.015" spread="0.16" width="56.82" />
          </effect>
       </TextField>
       <TextArea fx:id="txtGG" layoutX="90.0" layoutY="160.0" prefHeight="345.0" prefWidth="273.0" promptText="Nhập văn bản" style="-fx-background-color: #ffffff; -fx-border-color: #ffffff; -fx-background-radius: 20px; -fx-border-radius: 20px;">
@@ -32,7 +32,7 @@
       </TextArea>
       <TextField layoutX="462.0" layoutY="160.0" prefHeight="355.0" prefWidth="302.0" style="-fx-background-color: #ffffff; -fx-border-color: #ffffff; -fx-background-radius: 20px; -fx-border-radius: 20px;">
          <effect>
-            <DropShadow color="#2f79bf" height="49.66" offsetX="2.0" offsetY="2.0" radius="26.119999999999997" spread="0.16" width="56.82" />
+            <DropShadow color="#ff2383" height="53.24" offsetX="2.0" offsetY="2.0" radius="27.015" spread="0.16" width="56.82" />
          </effect>
       </TextField>
       <TextArea fx:id="txtGGtrans" layoutX="477.0" layoutY="160.0" prefHeight="345.0" prefWidth="273.0" promptText="Bản dịch" style="-fx-background-color: #ffffff; -fx-border-color: #ffffff; -fx-background-radius: 20px; -fx-border-radius: 20px;" stylesheets="@../Desktop/JavaProjects/FirstJavaProjects/src/CSS.css">
@@ -52,11 +52,11 @@
             </ImageView>
          </graphic>
          <effect>
-            <DropShadow color="#2f79bf" height="49.66" offsetX="2.0" offsetY="2.0" radius="26.119999999999997" spread="0.16" width="56.82" />
+            <DropShadow color="#ff2383" height="53.24" offsetX="2.0" offsetY="2.0" radius="27.015" spread="0.16" width="56.82" />
          </effect></Button>
       <ComboBox fx:id="fromCountry" layoutX="76.0" layoutY="105.0" prefWidth="150.0" promptText="Select Lang" stylesheets="@../Desktop/JavaProjects/FirstJavaProjects/src/combobox.css" />
       <ComboBox fx:id="toCountry" layoutX="607.0" layoutY="105.0" prefWidth="150.0" promptText="Select Lang" stylesheets="@../Desktop/JavaProjects/FirstJavaProjects/src/combobox.css" />
-      <Button fx:id="btnSwap" layoutX="390.0" layoutY="103.0" mnemonicParsing="false" onAction="#ggSwap" prefHeight="50.0" prefWidth="58.0" style="-fx-background-color: linear-gradient(to right, #635ee2,#a8dbfa, #d3f5cf);" stylesheets="@.button.css">
+      <Button fx:id="btnSwap" layoutX="390.0" layoutY="103.0" mnemonicParsing="false" onAction="#ggSwap" prefHeight="50.0" prefWidth="58.0" stylesheets="@.button.css">
          <textFill>
             <LinearGradient endX="1.0" endY="1.0">
                <stops>
@@ -65,30 +65,26 @@
                </stops>
             </LinearGradient>
          </textFill></Button>
-      <Button layoutX="301.0" layoutY="176.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="50.0" style="-fx-background-color: linear-gradient(to right, #635ee2,#a8dbfa, #d3f5cf);" stylesheets="@.button.css">
-         <graphic>
-            <ImageView fitHeight="50.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@âm%20thanh.png" />
-               </image>
-            </ImageView>
-         </graphic></Button>
-      <Button fx:id="pronounceTo" layoutX="690.0" layoutY="178.0" mnemonicParsing="false" onAction="#pronounceTo" prefHeight="42.0" prefWidth="50.0" style="-fx-background-color: linear-gradient(to right, #635ee2,#a8dbfa, #d3f5cf);" stylesheets="@.button.css" AnchorPane.bottomAnchor="364.0" AnchorPane.rightAnchor="94.0" AnchorPane.topAnchor="178.0">
-         <graphic>
-            <ImageView fitHeight="29.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@âm%20thanh.png" />
-               </image>
-            </ImageView>
-         </graphic></Button>
-      <ImageView fitHeight="38.0" fitWidth="56.0" layoutX="400.0" layoutY="109.0" pickOnBounds="true" preserveRatio="true">
+      <Button layoutX="305.0" layoutY="99.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="58.0" stylesheets="@.button.css" />
+      <Button fx:id="pronounceTo" layoutX="764.0" layoutY="139.0" mnemonicParsing="false" onAction="#pronounceTo" prefHeight="42.0" prefWidth="50.0" stylesheets="@.button.css" AnchorPane.bottomAnchor="403.0" AnchorPane.rightAnchor="21.0" AnchorPane.topAnchor="139.0" />
+      <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="398.0" layoutY="103.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@chuyển%20đổi.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="99.0" fitWidth="828.0" layoutX="31.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@GG%20TRANSLATE%20API.png" />
+            <Image url="@Gg%20Translate%20API.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="42.0" fitWidth="40.0" layoutX="323.0" layoutY="176.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@âm%20thanh.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="710.0" layoutY="176.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@âm%20thanh.png" />
          </image>
       </ImageView>
    </children>
