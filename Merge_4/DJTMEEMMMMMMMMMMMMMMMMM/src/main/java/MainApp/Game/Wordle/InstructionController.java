@@ -29,7 +29,7 @@ public class InstructionController {
     private void backToGameScene(ActionEvent event) throws IOException {
         optionSound.setVolume(0.7);
         optionSound.seek(Duration.ZERO);
-        optionSound.play();  
+        optionSound.play();
         Stage stage = (Stage) backButton.getScene().getWindow();
         stage.close();
     }

@@ -9,7 +9,7 @@ public class GameData {
 
     public static int points5x5 = 0;
     public static int turns5x5 = 0;
-    
+
     public static String gameMatrix;
     public final static int TIMELIMIT = 4;
 }

@@ -10,19 +10,22 @@ public class Word {
     public static String topic;
     public static ArrayList<String> engwords = new ArrayList<>();
     public static ArrayList<String> vietwords = new ArrayList<>();
-    public static void setTopic(String x){
+
+    public static void setTopic(String x) {
         topic = x;
     }
-    public static String getTopic(){
+
+    public static String getTopic() {
         return topic;
     }
-    public static void generateWord(){
-        if (engwords != null && vietwords != null ) {
+
+    public static void generateWord() {
+        if (engwords != null && vietwords != null) {
             engwords.clear();
             vietwords.clear();
         }
-        
-        //"D:/DJTMEEMMMMMMMMMMMMMMMMM/src/main/resources/topics/Wordle/Animal.txt"
+
+        // "D:/DJTMEEMMMMMMMMMMMMMMMMM/src/main/resources/topics/Wordle/Animal.txt"
         String filePath = "D:/OOP_PROJECT/Merge_4/DJTMEEMMMMMMMMMMMMMMMMM/src/main/resources/topics/MemoryGame/Animal.txt";
         if (topic != null && topic.equals("Animal")) {
             filePath = "D:/OOP_PROJECT/Merge_4/DJTMEEMMMMMMMMMMMMMMMMM/src/main/resources/topics/MemoryGame/Animal.txt";

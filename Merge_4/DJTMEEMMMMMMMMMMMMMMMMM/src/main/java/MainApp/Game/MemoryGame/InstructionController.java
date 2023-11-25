@@ -1,4 +1,5 @@
 package MainApp.Game.MemoryGame;
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -31,11 +32,12 @@ public class InstructionController implements Initializable {
         optionSound.stop();
         optionSound.seek(Duration.ZERO);
     }
+
     @FXML
     private void backToGameScene(ActionEvent event) throws IOException {
         optionSound.setVolume(0.7);
         optionSound.seek(Duration.ZERO);
-        optionSound.play();  
+        optionSound.play();
         Stage stage = (Stage) backButton.getScene().getWindow();
         stage.close();
     }

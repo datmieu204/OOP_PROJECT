@@ -11,7 +11,7 @@ import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 public class AddUserWordController {
-    
+
     @FXML
     private TextField txtWordTarget;
 
@@ -30,7 +30,7 @@ public class AddUserWordController {
     @FXML
     private ImageView explainImg;
 
-    //===================================================================================================================================
+    // ===================================================================================================================================
 
     @FXML
     public void initialize() {
@@ -39,23 +39,22 @@ public class AddUserWordController {
     }
 
     @FXML
-    private void addWord(ActionEvent event){
+    private void addWord(ActionEvent event) {
         String wordTarget = txtWordTarget.getText();
         String wordExplain = txtWordExplain.getText();
 
-        if(wordTarget.equals("") || wordExplain.equals("")){
+        if (wordTarget.equals("") || wordExplain.equals("")) {
             showAlert(Alert.AlertType.ERROR, "Error", "Please fill in all the fields");
-        }
-        else{
-            if(DictionaryManagementUser.lookUpUser(wordTarget) != -1){
+        } else {
+            if (DictionaryManagementUser.lookUpUser(wordTarget) != -1) {
                 showAlert(Alert.AlertType.ERROR, "Error", "This word is already in the dictionary");
             } else {
                 DictionaryManagementUser.addWordUser(wordTarget, wordExplain);
-                
+
                 showAlert(Alert.AlertType.INFORMATION, "Success", "Add word successfully");
                 checkAdd();
                 clearFields();
-                closeWindow();  
+                closeWindow();
             }
         }
     }
@@ -68,22 +67,22 @@ public class AddUserWordController {
         alert.showAndWait();
     }
 
-    private void clearFields(){
+    private void clearFields() {
         txtWordTarget.clear();
         txtWordExplain.clear();
     }
 
-    private void closeWindow(){
+    private void closeWindow() {
         Stage stage = (Stage) btnCancel.getScene().getWindow();
         stage.close();
     }
 
-    public void checkAdd(){
+    public void checkAdd() {
 
     }
 
     @FXML
-    private void cancel(ActionEvent event){
+    private void cancel(ActionEvent event) {
         txtWordTarget.setText("");
         txtWordExplain.setText("");
         Stage stage = (Stage) btnCancel.getScene().getWindow();
@@ -91,12 +90,12 @@ public class AddUserWordController {
     }
 
     @FXML
-    private void targetFocus(){
+    private void targetFocus() {
         targetImg.setVisible(false);
     }
 
     @FXML
-    private void explainFocus(){
+    private void explainFocus() {
         explainImg.setVisible(false);
     }
 }

@@ -1,4 +1,5 @@
 package MainApp.Game.Wordle;
+
 import java.io.IOException;
 import java.net.URL;
 import javafx.util.Duration;
@@ -8,7 +9,6 @@ import java.util.Map;
 import java.util.Random;
 import java.util.ResourceBundle;
 import java.util.concurrent.TimeUnit;
-
 import MainApp.Game.Game;
 import javafx.animation.Animation;
 import javafx.animation.FadeTransition;
@@ -31,10 +31,10 @@ import javafx.stage.Stage;
 
 public class GameScene extends Game implements Initializable {
     static WordleStartScene wordleStartScene;
-    
-    public static void setWordleStartScene(WordleStartScene wordleStartScene){
+
+    public static void setWordleStartScene(WordleStartScene wordleStartScene) {
         GameScene.wordleStartScene = wordleStartScene;
-    } 
+    }
 
     @FXML
     private TextField guessInput;
@@ -113,7 +113,7 @@ public class GameScene extends Game implements Initializable {
     @FXML
     private StackPane stackPane;
     public static boolean correctAnswer = false;
-    //BIẾN THỜI GIAN
+    // BIẾN THỜI GIAN
     public static int timeCount = 0;
 
     private Timeline gameTimer;
@@ -126,11 +126,10 @@ public class GameScene extends Game implements Initializable {
 
     // private ArrayList<String> words1 = Word.getArray();
     private ArrayList<String> words1 = new ArrayList<>();
-    
-    private boolean[] checkCorrect = {false, false, false, false, false};
+
+    private boolean[] checkCorrect = { false, false, false, false, false };
 
     private boolean soundOn = true;
-    
 
     String almostCorrect_sound = getClass().getResource("/sound/almostCorrect.mp3").toExternalForm();
     String flip_sound = getClass().getResource("/sound/flip.mp3").toExternalForm();
@@ -148,19 +147,19 @@ public class GameScene extends Game implements Initializable {
         Random random = new Random();
         int randomIndex = random.nextInt(words1.size());
         wordTarget = words1.get(randomIndex);
-        //UPPERCASE
+        // UPPERCASE
         wordTarget = wordTarget.toUpperCase();
     }
 
     public String getWord() {
         return wordTarget;
     }
-    
-    public void startGame(){
+
+    public void startGame() {
         noticeLabel.setText("");
-        randomizeWord();  
-  
-        for(Label label : boxes1){
+        randomizeWord();
+
+        for (Label label : boxes1) {
             label.setText("");
             label.getStyleClass().clear();
             label.getStyleClass().add("gameLabel");
@@ -182,7 +181,6 @@ public class GameScene extends Game implements Initializable {
         }
         randomizeWord();
 
-
         gameTimer = new Timeline(new KeyFrame(Duration.seconds(1), e -> {
             timeCount++;
             time.setText("Time: " + String.valueOf(timeCount));
@@ -202,13 +200,13 @@ public class GameScene extends Game implements Initializable {
         }
         words1 = Word.getArray();
         rootPane.setOpacity(0);
-        boxes1 = new Label[] { box00, box01, box02, box03, box04, 
-                            box05, box06, box07, box08, box09, 
-                            box10, box11, box12, box13, box14, 
-                            box15, box16, box17, box18, box19, 
-                            box20, box21, box22, box23, box24};    
+        boxes1 = new Label[] { box00, box01, box02, box03, box04,
+                box05, box06, box07, box08, box09,
+                box10, box11, box12, box13, box14,
+                box15, box16, box17, box18, box19,
+                box20, box21, box22, box23, box24 };
 
-        for(Label label : boxes1){
+        for (Label label : boxes1) {
             label.setText("");
             label.getStyleClass().clear();
             label.getStyleClass().add("gameLabel");
@@ -221,118 +219,113 @@ public class GameScene extends Game implements Initializable {
         flipSound.stop();
         flipSound.seek(Duration.ZERO);
 
-        soundOn = false;  
+        soundOn = false;
         instructionButton.setGraphic(instructionImage);
         soundButton.setGraphic(soundOffImage);
     }
 
     @FXML
     protected void checkGuess() throws InterruptedException {
-        if(correctAnswer == true){
+        if (correctAnswer == true) {
             guessWord.setText("You're correct, next round");
-        }
-        else if(correctAnswer == false){
-        checkSound.setVolume(0.7);
-        checkSound.seek(Duration.ZERO);
-        checkSound.play();  
+        } else if (correctAnswer == false) {
+            checkSound.setVolume(0.7);
+            checkSound.seek(Duration.ZERO);
+            checkSound.play();
 
-        String ans = getWord();
-        answer = ans;
-        Map <String, Integer> mapAnswer = new HashMap<String, Integer>();
-        String guess = guessInput.getText();
-        guess = guess.toUpperCase();
+            String ans = getWord();
+            answer = ans;
+            Map<String, Integer> mapAnswer = new HashMap<String, Integer>();
+            String guess = guessInput.getText();
+            guess = guess.toUpperCase();
 
-        for(int i = 0; i < 5; i++){
-            String chac = String.valueOf(ans.charAt(i));
-            if (!mapAnswer.containsKey(chac)) {
-                mapAnswer.put(chac, 0);
+            for (int i = 0; i < 5; i++) {
+                String chac = String.valueOf(ans.charAt(i));
+                if (!mapAnswer.containsKey(chac)) {
+                    mapAnswer.put(chac, 0);
+                }
+                mapAnswer.put(chac, mapAnswer.get(chac) + 1);
             }
-            mapAnswer.put(chac, mapAnswer.get(chac) + 1);
-        }
-        
-        if (guess.length() != 5) {
-            guessWord.setText("Please enter another guess");
-        }
-        else if(turns == 5){
-            noticeLabel.setText("You have no tries");
-        } else {
-            guessWord.setText(guess);
-            Timeline timeline = new Timeline();
-            
-            for (int i = rows * 5; i < rows * guess.length() + 5; i++) {
-                String letter = guess.substring(i - rows * 5, i - rows * 5 + 1);
-                boxes1[i].setText("");
-                int finalI = i;
-                int finalII = i - rows * 5;
-                KeyFrame keyFrame = new KeyFrame(
-                        javafx.util.Duration.millis(TimeUnit.SECONDS.toMillis(i - rows * 5 + 1) / 5),
-                        new javafx.event.EventHandler<ActionEvent>() {
-                            @Override
-                            public void handle(ActionEvent event) {
-                                boxes1[finalI].setText(boxes1[finalI].getText() + letter);
-                                //APPLE
-                                //APLPP
-                                if(ans.contains(letter) && mapAnswer.get(letter) > 0){
-                                    mapAnswer.put(letter,mapAnswer.get(letter) -1);
-                                    
-                                    if (letter.equals(ans.substring(finalII, finalII + 1))) {
-                                        boxes1[finalI].getStyleClass().add("true");
-                                    } else{
-                                        boxes1[finalI].getStyleClass().add("having");
-                                    } 
-                                }
 
+            if (guess.length() != 5) {
+                guessWord.setText("Please enter another guess");
+            } else if (turns == 5) {
+                noticeLabel.setText("You have no tries");
+            } else {
+                guessWord.setText(guess);
+                Timeline timeline = new Timeline();
 
-                                else {
+                for (int i = rows * 5; i < rows * guess.length() + 5; i++) {
+                    String letter = guess.substring(i - rows * 5, i - rows * 5 + 1);
+                    boxes1[i].setText("");
+                    int finalI = i;
+                    int finalII = i - rows * 5;
+                    KeyFrame keyFrame = new KeyFrame(
+                            javafx.util.Duration.millis(TimeUnit.SECONDS.toMillis(i - rows * 5 + 1) / 5),
+                            new javafx.event.EventHandler<ActionEvent>() {
+                                @Override
+                                public void handle(ActionEvent event) {
+                                    boxes1[finalI].setText(boxes1[finalI].getText() + letter);
+                                    // APPLE
+                                    // APLPP
+                                    if (ans.contains(letter) && mapAnswer.get(letter) > 0) {
+                                        mapAnswer.put(letter, mapAnswer.get(letter) - 1);
+
+                                        if (letter.equals(ans.substring(finalII, finalII + 1))) {
+                                            boxes1[finalI].getStyleClass().add("true");
+                                        } else {
+                                            boxes1[finalI].getStyleClass().add("having");
+                                        }
+                                    }
+
+                            else {
                                         boxes1[finalI].getStyleClass().add("false");
                                     }
-                            }
-                        });
-                timeline.getKeyFrames().add(keyFrame);
-            }
-
-            int countMatchedLetter = 0;
-            for (int i = 0; i < 5; i++) {
-                if (guess.charAt(i) == ans.charAt(i)) {
-                    countMatchedLetter++;
+                                }
+                            });
+                    timeline.getKeyFrames().add(keyFrame);
                 }
-            }
 
-            if(countMatchedLetter == 5){
-                correctSound.setVolume(1.0);
-                correctSound.seek(Duration.ZERO);
-                correctSound.play();   
-                points++;
-                correctAnswer = true;
-            }
-            else if (letterIndex(ans, guess)){
-                almostCorrectSound.setVolume(1.0);
-                almostCorrectSound.seek(Duration.ZERO);
-                almostCorrectSound.play();   
-            } 
-            else if (countMatchedLetter == 0){
-                wrongSound.setVolume(1.0);
-                wrongSound.seek(Duration.ZERO);
-                wrongSound.play();
-            }
-            guessInput.setText("");
-            point.setText("Points: " + points);
-            rows++;
-            turns++;
-
-            if(turns == 5){
-                try {
-                    showResult();
-                } catch (IOException e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
+                int countMatchedLetter = 0;
+                for (int i = 0; i < 5; i++) {
+                    if (guess.charAt(i) == ans.charAt(i)) {
+                        countMatchedLetter++;
+                    }
                 }
-            }
 
-            turn.setText("Turns: " + turns);
-            timeline.play();
-            gameTimer.play();
-        }
+                if (countMatchedLetter == 5) {
+                    correctSound.setVolume(1.0);
+                    correctSound.seek(Duration.ZERO);
+                    correctSound.play();
+                    points++;
+                    correctAnswer = true;
+                } else if (letterIndex(ans, guess)) {
+                    almostCorrectSound.setVolume(1.0);
+                    almostCorrectSound.seek(Duration.ZERO);
+                    almostCorrectSound.play();
+                } else if (countMatchedLetter == 0) {
+                    wrongSound.setVolume(1.0);
+                    wrongSound.seek(Duration.ZERO);
+                    wrongSound.play();
+                }
+                guessInput.setText("");
+                point.setText("Points: " + points);
+                rows++;
+                turns++;
+
+                if (turns == 5) {
+                    try {
+                        showResult();
+                    } catch (IOException e) {
+                        // TODO Auto-generated catch block
+                        e.printStackTrace();
+                    }
+                }
+
+                turn.setText("Turns: " + turns);
+                timeline.play();
+                gameTimer.play();
+            }
 
         }
     }
@@ -356,33 +349,34 @@ public class GameScene extends Game implements Initializable {
         }
         return count;
     }
+
     @FXML
-    public void onOffSound(ActionEvent event){
-        if(soundOn == true){
+    public void onOffSound(ActionEvent event) {
+        if (soundOn == true) {
             soundOn = false;
             soundButton.setGraphic(soundOffImage);
             backgroundSound.pause();
-        }
-        else{
+        } else {
             soundOn = true;
             soundButton.setGraphic(soundOnImage);
             backgroundSound.play();
         }
     }
 
-    //Back lại StartScene
+    // Back lại StartScene
     @FXML
     private void backToStartScene(ActionEvent event) throws IOException {
         optionSound.setVolume(0.7);
         optionSound.seek(Duration.ZERO);
-        optionSound.play();  
+        optionSound.play();
         // wordleStartScene.hideWordleGame();
         gameTimer.stop();
         backgroundSound.stop();
-        soundOn = false; 
+        soundOn = false;
         soundButton.setGraphic(soundOffImage);
         wordleStartScene.hideWordleGame();
     }
+
     public void makeClearTransition() {
         FadeTransition fadeTransition = new FadeTransition();
         fadeTransition.setDuration(javafx.util.Duration.millis(TimeUnit.SECONDS.toMillis(1)));
@@ -393,11 +387,11 @@ public class GameScene extends Game implements Initializable {
     }
 
     @FXML
-    public void restartGame(){
+    public void restartGame() {
         optionSound.setVolume(0.7);
         optionSound.seek(Duration.ZERO);
-        optionSound.play();  
-        for(Label label : boxes1){
+        optionSound.play();
+        for (Label label : boxes1) {
             label.setText("");
             label.getStyleClass().clear();
             label.getStyleClass().add("gameLabel");
@@ -420,16 +414,17 @@ public class GameScene extends Game implements Initializable {
         randomizeWord();
         gameTimer.play();
     }
+
     @FXML
-    public void nextRound() throws IOException  {
+    public void nextRound() throws IOException {
         optionSound.setVolume(0.7);
         optionSound.seek(Duration.ZERO);
-        optionSound.play();  
+        optionSound.play();
         correctAnswer = false;
         rows = 0;
         turns = 0;
         randomizeWord();
-        for(Label label : boxes1){
+        for (Label label : boxes1) {
             label.setText("");
             label.getStyleClass().clear();
             label.getStyleClass().add("gameLabel");
@@ -442,20 +437,21 @@ public class GameScene extends Game implements Initializable {
         for (int i = 0; i < checkCorrect.length; i++) {
             checkCorrect[i] = false;
         }
-        
+
         noticeLabel.setText("");
         guessWord.setText("");
         guessInput.setText("");
     }
+
     @FXML
     private void nextToInstruction(ActionEvent event) throws IOException {
         optionSound.setVolume(0.7);
         optionSound.seek(Duration.ZERO);
-        optionSound.play();  
+        optionSound.play();
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/Wordle/Instruction.fxml"));
         Stage stage = new Stage();
         stage.setResizable(false);
-        
+
         // Thiết lập kiểu dáng của sân khấu bằng CSS
         String css = this.getClass().getResource("/css/Wordle/Instruction.css").toExternalForm();
         Scene scene = new Scene(root);
@@ -464,10 +460,10 @@ public class GameScene extends Game implements Initializable {
         stage.showAndWait();
     }
 
-    public void showResult() throws IOException{
+    public void showResult() throws IOException {
         optionSound.setVolume(0.7);
         optionSound.seek(Duration.ZERO);
-        optionSound.play();  
+        optionSound.play();
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/Wordle/Result.fxml"));
         Stage stage = new Stage();
         stage.setResizable(false);

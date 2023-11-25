@@ -17,20 +17,20 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.ResourceBundle;
-
 import MainApp.Game.Game;
 
 public class GameController5x5 extends Game implements Initializable {
     static ChooseTopic chooseTopicScene;
-    public static void setChooseTopicScene(ChooseTopic ct){
+
+    public static void setChooseTopicScene(ChooseTopic ct) {
         GameController5x5.chooseTopicScene = ct;
     }
+
     // Biến thời gian
     public int timeCount = 0;
     ArrayList<Button> buttons = new ArrayList<>();
@@ -87,7 +87,7 @@ public class GameController5x5 extends Game implements Initializable {
     private Button button23;
     @FXML
     private Button button24;
-    
+
     @FXML
     private Button restart;
 
@@ -108,7 +108,7 @@ public class GameController5x5 extends Game implements Initializable {
     @FXML
     private AnchorPane anchorRoot;
     @FXML
-    private Button instructionButton; 
+    private Button instructionButton;
 
     Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(0.75), e -> hideButtons()));
     private Timeline gameTimer;
@@ -120,16 +120,16 @@ public class GameController5x5 extends Game implements Initializable {
     private int secondButtonIndex;
     private boolean match;
 
-    public void startGame(){
+    public void startGame() {
         rootPane.setOpacity(0);
-        makeClearTransition(); 
+        makeClearTransition();
         time.setText("Time: " + String.valueOf(timeCount));
 
         // Set time
         gameTimer = new Timeline(new KeyFrame(Duration.seconds(1), e -> {
             timeCount++;
             time.setText("Time: " + String.valueOf(timeCount));
-            if(timeCount == GameData.TIMELIMIT){
+            if (timeCount == GameData.TIMELIMIT) {
                 gameTimer.stop();
                 try {
                     showResult();
@@ -148,10 +148,11 @@ public class GameController5x5 extends Game implements Initializable {
         memoryGame.setupGame();
         restartGame();
     }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         setup();
-        
+
         ChooseTopic.setGame5x5(this);
 
         GameData.gameMatrix = "5x5";
@@ -165,8 +166,8 @@ public class GameController5x5 extends Game implements Initializable {
     public void restartGame() {
         optionSound.setVolume(0.7);
         optionSound.seek(Duration.ZERO);
-        optionSound.play();  
-        for(Button button : buttons){
+        optionSound.play();
+        for (Button button : buttons) {
             button.getStyleClass().remove("opened");
             button.getStyleClass().add("gameButton");
         }
@@ -207,7 +208,7 @@ public class GameController5x5 extends Game implements Initializable {
     }
 
     public void nextRound() {
-        for(Button button : buttons){
+        for (Button button : buttons) {
             button.getStyleClass().remove("opened");
             button.getStyleClass().add("gameButton");
         }
@@ -249,60 +250,57 @@ public class GameController5x5 extends Game implements Initializable {
         gameSelectSound.setVolume(0.7);
         gameSelectSound.seek(Duration.ZERO);
         gameSelectSound.play();
-        
+
         String buttonId1 = ((Control) event.getSource()).getId();
         String numberStr1 = buttonId1.replaceAll("\\D+", "");
         int check = Integer.parseInt(numberStr1);
 
-
-            if ((memoryGame.checkClicked.get(check) == true)) {
-                return;
-            }
-        if(!firstButtonClicked){
-            //If next turn is started before old buttons are hidden
-            if(!match){
+        if ((memoryGame.checkClicked.get(check) == true)) {
+            return;
+        }
+        if (!firstButtonClicked) {
+            // If next turn is started before old buttons are hidden
+            if (!match) {
                 hideButtons();
                 timeline.stop();
             }
             match = false;
             firstButtonClicked = true;
-            //Get clicked button memory letter
+            // Get clicked button memory letter
             // Get clicked button memory letter
             String buttonId = ((Control) event.getSource()).getId();
             String numberStr = buttonId.replaceAll("\\D+", "");
             firstButtonIndex = Integer.parseInt(numberStr);
 
-
             if ((memoryGame.checkClicked.get(firstButtonIndex) == true)) {
                 return;
             }
 
-            //Change clicked button text
+            // Change clicked button text
             buttons.get(firstButtonIndex).setText(memoryGame.getOptionAtIndex(firstButtonIndex));
 
             return;
         }
 
-        //Get clicked button memory letter
+        // Get clicked button memory letter
         String buttonId = ((Control) event.getSource()).getId();
         String numberStr = buttonId.replaceAll("\\D+", "");
         secondButtonIndex = Integer.parseInt(numberStr);
 
-
-        //Nếu mà nhấn ô 2 trùng ô 1 thì return
+        // Nếu mà nhấn ô 2 trùng ô 1 thì return
         if ((secondButtonIndex == firstButtonIndex)) {
             firstButtonClicked = true;
             return;
         }
-        //Change clicked button text
+        // Change clicked button text
         buttons.get(secondButtonIndex).setText(memoryGame.getOptionAtIndex(secondButtonIndex));
 
         firstButtonClicked = false;
 
-        GameData.turns5x5 ++;
+        GameData.turns5x5++;
         turn.setText("Turns = " + GameData.turns5x5);
-        //Check if the two clicked button match
-        if(memoryGame.checkTwoPositions(firstButtonIndex,secondButtonIndex)){
+        // Check if the two clicked button match
+        if (memoryGame.checkTwoPositions(firstButtonIndex, secondButtonIndex)) {
             memoryGame.checkClicked.set(secondButtonIndex, true);
             memoryGame.checkClicked.set(firstButtonIndex, true);
 
@@ -318,13 +316,12 @@ public class GameController5x5 extends Game implements Initializable {
             GameData.points5x5++;
             point.setText("Points = " + GameData.points5x5);
 
-            if(GameData.points5x5 % 12 == 0 && (memoryGame.countClicked(memoryGame.checkClicked) == 24)){
+            if (GameData.points5x5 % 12 == 0 && (memoryGame.countClicked(memoryGame.checkClicked) == 24)) {
                 nextRound();
             }
             return;
 
-        }
-        else{
+        } else {
             wrongSound.setVolume(1.0);
             wrongSound.seek(Duration.ZERO);
             wrongSound.play();
@@ -338,14 +335,14 @@ public class GameController5x5 extends Game implements Initializable {
         buttons.get(firstButtonIndex).setText("");
         buttons.get(secondButtonIndex).setText("");
     }
+
     @FXML
-    public void onOffSound(ActionEvent event){
-        if(soundOn == true){
+    public void onOffSound(ActionEvent event) {
+        if (soundOn == true) {
             soundOn = false;
             soundButton.setGraphic(soundOffImage);
             backgroundSound.pause();
-        }
-        else{
+        } else {
             soundOn = true;
             soundButton.setGraphic(soundOnImage);
             backgroundSound.play();
@@ -356,13 +353,13 @@ public class GameController5x5 extends Game implements Initializable {
     private void backToStartScene(ActionEvent event) throws IOException {
         optionSound.setVolume(0.7);
         optionSound.seek(Duration.ZERO);
-        optionSound.play();  
+        optionSound.play();
         backgroundSound.stop();
-        soundOn = false; 
+        soundOn = false;
         soundButton.setGraphic(soundOffImage);
-        chooseTopicScene.hide5x5Pane();   
+        chooseTopicScene.hide5x5Pane();
         gameTimer.stop();
- 
+
     }
 
     public void makeClearTransition() {
@@ -372,17 +369,17 @@ public class GameController5x5 extends Game implements Initializable {
         fadeTransition.setFromValue(0);
         fadeTransition.setToValue(1);
         fadeTransition.play();
-    }   
+    }
 
     @FXML
     private void nextToInstruction(ActionEvent event) throws IOException {
         optionSound.setVolume(0.7);
         optionSound.seek(Duration.ZERO);
-        optionSound.play();  
+        optionSound.play();
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/MemoryGame/Instruction.fxml"));
         Stage stage = new Stage();
         stage.setResizable(false);
-        
+
         // Thiết lập kiểu dáng của sân khấu bằng CSS
         String css = this.getClass().getResource("/css/MemoryGame/Instruction.css").toExternalForm();
         Scene scene = new Scene(root);
@@ -391,15 +388,15 @@ public class GameController5x5 extends Game implements Initializable {
         stage.showAndWait();
     }
 
-    public void showResult() throws IOException{
+    public void showResult() throws IOException {
         optionSound.setVolume(0.7);
         optionSound.seek(Duration.ZERO);
-        optionSound.play();  
+        optionSound.play();
         gameTimer.stop();
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/MemoryGame/Result.fxml"));
         Stage stage = new Stage();
         stage.setResizable(false);
-        
+
         // Thiết lập kiểu dáng của sân khấu bằng CSS
         String css = this.getClass().getResource("/css/MemoryGame/Result.css").toExternalForm();
         Scene scene = new Scene(root);

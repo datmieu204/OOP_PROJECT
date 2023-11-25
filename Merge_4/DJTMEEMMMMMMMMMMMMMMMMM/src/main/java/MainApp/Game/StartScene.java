@@ -1,4 +1,5 @@
 package MainApp.Game;
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -18,17 +19,17 @@ import javafx.scene.media.MediaPlayer;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
 
-public class StartScene implements Initializable{   
+public class StartScene implements Initializable {
     static MemStartScene memStartScene;
     static WordleStartScene wordleStartScene;
 
-    public static void setMemStartScene(MemStartScene memStartScene){
+    public static void setMemStartScene(MemStartScene memStartScene) {
         StartScene.memStartScene = memStartScene;
     }
-    public static void setWordleStartScene(WordleStartScene wordleStartScene){
+
+    public static void setWordleStartScene(WordleStartScene wordleStartScene) {
         StartScene.wordleStartScene = wordleStartScene;
     }
-
 
     @FXML
     private Pane rootPane;
@@ -41,7 +42,7 @@ public class StartScene implements Initializable{
 
     @FXML
     private Pane memoryPane;
-    
+
     @FXML
     private Button wordleButton;
 
@@ -55,49 +56,54 @@ public class StartScene implements Initializable{
     @FXML
     private Text text;
 
-    public void hideWordlePane(){
+    public void hideWordlePane() {
         chooseGamePane.setVisible(true);
         wordlePane.setVisible(false);
         wordlePane.toBack();
         makeClearTransition();
     }
-    public void hideMemoryPane(){
+
+    public void hideMemoryPane() {
         chooseGamePane.setVisible(true);
         memoryPane.setVisible(false);
         memoryPane.toBack();
         makeClearTransition();
 
     }
-    public void showWordlePane(){
+
+    public void showWordlePane() {
         chooseGamePane.setVisible(false);
         wordlePane.setVisible(true);
         wordlePane.toFront();
         wordleStartScene.makeClearTransition();
 
-        
     }
-    public void showMemoryPane(){
+
+    public void showMemoryPane() {
         chooseGamePane.setVisible(false);
         memoryPane.setVisible(true);
         memoryPane.toFront();
         memStartScene.makeClearTransition();
     }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         rootPane.setOpacity(0);
         try {
-            FXMLLoader fxmlLoader1 = new FXMLLoader(WordleStartScene.class.getResource("/fxml/Wordle/WordleStartScene.fxml"));
+            FXMLLoader fxmlLoader1 = new FXMLLoader(
+                    WordleStartScene.class.getResource("/fxml/Wordle/WordleStartScene.fxml"));
             String css1 = this.getClass().getResource("/css/Wordle/Start.css").toExternalForm();
             Pane rootWordle = fxmlLoader1.load();
             rootWordle.getStylesheets().add(css1);
             wordlePane.getChildren().add(rootWordle);
             hideWordlePane();
 
-            FXMLLoader fxmlLoader2 = new FXMLLoader(WordleStartScene.class.getResource("/fxml/MemoryGame/MemStartScene.fxml"));
+            FXMLLoader fxmlLoader2 = new FXMLLoader(
+                    WordleStartScene.class.getResource("/fxml/MemoryGame/MemStartScene.fxml"));
             String css2 = this.getClass().getResource("/css/MemoryGame/Start.css").toExternalForm();
 
             Pane rootMemory = fxmlLoader2.load();
-                rootMemory.getStylesheets().add(css2);
+            rootMemory.getStylesheets().add(css2);
 
             memoryPane.getChildren().add(rootMemory);
             hideMemoryPane();
@@ -124,13 +130,13 @@ public class StartScene implements Initializable{
 
         textAnimator = new TextAnimator("Welcome To My Show!",
                 100, textOutput);
-                
+
         Thread thread = new Thread(textAnimator);
         thread.start();
-        
+
     }
 
-    //LOAD WORDLE
+    // LOAD WORDLE
     @FXML
     private void nextToMemoryGame(ActionEvent event) throws IOException {
         optionSound.setVolume(0.7);
@@ -138,8 +144,8 @@ public class StartScene implements Initializable{
         optionSound.play();
         showMemoryPane();
     }
-    
-    //LOAD MemoryGame
+
+    // LOAD MemoryGame
     @FXML
     private void nextToWordle(ActionEvent event) throws IOException {
         optionSound.setVolume(0.7);
@@ -155,5 +161,5 @@ public class StartScene implements Initializable{
         fadeTransition.setFromValue(0);
         fadeTransition.setToValue(1);
         fadeTransition.play();
-    }   
+    }
 }

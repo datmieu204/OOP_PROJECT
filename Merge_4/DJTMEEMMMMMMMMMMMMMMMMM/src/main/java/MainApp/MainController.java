@@ -73,7 +73,7 @@ public class MainController {
         dictionaryApp.insertFromFile();
 
         // Dua list tu mydictionary vao listView xuat ra man hinh
-        for (int i = 0; i < dictionaryApp.getList_word().size() ; i++) {
+        for (int i = 0; i < dictionaryApp.getList_word().size(); i++) {
             listView.getItems().add(dictionaryApp.getList_word().get(i).getWordTarget());
         }
 

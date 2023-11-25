@@ -1,4 +1,5 @@
 package MainApp.Game.Wordle;
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -23,11 +24,13 @@ import javafx.util.Duration;
 
 public class WordleStartScene implements Initializable {
     static GameScene gameScene;
+
     public static void setGameScene(GameScene gameScene) {
         WordleStartScene.gameScene = gameScene;
     }
 
     static StartScene startScene;
+
     public static void setStartScene(StartScene startScene) {
         WordleStartScene.startScene = startScene;
     }
@@ -55,19 +58,20 @@ public class WordleStartScene implements Initializable {
     @FXML
     private Text text;
 
-    public void showWordleGame(){
+    public void showWordleGame() {
         selectTopic.setVisible(false);
         wordleGame.setVisible(true);
         wordleGame.toFront();
         gameScene.makeClearTransition();
     }
 
-    public void hideWordleGame(){
+    public void hideWordleGame() {
         selectTopic.setVisible(true);
         wordleGame.setVisible(false);
         wordleGame.toBack();
         makeClearTransition();
     }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         optionSound.play();
@@ -125,7 +129,7 @@ public class WordleStartScene implements Initializable {
         optionSound.seek(Duration.ZERO);
         optionSound.play();
         gameScene.startGame();
-            showWordleGame();
+        showWordleGame();
     }
 
     public void makeClearTransition() {
@@ -142,7 +146,7 @@ public class WordleStartScene implements Initializable {
         optionSound.setVolume(0.7);
         optionSound.seek(Duration.ZERO);
         optionSound.play();
-            startScene.hideWordlePane();            
+        startScene.hideWordlePane();
 
     }
 }

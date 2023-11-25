@@ -19,8 +19,8 @@ public class TextAnimator implements Runnable {
     public void run() {
 
         try {
-        for (int i = 0; i <= text.length(); i++) {
-            String textAtThisPoint = text.substring(0,i);
+            for (int i = 0; i <= text.length(); i++) {
+                String textAtThisPoint = text.substring(0, i);
 
                 textOutput.writeText(textAtThisPoint);
                 Thread.sleep(animationTime + random.nextInt(150));

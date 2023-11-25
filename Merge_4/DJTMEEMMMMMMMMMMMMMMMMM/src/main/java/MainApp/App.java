@@ -1,4 +1,5 @@
 package MainApp;
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -7,8 +8,8 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
-public class App extends Application{
-    protected double x,y = 0;
+public class App extends Application {
+    protected double x, y = 0;
 
     @Override
     public void start(Stage stage) throws Exception {
@@ -30,8 +31,8 @@ public class App extends Application{
     }
 
     public static void main(String[] args) {
-        launch(args); 
+        launch(args);
     }
-    
+
 }
-//MainApp.ControllerScene2
+// MainApp.ControllerScene2

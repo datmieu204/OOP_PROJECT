@@ -19,17 +19,19 @@ import javafx.scene.media.MediaPlayer;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
 
-public class MemStartScene implements Initializable{
+public class MemStartScene implements Initializable {
     static ChooseTopic chooseTopic;
-    
-    static void setChooseTopic(ChooseTopic chooseTopic){
+
+    static void setChooseTopic(ChooseTopic chooseTopic) {
         MemStartScene.chooseTopic = chooseTopic;
     }
 
     static StartScene startScene;
+
     public static void setStartScene(StartScene startScene) {
         MemStartScene.startScene = startScene;
     }
+
     @FXML
     private ChoiceBox<String> choiceBox;
     @FXML
@@ -39,7 +41,7 @@ public class MemStartScene implements Initializable{
     @FXML
     private AnchorPane memStartPane;
 
-    private String[] level = {"3x3", "4x4", "5x5"};
+    private String[] level = { "3x3", "4x4", "5x5" };
     public static String matrixType;
     private int boardLength = 3;
 
@@ -52,28 +54,26 @@ public class MemStartScene implements Initializable{
     @FXML
     private Text text;
 
-    
-
-    public void showChooseTopicPane(){
+    public void showChooseTopicPane() {
         memStartPane.setVisible(false);
         chooseTopicPane.setVisible(true);
         chooseTopicPane.toFront();
         chooseTopic.makeClearTransition();
     }
-    public void hideChooseTopicPane(){
+
+    public void hideChooseTopicPane() {
         memStartPane.setVisible(true);
         chooseTopicPane.setVisible(false);
         chooseTopicPane.toBack();
         makeClearTransition();
     }
 
-
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        
+
         try {
-            StackPane tmpPane = (StackPane) FXMLLoader.load(getClass().getResource("/fxml/MemoryGame/ChooseTopic.fxml"));
+            StackPane tmpPane = (StackPane) FXMLLoader
+                    .load(getClass().getResource("/fxml/MemoryGame/ChooseTopic.fxml"));
             String css = this.getClass().getResource("/css/MemoryGame/ChooseTopic.css").toExternalForm();
             tmpPane.getStylesheets().add(css);
             chooseTopicPane.getChildren().add(tmpPane);
@@ -102,7 +102,7 @@ public class MemStartScene implements Initializable{
         };
         textAnimator = new TextAnimator("Welcome To My Show!",
                 100, textOutput);
-                
+
         Thread thread = new Thread(textAnimator);
         thread.start();
         choiceBox.getSelectionModel().select("3x3");
@@ -110,21 +110,19 @@ public class MemStartScene implements Initializable{
         choiceBox.setOnAction(this::getLevel);
     }
 
-    public void getLevel(ActionEvent event){
+    public void getLevel(ActionEvent event) {
         optionSound.setVolume(1.0);
         optionSound.seek(Duration.ZERO);
         optionSound.play();
         String myLevel = choiceBox.getValue();
-        if(myLevel.equals("3x3")){
+        if (myLevel.equals("3x3")) {
             MemoryGame.setBoardLength(3);
             boardLength = 3;
-        }
-        else if(myLevel.equals("4x4")){
+        } else if (myLevel.equals("4x4")) {
             MemoryGame.setBoardLength(4);
-            
+
             boardLength = 4;
-        }
-        else if(myLevel.equals("5x5")){
+        } else if (myLevel.equals("5x5")) {
             MemoryGame.setBoardLength(5);
             boardLength = 5;
         }
@@ -139,15 +137,13 @@ public class MemStartScene implements Initializable{
         chooseTopic.start();
     }
 
-    public void loadNextScene(){
+    public void loadNextScene() {
         matrixType = "3x3";
-        if(boardLength == 3){
+        if (boardLength == 3) {
             matrixType = "3x3";
-        }
-        else if(boardLength == 4){
-            matrixType ="4x4";
-        }
-        else if(boardLength == 5){
+        } else if (boardLength == 4) {
+            matrixType = "4x4";
+        } else if (boardLength == 5) {
             matrixType = "5x5";
         }
         showChooseTopicPane();
@@ -161,14 +157,14 @@ public class MemStartScene implements Initializable{
         fadeTransition.setFromValue(0);
         fadeTransition.setToValue(1);
         fadeTransition.play();
-    }   
-    
+    }
+
     @FXML
     private void backToStartScene(ActionEvent event) throws IOException {
         optionSound.setVolume(0.7);
         optionSound.seek(Duration.ZERO);
-        optionSound.play();  
-        startScene.hideMemoryPane();            
+        optionSound.play();
+        startScene.hideMemoryPane();
 
     }
 }

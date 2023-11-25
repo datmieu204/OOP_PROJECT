@@ -51,7 +51,6 @@ public class GoogleAPI {
     List<String> list_speakNameTo = new ArrayList<String>();
     List<String> list_speakNameFrom = new ArrayList<String>();
 
-
     String translated = "";
     String speakCode = "";
     String speakName = "";
@@ -92,7 +91,7 @@ public class GoogleAPI {
 
         txtGG.setText(txtGGtrans.getText());
         txtGGtrans.setText("");
-        
+
         ggTranslate(event);
     }
 
@@ -110,7 +109,7 @@ public class GoogleAPI {
         txtGG.setDisable(false);
     }
 
-    //================================================================================================================================
+    // ================================================================================================================================
 
     private void translate(String text) throws IOException {
         setOff();
@@ -126,12 +125,12 @@ public class GoogleAPI {
                         checkGoogleAPI();
                         String langTo = list_toCountry.get(indexTo);
                         String langFrom = list_fromCountry.get(indexFrom);
-                        
+
                         index_to = indexTo;
                         index_from = indexFrom;
 
                         translated = sl.translator(langFrom, langTo, text);
-                        
+
                         Platform.runLater(new Runnable() {
                             @Override
                             public void run() {
@@ -183,12 +182,12 @@ public class GoogleAPI {
                                         list_fromCountry.add(s);
                                     }
 
-                                    for(String s : list_speak_code){
+                                    for (String s : list_speak_code) {
                                         list_speakCodeTo.add(s);
                                         list_speakCodeFrom.add(s);
                                     }
 
-                                    for(String s : list_speak_name){
+                                    for (String s : list_speak_name) {
                                         list_speakNameTo.add(s);
                                         list_speakNameFrom.add(s);
                                     }
@@ -206,7 +205,7 @@ public class GoogleAPI {
     }
 
     public static void checkGoogleAPI() {
-        
+
     }
 
 }

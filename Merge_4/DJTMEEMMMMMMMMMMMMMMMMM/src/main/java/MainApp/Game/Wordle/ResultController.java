@@ -29,13 +29,14 @@ public class ResultController {
     private Text turns;
     @FXML
     private Text answer;
-    
+
     public int resPoints;
     public int resTurns;
     public int resTime;
     String option_sound = getClass().getResource("/sound/option.mp3").toExternalForm();
     Media option_media = new Media(option_sound);
     MediaPlayer optionSound = new MediaPlayer(option_media);
+
     @FXML
     public void initialize() throws Exception {
         time.setText("Time: " + GameScene.timeCount);
@@ -43,11 +44,12 @@ public class ResultController {
         turns.setText("Turns: " + GameScene.turns);
         answer.setText("Answer: " + GameScene.answer);
     }
+
     @FXML
     private void backToGameScene(ActionEvent event) throws IOException {
         optionSound.setVolume(0.7);
         optionSound.seek(Duration.ZERO);
-        optionSound.play();  
+        optionSound.play();
         Stage stage = (Stage) backButton.getScene().getWindow();
         stage.close();
     }

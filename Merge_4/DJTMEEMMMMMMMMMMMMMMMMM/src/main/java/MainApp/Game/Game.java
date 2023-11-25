@@ -39,15 +39,15 @@ public abstract class Game {
     public MediaPlayer optionSound;
     public MediaPlayer gameSelectSound;
 
-    public void setup(){
+    public void setup() {
         pathSoundOn = "/image/soundOn.png";
         pathSoundOff = "/image/soundOff.png";
         pathInstruction = "/image/instruction.png";
-    
+
         soundOnImg = new Image(getClass().getResourceAsStream(pathSoundOn));
         soundOffImg = new Image(getClass().getResourceAsStream(pathSoundOff));
         instructionImg = new Image(getClass().getResourceAsStream(pathInstruction));
-        
+
         soundOnImage = new ImageView(soundOnImg);
         soundOffImage = new ImageView(soundOffImg);
         instructionImage = new ImageView(instructionImg);
@@ -70,8 +70,6 @@ public abstract class Game {
         optionSound = new MediaPlayer(option_media);
         gameSelectSound = new MediaPlayer(gameSelect_media);
 
-
-
         correctSound.play();
         correctSound.stop();
         correctSound.seek(Duration.ZERO);
@@ -79,7 +77,6 @@ public abstract class Game {
         wrongSound.play();
         wrongSound.stop();
         wrongSound.seek(Duration.ZERO);
-
 
         optionSound.play();
         optionSound.stop();
@@ -96,5 +93,6 @@ public abstract class Game {
     }
 
     abstract public void showResult() throws IOException;
+
     abstract public void makeClearTransition();
 }
