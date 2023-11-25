@@ -13,12 +13,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Control;
 import javafx.scene.control.Label;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
@@ -28,8 +24,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.ResourceBundle;
 
+import MainApp.Game.Game;
 
-public class HelloController4x4 implements Initializable {
+
+public class HelloController4x4 extends Game implements Initializable {
     static ChooseTopic chooseTopicScene;
     public static void setChooseTopicScene(ChooseTopic ct){
         HelloController4x4.chooseTopicScene = ct;
@@ -101,36 +99,6 @@ public class HelloController4x4 implements Initializable {
     private boolean firstButtonClicked = false;
     private boolean soundOn = true;
 
-    private ImageView soundOnImage;
-    private ImageView soundOffImage;
-    private ImageView instructionImage;
-
-    private String pathSoundOn = "/image/soundOn.png";
-    private String pathSoundOff = "/image/soundOff.png";
-    private String pathInstruction = "/image/instruction.png";
-
-    Image soundOnImg = new Image(getClass().getResourceAsStream(pathSoundOn));
-    Image soundOffImg = new Image(getClass().getResourceAsStream(pathSoundOff));
-    Image instructionImg = new Image(getClass().getResourceAsStream(pathInstruction));
-
-    String correct_sound = getClass().getResource("/sound/correct.mp3").toExternalForm();
-    String wrong_sound = getClass().getResource("/sound/wrong.mp3").toExternalForm();
-    String background_sound = getClass().getResource("/sound/background.mp3").toExternalForm();
-    String option_sound = getClass().getResource("/sound/option.mp3").toExternalForm();
-    String gameSelect_sound = getClass().getResource("/sound/gameSelect.mp3").toExternalForm();
-
-    Media correct_media = new Media(correct_sound);
-    Media wrong_media = new Media(wrong_sound);
-    Media background_media = new Media(background_sound);
-    Media option_media = new Media(option_sound);
-    Media gameSelect_media = new Media(gameSelect_sound);
-
-    MediaPlayer correctSound = new MediaPlayer(correct_media);
-    MediaPlayer wrongSound = new MediaPlayer(wrong_media);
-    MediaPlayer backgroundSound = new MediaPlayer(background_media);
-    MediaPlayer optionSound = new MediaPlayer(option_media);
-    MediaPlayer gameSelectSound = new MediaPlayer(gameSelect_media);
-
     private int firstButtonIndex;
     private int secondButtonIndex;
     private boolean match;
@@ -165,37 +133,14 @@ public class HelloController4x4 implements Initializable {
     }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        setup();
         ChooseTopic.setGame4x4(this);
 
         GameData.gameMatrix = "4x4";
 
-        soundOnImage = new ImageView(soundOnImg);
-        soundOffImage = new ImageView(soundOffImg);
-        instructionImage = new ImageView(instructionImg);
+
         soundButton.setGraphic(soundOffImage);
         instructionButton.setGraphic(instructionImage);
-
-        correctSound.play();
-        correctSound.stop();
-        correctSound.seek(Duration.ZERO);
-
-        wrongSound.play();
-        wrongSound.stop();
-        wrongSound.seek(Duration.ZERO);
-
-
-        optionSound.play();
-        optionSound.stop();
-        optionSound.seek(Duration.ZERO);
-
-        gameSelectSound.play();
-        gameSelectSound.stop();
-        gameSelectSound.seek(Duration.ZERO);
-
-        backgroundSound.setCycleCount(MediaPlayer.INDEFINITE);
-        backgroundSound.setVolume(0.5);
-        backgroundSound.play();
-        backgroundSound.stop();
         soundOn = false;
     }
 
@@ -399,7 +344,7 @@ public class HelloController4x4 implements Initializable {
         });
         fadeTransition.play();
     }
-    private void makeClearTransition() {
+    public void makeClearTransition() {
         FadeTransition fadeTransition = new FadeTransition();
         fadeTransition.setDuration(Duration.millis(1000));
         fadeTransition.setNode(rootPane);

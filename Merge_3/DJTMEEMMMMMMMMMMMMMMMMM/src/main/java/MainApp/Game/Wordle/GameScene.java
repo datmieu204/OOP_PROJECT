@@ -23,8 +23,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.media.Media;
@@ -133,39 +131,16 @@ public class GameScene extends Game implements Initializable {
 
     private boolean soundOn = true;
     
-    private ImageView soundOnImage;
-    private ImageView soundOffImage;
-    private ImageView instructionImage;
 
-    private String pathSoundOn = "/image/soundOn.png";
-    private String pathSoundOff = "/image/soundOff.png";
-    private String pathInstruction = "/image/instruction.png";
-
-    Image soundOnImg = new Image(getClass().getResourceAsStream(pathSoundOn));
-    Image soundOffImg = new Image(getClass().getResourceAsStream(pathSoundOff));
-    Image instructionImg = new Image(getClass().getResourceAsStream(pathInstruction));
-
-    String correct_sound = getClass().getResource("/sound/correct.mp3").toExternalForm();
     String almostCorrect_sound = getClass().getResource("/sound/almostCorrect.mp3").toExternalForm();
-    String wrong_sound = getClass().getResource("/sound/wrong.mp3").toExternalForm();
-    String background_sound = getClass().getResource("/sound/background.mp3").toExternalForm();
-    String option_sound = getClass().getResource("/sound/option.mp3").toExternalForm();
     String flip_sound = getClass().getResource("/sound/flip.mp3").toExternalForm();
     String check_sound = getClass().getResource("/sound/check.mp3").toExternalForm();
 
-    Media correct_media = new Media(correct_sound);
     Media almostCorrect_media = new Media(almostCorrect_sound);
-    Media wrong_media = new Media(wrong_sound);
-    Media background_media = new Media(background_sound);
-    Media option_media = new Media(option_sound);
     Media flip_media = new Media(flip_sound);
     Media check_media = new Media(check_sound);
 
-    MediaPlayer correctSound = new MediaPlayer(correct_media);
     MediaPlayer almostCorrectSound = new MediaPlayer(almostCorrect_media);
-    MediaPlayer wrongSound = new MediaPlayer(wrong_media);
-    MediaPlayer backgroundSound = new MediaPlayer(background_media);
-    MediaPlayer optionSound = new MediaPlayer(option_media);
     MediaPlayer flipSound = new MediaPlayer(flip_media);
     MediaPlayer checkSound = new MediaPlayer(check_media);
 
@@ -219,10 +194,10 @@ public class GameScene extends Game implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         WordleStartScene.setGameScene(this);
+        setup();
         try {
             Word.importFile();
         } catch (IOException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
         words1 = Word.getArray();
@@ -238,37 +213,15 @@ public class GameScene extends Game implements Initializable {
             label.getStyleClass().clear();
             label.getStyleClass().add("gameLabel");
         }
-        
-        correctSound.play();
-        correctSound.stop();
-        correctSound.seek(Duration.ZERO);
 
         almostCorrectSound.play();
         almostCorrectSound.stop();
         almostCorrectSound.seek(Duration.ZERO);
-
-        wrongSound.play();
-        wrongSound.stop();
-        wrongSound.seek(Duration.ZERO);
-
-        optionSound.play();
-        optionSound.stop();
-        optionSound.seek(Duration.ZERO);
-
         flipSound.play();
         flipSound.stop();
         flipSound.seek(Duration.ZERO);
-
-        backgroundSound.setCycleCount(MediaPlayer.INDEFINITE);
-        backgroundSound.setVolume(0.5);
-        backgroundSound.play();
-        backgroundSound.stop();
         soundOn = false;  
 
-        soundOnImage = new ImageView(soundOnImg);
-        soundOffImage = new ImageView(soundOffImg);
-        instructionImage = new ImageView(instructionImg);
-        
         instructionButton.setGraphic(instructionImage);
         soundButton.setGraphic(soundOffImage);
     }

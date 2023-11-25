@@ -42,13 +42,17 @@ public abstract class Game {
     public MediaPlayer gameSelectSound;
 
     public void setup(){
-        pathSoundOn =  "DJTMEEMMMMMMMMMMMMMMMMM\\src\\main\\resources\\image\\soundOn.png";
-        pathSoundOff = "DJTMEEMMMMMMMMMMMMMMMMM\\src\\main\\resources\\image\\soundOff.png";
-        pathInstruction = "DJTMEEMMMMMMMMMMMMMMMMM\\src\\main\\resources\\image\\instruction.png";
+        pathSoundOn = "/image/soundOn.png";
+        pathSoundOff = "/image/soundOff.png";
+        pathInstruction = "/image/instruction.png";
     
-        soundOnImg = new Image(new File(pathSoundOn).toURI().toString());
-        soundOffImg = new Image(new File(pathSoundOff).toURI().toString());
-        instructionImg = new Image(new File(pathInstruction).toURI().toString());
+        soundOnImg = new Image(getClass().getResourceAsStream(pathSoundOn));
+        soundOffImg = new Image(getClass().getResourceAsStream(pathSoundOff));
+        instructionImg = new Image(getClass().getResourceAsStream(pathInstruction));
+        
+        soundOnImage = new ImageView(soundOnImg);
+        soundOffImage = new ImageView(soundOffImg);
+        instructionImage = new ImageView(instructionImg);
 
         correct_sound = getClass().getResource("/sound/correct.mp3").toExternalForm();
         wrong_sound = getClass().getResource("/sound/wrong.mp3").toExternalForm();
@@ -68,9 +72,7 @@ public abstract class Game {
         optionSound = new MediaPlayer(option_media);
         gameSelectSound = new MediaPlayer(gameSelect_media);
 
-        soundOnImage = new ImageView(soundOnImg);
-        soundOffImage = new ImageView(soundOffImg);
-        instructionImage = new ImageView(instructionImg);
+
 
         correctSound.play();
         correctSound.stop();
