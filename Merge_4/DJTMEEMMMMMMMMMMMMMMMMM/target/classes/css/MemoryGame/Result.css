@@ -1,6 +1,6 @@
 /* Label */
 .resultLabel{
-    -fx-text-fill: #10414f;
+    -fx-text-fill: rgb(195, 32, 32);
     -fx-font-weight: bold;
     -fx-alignment: center;
     -fx-font-size: 46px;

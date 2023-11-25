@@ -23,13 +23,13 @@ public class Word {
         }
         
         //"D:/DJTMEEMMMMMMMMMMMMMMMMM/src/main/resources/topics/Wordle/Animal.txt"
-        String filePath = "D:/DJTMEEMMMMMMMMMMMMMMMMM/src//main/resources/topics/MemoryGame/Animal.txt";
+        String filePath = "D:/OOP_PROJECT/Merge_4/DJTMEEMMMMMMMMMMMMMMMMM/src/main/resources/topics/MemoryGame/Animal.txt";
         if (topic != null && topic.equals("Animal")) {
-            filePath = "D:/DJTMEEMMMMMMMMMMMMMMMMM/src/main/resources/topics/MemoryGame/Animal.txt";
+            filePath = "D:/OOP_PROJECT/Merge_4/DJTMEEMMMMMMMMMMMMMMMMM/src/main/resources/topics/MemoryGame/Animal.txt";
         } else if (topic != null && topic.equals("Body")) {
-            filePath = "D:/DJTMEEMMMMMMMMMMMMMMMMM/src/main/resources/topics/MemoryGame/Body.txt";
+            filePath = "D:/OOP_PROJECT/Merge_4/DJTMEEMMMMMMMMMMMMMMMMM/src/main/resources/topics/MemoryGame/Body.txt";
         } else if (topic != null && topic.equals("Family")) {
-            filePath = "D:/DJTMEEMMMMMMMMMMMMMMMMM/src/main/resources/topics/MemoryGame/Family.txt";
+            filePath = "D:/OOP_PROJECT/Merge_4/DJTMEEMMMMMMMMMMMMMMMMM/src/main/resources/topics/MemoryGame/Family.txt";
         }
 
         try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {

@@ -14,33 +14,33 @@
       <AnchorPane fx:id="anchorRoot" prefHeight="450.0" prefWidth="700.0" styleClass="anchorPane">
          <children>
             <Button fx:id="backButton" layoutX="323.0" layoutY="521.0" mnemonicParsing="false" onAction="#backToGameScene" prefHeight="46.0" prefWidth="102.0" styleClass="optionButton" text="Back" />
-            <Text fx:id="time" layoutX="14.0" layoutY="255.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="resultText" text="Time: " textAlignment="CENTER" wrappingWidth="208.55419921875" />
+            <Text fx:id="time" layoutX="27.0" layoutY="253.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="resultText" text="Time: " textAlignment="CENTER" wrappingWidth="151.55419921875" />
             <Label alignment="CENTER" contentDisplay="CENTER" layoutX="204.0" layoutY="33.0" prefHeight="46.0" prefWidth="339.0" styleClass="InstructionLabel" text="RESULT">
                <font>
                   <Font size="40.0" />
                </font>
             </Label>
-            <Text fx:id="turns" layoutX="244.0" layoutY="255.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="resultText" text="Turns: " textAlignment="CENTER" wrappingWidth="260.5541990995407" />
-            <Text fx:id="points" layoutX="510.0" layoutY="255.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="resultText" text="Points: " textAlignment="CENTER" wrappingWidth="200.5541990995407" />
+            <Text fx:id="turns" layoutX="314.0" layoutY="252.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="resultText" text="Turns:" textAlignment="CENTER" wrappingWidth="126.5542060136795" />
+            <Text fx:id="points" layoutX="543.0" layoutY="252.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="resultText" text="Points: " textAlignment="CENTER" wrappingWidth="176.5541990995407" />
             <Text fx:id="answer" layoutX="144.0" layoutY="430.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="resultText" text="Answer: " textAlignment="CENTER" wrappingWidth="459.55419921875" />
-            <ImageView fitHeight="75.0" fitWidth="75.0" layoutX="69.0" layoutY="140.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="75.0" fitWidth="75.0" layoutX="46.0" layoutY="140.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../java/MainApp/Scene/image/Time.png" />
+                  <Image url="@../../../../../../../DJTMEEMMMMMMMMMMMMMMMMM/src/main/java/MainApp/Scene/image/Time.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="75.0" fitWidth="75.0" layoutX="317.0" layoutY="140.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="75.0" fitWidth="75.0" layoutX="331.0" layoutY="140.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../java/MainApp/Scene/image/2.png" />
+                  <Image url="@../../../../../../../DJTMEEMMMMMMMMMMMMMMMMM/src/main/java/MainApp/Scene/image/2.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="75.0" fitWidth="75.0" layoutX="566.0" layoutY="140.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../java/MainApp/Scene/image/3.png" />
+                  <Image url="@../../../../../../../DJTMEEMMMMMMMMMMMMMMMMM/src/main/java/MainApp/Scene/image/3.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="90.0" fitWidth="90.0" layoutX="323.0" layoutY="300.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../java/MainApp/Scene/image/Answer.png" />
+                  <Image url="@../../../../../../../DJTMEEMMMMMMMMMMMMMMMMM/src/main/java/MainApp/Scene/image/Answer.png" />
                </image>
             </ImageView>
          </children></AnchorPane>

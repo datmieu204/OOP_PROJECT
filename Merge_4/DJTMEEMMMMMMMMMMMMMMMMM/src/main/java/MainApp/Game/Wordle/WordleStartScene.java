@@ -125,21 +125,7 @@ public class WordleStartScene implements Initializable {
         optionSound.seek(Duration.ZERO);
         optionSound.play();
         gameScene.startGame();
-        makeFadeOutToGame();
-    }
-
-    private void makeFadeOutToGame() {
-        FadeTransition fadeTransition = new FadeTransition();
-        fadeTransition.setDuration(Duration.millis(1000));
-        fadeTransition.setNode(selectTopic);
-        fadeTransition.setFromValue(1);
-        fadeTransition.setToValue(0);
-
-        fadeTransition.setOnFinished((ActionEvent event) -> {
             showWordleGame();
-            selectTopic.setOpacity(1);
-        });
-        fadeTransition.play();
     }
 
     public void makeClearTransition() {
@@ -156,22 +142,7 @@ public class WordleStartScene implements Initializable {
         optionSound.setVolume(0.7);
         optionSound.seek(Duration.ZERO);
         optionSound.play();
-        makeFadeOutToStart();
-
-    }
-
-    private void makeFadeOutToStart() {
-        FadeTransition fadeTransition = new FadeTransition();
-        fadeTransition.setDuration(Duration.millis(1000));
-        fadeTransition.setNode(selectTopic);
-        fadeTransition.setFromValue(1);
-        fadeTransition.setToValue(0);
-
-        fadeTransition.setOnFinished((ActionEvent event) -> {
             startScene.hideWordlePane();            
-            selectTopic.setOpacity(1);
-        });
-            fadeTransition.play();
-    }
 
+    }
 }

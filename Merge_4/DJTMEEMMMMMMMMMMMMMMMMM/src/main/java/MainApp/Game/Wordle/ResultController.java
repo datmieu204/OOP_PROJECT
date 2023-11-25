@@ -40,7 +40,7 @@ public class ResultController {
     public void initialize() throws Exception {
         time.setText("Time: " + GameScene.timeCount);
         points.setText("Points: " + GameScene.points);
-        turns.setText("Turn: " + GameScene.turns);
+        turns.setText("Turns: " + GameScene.turns);
         answer.setText("Answer: " + GameScene.answer);
     }
     @FXML

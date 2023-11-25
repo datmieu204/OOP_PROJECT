@@ -22,7 +22,7 @@ public class Word {
     
     public static void importFile() throws IOException {
         Word.topic = "Animal";
-        String filePath = "D:/DJTMEEMMMMMMMMMMMMMMMMM/src/main/resources/topics/Wordle/" + Word.topic + ".txt";
+        String filePath = "D:/OOP_PROJECT/Merge_4/DJTMEEMMMMMMMMMMMMMMMMM/src/main/resources/topics/Wordle/" + Word.topic + ".txt";
         System.out.println(Word.topic);
         FileInputStream in = new FileInputStream(filePath);
         InputStreamReader reader = new InputStreamReader(in);

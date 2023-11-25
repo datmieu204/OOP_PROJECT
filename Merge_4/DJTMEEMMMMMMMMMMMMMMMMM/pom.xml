@@ -37,7 +37,7 @@
             <artifactId>jsapi</artifactId>
             <version>1.0</version>
             <scope>system</scope>
-            <systemPath>D:\DJTMEEMMMMMMMMMMMMMMMMM\lib\jsapi.jar</systemPath>
+            <systemPath>D:\Merge_4\DJTMEEMMMMMMMMMMMMMMMMM\lib\jsapi.jar</systemPath>
         </dependency>
 
 
@@ -62,7 +62,7 @@
             <artifactId>voicerss-tts</artifactId>
             <version>1.0.1</version>
             <scope>system</scope>
-            <systemPath>D:\DJTMEEMMMMMMMMMMMMMMMMM\lib\voicerss_tts.jar</systemPath>
+            <systemPath>D:\Merge_4\DJTMEEMMMMMMMMMMMMMMMMM\lib\voicerss_tts.jar</systemPath>
         </dependency>
 
 

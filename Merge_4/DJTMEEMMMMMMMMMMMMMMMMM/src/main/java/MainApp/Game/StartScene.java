@@ -85,7 +85,6 @@ public class StartScene implements Initializable{
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         rootPane.setOpacity(0);
-        makeClearTransition();     
         try {
             FXMLLoader fxmlLoader1 = new FXMLLoader(WordleStartScene.class.getResource("/fxml/Wordle/WordleStartScene.fxml"));
             String css1 = this.getClass().getResource("/css/Wordle/Start.css").toExternalForm();
@@ -137,44 +136,18 @@ public class StartScene implements Initializable{
         optionSound.setVolume(0.7);
         optionSound.seek(Duration.ZERO);
         optionSound.play();
-        makeFadeOutToMemoryGame();
+        showMemoryPane();
     }
-
-    private void makeFadeOutToMemoryGame() {
-        FadeTransition fadeTransition = new FadeTransition();
-        fadeTransition.setDuration(Duration.millis(1000));
-        fadeTransition.setNode(rootPane);
-        fadeTransition.setFromValue(1);
-        fadeTransition.setToValue(0);
-        
-        fadeTransition.setOnFinished( (ActionEvent event) -> {
-                rootPane.setOpacity(1);
-                showMemoryPane();
-        });
-        fadeTransition.play();
-    }
-
+    
     //LOAD MemoryGame
     @FXML
     private void nextToWordle(ActionEvent event) throws IOException {
         optionSound.setVolume(0.7);
         optionSound.seek(Duration.ZERO);
         optionSound.play();
-        makeFadeOutToWordle();
+        showWordlePane();
     }
-    private void makeFadeOutToWordle() {
-        FadeTransition fadeTransition = new FadeTransition();
-        fadeTransition.setDuration(Duration.millis(1000));
-        fadeTransition.setNode(rootPane);
-        fadeTransition.setFromValue(1);
-        fadeTransition.setToValue(0);
-        
-        fadeTransition.setOnFinished( (ActionEvent event) -> {
-                rootPane.setOpacity(1);
-                showWordlePane();
-        });
-        fadeTransition.play();
-    }
+
     private void makeClearTransition() {
         FadeTransition fadeTransition = new FadeTransition();
         fadeTransition.setDuration(Duration.millis(1000));

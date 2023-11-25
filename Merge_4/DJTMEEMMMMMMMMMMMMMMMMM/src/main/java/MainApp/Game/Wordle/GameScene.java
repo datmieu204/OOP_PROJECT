@@ -170,8 +170,8 @@ public class GameScene extends Game implements Initializable {
         turns = 0;
         points = 0;
         timeCount = 0;
-        turn.setText("Turns = " + turns);
-        point.setText("Points = " + points);
+        turn.setText("Turns: " + turns);
+        point.setText("Points: " + points);
         time.setText("Time: " + timeCount);
         noticeLabel.setText("");
         guessWord.setText("");
@@ -220,8 +220,8 @@ public class GameScene extends Game implements Initializable {
         flipSound.play();
         flipSound.stop();
         flipSound.seek(Duration.ZERO);
-        soundOn = false;  
 
+        soundOn = false;  
         instructionButton.setGraphic(instructionImage);
         soundButton.setGraphic(soundOffImage);
     }
@@ -329,7 +329,7 @@ public class GameScene extends Game implements Initializable {
                 }
             }
 
-            turn.setText("Turns = " + turns);
+            turn.setText("Turns: " + turns);
             timeline.play();
             gameTimer.play();
         }
@@ -356,7 +356,7 @@ public class GameScene extends Game implements Initializable {
         }
         return count;
     }
-
+    @FXML
     public void onOffSound(ActionEvent event){
         if(soundOn == true){
             soundOn = false;
@@ -378,29 +378,10 @@ public class GameScene extends Game implements Initializable {
         optionSound.play();  
         // wordleStartScene.hideWordleGame();
         gameTimer.stop();
-        makeFadeOutToStart();
-    }
-
-    public void backToStart(){
         backgroundSound.stop();
         soundOn = false; 
-
+        soundButton.setGraphic(soundOffImage);
         wordleStartScene.hideWordleGame();
-        
-    }
-
-    private void makeFadeOutToStart() {
-        FadeTransition fadeTransition = new FadeTransition();
-        fadeTransition.setDuration(javafx.util.Duration.millis(TimeUnit.SECONDS.toMillis(1 )));
-        fadeTransition.setNode(stackPane);
-        fadeTransition.setFromValue(1);
-        fadeTransition.setToValue(0);
-        
-        fadeTransition.setOnFinished( (ActionEvent event) -> {
-            backToStart();
-            stackPane.setOpacity(1);
-        });
-        fadeTransition.play();
     }
     public void makeClearTransition() {
         FadeTransition fadeTransition = new FadeTransition();
@@ -426,8 +407,8 @@ public class GameScene extends Game implements Initializable {
         turns = 0;
         points = 0;
         timeCount = 0;
-        turn.setText("Turns = " + turns);
-        point.setText("Points = " + points);
+        turn.setText("Turns: " + turns);
+        point.setText("Points: " + points);
         time.setText("Time: " + timeCount);
         noticeLabel.setText("");
         guessWord.setText("");
@@ -455,8 +436,8 @@ public class GameScene extends Game implements Initializable {
         }
 
         time.setText("Time: " + timeCount);
-        turn.setText("Turns = " + turns);
-        point.setText("Points = " + points);
+        turn.setText("Turns: " + turns);
+        point.setText("Points: " + points);
 
         for (int i = 0; i < checkCorrect.length; i++) {
             checkCorrect[i] = false;
@@ -466,7 +447,6 @@ public class GameScene extends Game implements Initializable {
         guessWord.setText("");
         guessInput.setText("");
     }
-
     @FXML
     private void nextToInstruction(ActionEvent event) throws IOException {
         optionSound.setVolume(0.7);
@@ -491,12 +471,13 @@ public class GameScene extends Game implements Initializable {
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/Wordle/Result.fxml"));
         Stage stage = new Stage();
         stage.setResizable(false);
-        
         // Thiết lập kiểu dáng của sân khấu bằng CSS
         String css = this.getClass().getResource("/css/Wordle/Result.css").toExternalForm();
         Scene scene = new Scene(root);
         scene.getStylesheets().add(css);
         stage.setScene(scene);
         stage.show();
+        gameTimer.stop();
+
     }
 }

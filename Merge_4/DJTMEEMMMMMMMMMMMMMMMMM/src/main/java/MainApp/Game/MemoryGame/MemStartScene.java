@@ -3,7 +3,6 @@ package MainApp.Game.MemoryGame;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.util.concurrent.TimeUnit;
 import MainApp.Game.StartScene;
 import javafx.animation.FadeTransition;
 import javafx.application.Platform;
@@ -136,22 +135,8 @@ public class MemStartScene implements Initializable{
         optionSound.setVolume(1.0);
         optionSound.seek(Duration.ZERO);
         optionSound.play();
-        makeFadeOut();
+        loadNextScene();
         chooseTopic.start();
-    }
-
-    private void makeFadeOut() {
-        FadeTransition fadeTransition = new FadeTransition();
-        fadeTransition.setDuration(Duration.millis(1000));
-        fadeTransition.setNode(rootPane);
-        fadeTransition.setFromValue(1);
-        fadeTransition.setToValue(0);
-        
-        fadeTransition.setOnFinished( (ActionEvent event) -> {
-            rootPane.setOpacity(1);
-            loadNextScene();
-        });
-        fadeTransition.play();
     }
 
     public void loadNextScene(){
@@ -183,21 +168,7 @@ public class MemStartScene implements Initializable{
         optionSound.setVolume(0.7);
         optionSound.seek(Duration.ZERO);
         optionSound.play();  
-        makeFadeOutToStart();
-    }
+        startScene.hideMemoryPane();            
 
-
-    private void makeFadeOutToStart() {
-        FadeTransition fadeTransition = new FadeTransition();
-        fadeTransition.setDuration(javafx.util.Duration.millis(TimeUnit.SECONDS.toMillis(1 )));
-        fadeTransition.setNode(rootPane);
-        fadeTransition.setFromValue(1);
-        fadeTransition.setToValue(0);
-        
-        fadeTransition.setOnFinished( (ActionEvent event) -> {
-            rootPane.setOpacity(1);
-            startScene.hideMemoryPane();            
-        });
-        fadeTransition.play();
     }
 }

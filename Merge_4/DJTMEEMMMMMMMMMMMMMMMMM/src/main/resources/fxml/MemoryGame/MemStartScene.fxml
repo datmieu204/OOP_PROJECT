@@ -14,7 +14,7 @@
 
 <Pane fx:id="rootPane" prefHeight="590.0" prefWidth="836.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainApp.Game.MemoryGame.MemStartScene">
    <children>
-      <Pane fx:id="chooseTopicPane" prefHeight="575.2" prefWidth="836.0" />
+      <Pane fx:id="chooseTopicPane" prefHeight="590.0" prefWidth="836.0" />
       <AnchorPane fx:id="memStartPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="590.0" prefWidth="836.0" styleClass="AnchorPane">
          <children>
             <ChoiceBox fx:id="choiceBox" accessibleRole="CHECK_BOX" blendMode="MULTIPLY" cache="true" layoutX="286.0" layoutY="320.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="33.0" prefWidth="242.0" styleClass="ChoiceBox">

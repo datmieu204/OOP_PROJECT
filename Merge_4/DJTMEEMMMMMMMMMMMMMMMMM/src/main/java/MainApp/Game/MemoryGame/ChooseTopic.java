@@ -28,17 +28,17 @@ public class ChooseTopic implements Initializable{
         ChooseTopic.memStartScene = memStart;
     }
 
-    static HelloController3x3 game3x3;
-    static HelloController4x4 game4x4;
-    static HelloController5x5 game5x5;
+    static GameController3x3 game3x3;
+    static GameController4x4 game4x4;
+    static GameController5x5 game5x5;
     
-    public static void setGame3x3(HelloController3x3 game3x3){
+    public static void setGame3x3(GameController3x3 game3x3){
         ChooseTopic.game3x3 = game3x3;
     }
-    public static void setGame4x4(HelloController4x4 game4x4){
+    public static void setGame4x4(GameController4x4 game4x4){
         ChooseTopic.game4x4 = game4x4;
     }
-    public static void setGame5x5(HelloController5x5 game5x5){
+    public static void setGame5x5(GameController5x5 game5x5){
         ChooseTopic.game5x5 = game5x5;
     }
     @FXML
@@ -126,9 +126,9 @@ public class ChooseTopic implements Initializable{
             hide3x3Pane();
             hide4x4Pane();
             hide5x5Pane();
-            HelloController3x3.setChooseTopicScene(this);
-            HelloController4x4.setChooseTopicScene(this);
-            HelloController5x5.setChooseTopicScene(this);
+            GameController3x3.setChooseTopicScene(this);
+            GameController4x4.setChooseTopicScene(this);
+            GameController5x5.setChooseTopicScene(this);
 
 
         } catch (IOException e) {
@@ -174,21 +174,7 @@ public class ChooseTopic implements Initializable{
         optionSound.setVolume(1.0);
         optionSound.seek(Duration.ZERO);
         optionSound.play();
-        makeFadeOutToGame();
-    }
-
-    private void makeFadeOutToGame() {
-        FadeTransition fadeTransition = new FadeTransition();
-        fadeTransition.setDuration(Duration.millis(1000));
-        fadeTransition.setNode(rootPane);
-        fadeTransition.setFromValue(1);
-        fadeTransition.setToValue(0);
-        
-        fadeTransition.setOnFinished( (ActionEvent event) -> {
-            rootPane.setOpacity(1);
-            loadNextScene();
-        });
-        fadeTransition.play();
+        loadNextScene();
     }
 
     public void loadNextScene(){
@@ -223,21 +209,6 @@ public class ChooseTopic implements Initializable{
         optionSound.setVolume(0.7);
         optionSound.seek(Duration.ZERO);
         optionSound.play();  
-        makeFadeOutToStart();
-    }
-
-    private void makeFadeOutToStart() {
-        FadeTransition fadeTransition = new FadeTransition();
-        fadeTransition.setDuration(Duration.millis(1000));
-        fadeTransition.setNode(rootPane);
-        fadeTransition.setFromValue(1);
-        fadeTransition.setToValue(0);
-        
-        fadeTransition.setOnFinished( (ActionEvent event) -> {
-            rootPane.setOpacity(1); 
             memStartScene.hideChooseTopicPane();
-        });
-        fadeTransition.play();
     }
-
 }
