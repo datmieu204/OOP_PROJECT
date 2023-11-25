@@ -1,0 +1,53 @@
+/* Button */
+.optionButton{
+    -fx-font-weight: bold;
+    -fx-background-color: #ECD8F2;
+    -fx-background-radius: 22;
+    -fx-border-color: #8F60BF;
+    -fx-border-style: solid;
+    -fx-border-width: 2px;
+    -fx-border-radius: 22;
+    -fx-font-size: 21px;
+    -fx-text-fill: #2960cf;
+    -fx-font-family: "Comic Sans MS";
+}
+
+.optionButton:hover{
+    -fx-font-weight: bold;
+    -fx-background-color: #A0BBF2;
+    -fx-background-radius: 22;
+    -fx-font-size: 21px;
+    -fx-text-fill: #6bade8;
+    -fx-border-color: #06457a;
+    -fx-border-radius: 20;
+    -fx-border-width: 3;
+    -fx-font-family: "Comic Sans MS";
+}
+
+.ChoiceBox {
+    -fx-background-color: #99d9f2;
+}
+
+/* Label */
+.Label{
+    -fx-text-fill: #113e4b;
+    -fx-font-weight: bold;
+    -fx-alignment: center;
+    -fx-font-size: 48px;
+    -fx-font-family: "Comic Sans MS";
+}
+
+/* Text */
+.Text {
+    -fx-fill: #000000;
+    -fx-font-weight: bold;
+    -fx-font-family: "Comic Sans MS";
+    -fx-font-size: 50px;
+    -fx-alignment: center;
+}
+
+/* Anchor Pane */
+.AnchorPane {
+    -fx-background-color: #99D9F2;
+    -fx-border-width: 2px; 
+}

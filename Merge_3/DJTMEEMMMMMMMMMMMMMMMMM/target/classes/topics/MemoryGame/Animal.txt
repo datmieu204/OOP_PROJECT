@@ -1,0 +1,152 @@
+Bear: Gau
+Polar bear: Gau Bac cuc
+Panda: Gau truc
+Tiger: Ho
+Tigress: Ho cai
+Tiger cub: Ho con
+Lion: Su tu
+Lioness: Su tu cai
+Lion cub: Su tu con
+Panther: Bao den
+Leopard: Bao dom
+Cheetah: Bao Ghe.ta
+Gazelle: Linh duong
+Rhinoceros: Te giac
+Hippopotamus: Ha ma
+Fox: Cao
+Elephant: Voi
+Wolf: Soi
+Deer: Nai
+Doe: Con nai cai
+Fawn: Nai con
+Reindeer: Tuan loc
+Elk: Nai sung tam
+Moose: Nai sung tam
+Rat: Chuot
+Giraffe: Huou cao co
+Frog: Ech
+Snake: Ran
+Alligator: Ca sau
+Crocodile: Ca sau
+Bat: Doi
+Hyena: Linh cau
+Chimpanzee: Tinh tinh
+Gorilla: Go ri la
+Giant panda: Gau truc
+Boar: Lon rung
+Koala: Koala
+Camel: Lac da
+Sloth: Con luoi
+Zebra: Ngua ven
+Squirrel: Soc
+Baboon: Khi dau cho
+Hedgehog: Nhim
+Monkey: Khi
+Racoon: Gau meo
+Platypus: Thu mo vit
+Badger: Con lung
+Weasel: Chon
+Otter: Rai ca
+Skunk: Chon hoi
+Crab: Cua
+Seal: Hai cau
+Octopus: Bach tuoc
+Shark: Ca map
+Seahorse: Ca ngua
+Walrus: Voi bien
+Starfish: Sao bien
+Whale: Ca voi
+Penguin: Chim canh cut
+Jellyfish: Sua bien
+Squid: Con muc
+Lobster: Tom hum
+Shrimp: Tom
+Oyster: Con hau
+Clam: Con ngheu
+Mussel: Con trai
+Oyster: Con hau
+Scallop: So diep
+Sentinel crab: Con ghe
+Dolphin: Ca heo
+Sea snail: Oc bien
+Sea urchin: Nhim bien
+Sea turtle: Rua bien
+Sea lion: Su tu bien
+Coral: San ho
+Seaweed: Rong bien
+Fish: Ca
+Clownfish: Ca he
+Common carp: Ca chep
+Goldfish: Ca vang
+Salmon: Ca hoi
+Crocodile: Ca sau
+Anchovy: Ca com bien
+Sperm whale: Ca nha tang
+Catfish: Ca tre
+Eel: Luon
+Flounder: Ca bon
+Goby: Ca bong
+Herring: Ca trich
+Mackerel: Ca thu
+Pomfret: Ca chim
+Catfish: Ca tre
+Tench: Ca me
+Tilapia: Ca ro
+Pufferfish: Ca noc
+Suckermouth catfish: Ca don be
+Red tilapia: Ca dieu hong
+Sardine: Ca moi
+Snakehead fish: Ca qua
+Swordfish: Ca kiem
+Stingray: Ca duoi
+Tuna: Ca ngu
+Anabas: Ca ro
+Flowerhorn: Ca la han
+Angelfish: Ca thien than
+Alligator: Ca sau My
+Sea snake: Ran bien
+Frog: Ech
+Salamander: Ky giong
+Hippopotamus: Ha ma
+Sheep: Cuu
+Donkey: Lua
+Buffalo: Trau
+Goat: De
+Cow: Bo
+Goose: Ngong
+Horse: Ngua
+Calf: Be con
+Chicken: Ga
+Rooster: Ga trong
+Hen: Ga mai
+Chick: Ga con
+Duck: Vit
+Drake: Vit duc
+Duckling: Vit con
+Turkey: Ga tay
+Ox: Bo
+Water buffalo: Trau
+Sheep: Cuu
+Pig: Lon
+Piglet: Lon con
+Rabbit: Tho
+Bunny: Tho con
+Earthworm: Giun dat
+Cattle: Gia suc
+Dog: Cho duc
+Bitch: Cho cai
+Puppy: Cho con
+Cat: Meo
+Queen: Meo cai
+Kitten: Meo con
+Bird: Loai chim
+Pheasant: Ga loi
+Swallow: Chim en
+Canary: Chim hoang yen
+Pigeon: Chim bo cau
+Parrot: Vet
+Crow: Qua
+Hummingbird:Chim ruoi
+Raven: Qua
+Quail: Chim cut
+Kingfisher: Chim boi ca

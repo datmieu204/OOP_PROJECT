@@ -1,0 +1,162 @@
+/* gameLabel */
+.gameLabel {
+    -fx-font-weight: bold;
+    -fx-text-fill: black;
+    -fx-font-family: "Comic Sans MS";
+    -fx-border-width: 2px;
+    -fx-border-radius: 15px;
+    -fx-background-color: rgb(227, 195, 221);
+    -fx-background-radius: 15px;
+    -fx-font-size: 36px;
+    -fx-border-color: rgb(47, 4, 39);
+
+    -fx-min-width: 102px;
+    -fx-min-height: 102px;
+    -fx-max-width: 102px;
+    -fx-max-height: 102px;
+}
+.gameLabel.true{
+    -fx-font-weight: bold;
+    -fx-text-fill: black;
+    -fx-font-family: "Comic Sans MS";
+    -fx-border-style: solid;
+    -fx-border-width: 2px;
+    -fx-border-radius: 15px;
+    -fx-background-color: rgb(35, 110, 35);
+    -fx-background-radius: 15px;
+    -fx-font-size: 36px;
+
+    -fx-min-width: 102px;
+    -fx-min-height: 102px;
+    -fx-max-width: 102px;
+    -fx-max-height: 102px;
+}
+
+.gameLabel.false{
+    -fx-font-weight: bold;
+    -fx-border-color: black;
+    -fx-text-fill: black;
+    -fx-font-family: "Comic Sans MS";
+    -fx-border-style: solid;
+    -fx-border-width: 2px;
+    -fx-border-radius: 15px;
+    -fx-background-color: rgb(238, 118, 118);
+    -fx-background-radius: 15px;
+    -fx-font-size: 36px;
+
+    -fx-min-width: 102px;
+    -fx-min-height: 102px;
+    -fx-max-width: 102px;
+    -fx-max-height: 102px;
+}
+
+.gameLabel.having{
+    -fx-font-weight: bold;
+    -fx-border-color: black;
+    -fx-text-fill: black;
+    -fx-font-family: "Comic Sans MS";
+    -fx-border-style: solid;
+    -fx-border-width: 2px;
+    -fx-border-radius: 15px;
+    -fx-background-color: rgb(154, 150, 150);
+    -fx-background-radius: 15px;
+    -fx-font-size: 36px;
+
+    -fx-min-width: 102px;
+    -fx-min-height: 102px;
+    -fx-max-width: 102px;
+    -fx-max-height: 102px;
+}
+
+/* OptionButton */
+.optionButton{
+    -fx-font-weight: bold;
+    -fx-background-color: #ECD8F2;
+    -fx-background-radius: 22;
+    -fx-border-color: #8F60BF;
+    -fx-font-family: "Comic Sans MS";
+    -fx-border-style: solid;
+    -fx-border-width: 2px;
+    -fx-border-radius: 22;
+    -fx-font-size: 16;
+    -fx-text-fill: #2a69e6;
+}
+
+.optionButton:hover{
+    -fx-font-weight: bold;
+    -fx-background-color: #A0BBF2;
+    -fx-background-radius: 22;
+    -fx-font-size: 16;
+    -fx-font-family: "Comic Sans MS";
+    -fx-text-fill: #5a98ce;
+    -fx-border-color: #06457a;
+    -fx-border-radius: 20;
+    -fx-border-width: 3;
+}
+
+/* noticeLabel */
+.noticeLabel{
+    -fx-font-weight: bold;
+    -fx-border-color: #096f97;
+    -fx-text-fill: black;
+    -fx-font-family: "Comic Sans MS";
+    -fx-border-style: solid;
+    -fx-border-width: 2px;
+    -fx-border-radius: 22;
+    -fx-background-color: #BEB6F2;
+    -fx-background-radius: 22;
+    -fx-font-size: 25px;
+}
+
+/* textfield */
+.textfield {
+    -fx-border-radius: 22px;
+    -fx-background-radius: 22;
+    -fx-padding: 10px;
+    -fx-border-width: 2px;
+    -fx-border-color: #096f97;
+    -fx-background-color: #BEB6F2;
+    -fx-font-family: "Arial";
+    -fx-border-style: solid;
+  }
+  .textfield:focus {
+    -fx-background-color: #d4d0ea;
+  }
+
+  /* guessLabel */
+.guessLabel{
+    -fx-font-weight: bold;
+    -fx-border-color: #096f97;
+    -fx-text-fill: black;
+    -fx-font-family: "Comic Sans MS";
+    -fx-border-style: solid;
+    -fx-border-width: 2px;
+    -fx-border-radius: 22;
+    -fx-background-color: #BEB6F2;
+    -fx-background-radius: 22;
+    -fx-font-size: 25px;
+}
+
+/* Label */
+.resultLabel {
+    -fx-font-weight: bold;
+    -fx-background-color: #ECD8F2;
+    -fx-background-radius: 22;
+    -fx-border-color: #8F60BF;
+    -fx-font-family: "Comic Sans MS";
+    -fx-border-style: solid;
+    -fx-border-width: 2px;
+    -fx-border-radius: 22;
+    -fx-font-size: 16;
+    -fx-text-fill: #336de1;
+}
+
+/* AnchorPane */
+.AnchorPane {
+    -fx-background-color: #99D9F2;
+    -fx-border-width: 2px; 
+}
+
+.AnchorPane.menu-button {
+    -fx-background-color: #99D9F2;
+}
