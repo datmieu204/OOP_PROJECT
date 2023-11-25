@@ -81,20 +81,11 @@ public class AddUserWord {
     @FXML
     private void targetFocus(){
         targetImg.setVisible(false);
-        explainLostFocus();
-    }
-    
-    private void targetLostFocus(){
-        targetImg.setVisible(true);
     }
 
     @FXML
     private void explainFocus(){
         explainImg.setVisible(false);
-        targetLostFocus();
     }
-    
-    private void explainLostFocus(){
-        explainImg.setVisible(true);
-    }
+
 }

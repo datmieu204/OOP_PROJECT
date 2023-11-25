@@ -7,9 +7,9 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-<StackPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="584.0" prefWidth="836.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainApp.Game.MemoryGame.HelloController4x4">
+<StackPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="590.0" prefWidth="836.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainApp.Game.MemoryGame.HelloController4x4">
    <children>
-      <AnchorPane fx:id="anchorRoot" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="584.0" prefWidth="836.0" styleClass="AnchorPane">
+      <AnchorPane fx:id="anchorRoot" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="590.0" prefWidth="836.0" styleClass="AnchorPane">
          <children>
             <Button fx:id="restart" layoutX="101.0" layoutY="407.0" mnemonicParsing="false" onAction="#restartGame" prefHeight="28.0" prefWidth="145.0" styleClass="optionButton" text="Restart" />
             <Label fx:id="turn" layoutX="454.0" layoutY="14.0" prefHeight="41.0" prefWidth="145.0" styleClass="gameLabel" text="Turns = 0" />

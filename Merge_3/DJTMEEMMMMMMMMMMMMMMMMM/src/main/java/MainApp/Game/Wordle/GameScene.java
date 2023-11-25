@@ -378,13 +378,12 @@ public class GameScene extends Game implements Initializable {
         optionSound.play();  
         // wordleStartScene.hideWordleGame();
         gameTimer.stop();
+        backgroundSound.stop();
         makeFadeOutToStart();
     }
 
     public void backToStart(){
-        backgroundSound.stop();
         soundOn = false; 
-
         wordleStartScene.hideWordleGame();
         
     }

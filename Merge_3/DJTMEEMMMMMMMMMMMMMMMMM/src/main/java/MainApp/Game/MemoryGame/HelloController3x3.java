@@ -289,6 +289,9 @@ public class HelloController3x3 extends Game implements Initializable {
         optionSound.setVolume(0.7);
         optionSound.seek(Duration.ZERO);
         optionSound.play();  
+        backgroundSound.stop();
+        soundOn = false; 
+
         makeFadeOut();
     }
 
@@ -302,18 +305,11 @@ public class HelloController3x3 extends Game implements Initializable {
         
         fadeTransition.setOnFinished( (ActionEvent event) -> {
             rootPane.setOpacity(1);
-            backToScene();
+            chooseTopicScene.hide3x3Pane();
             gameTimer.stop();
 
         });
         fadeTransition.play();
-    }
-
-    public void backToScene(){
-        backgroundSound.stop();
-        soundOn = false; 
-        chooseTopicScene.hide3x3Pane();
-
     }
 
     public void makeClearTransition() {
