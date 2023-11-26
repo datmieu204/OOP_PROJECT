@@ -18,7 +18,7 @@ public class DictionaryManagementApp extends Dictionary{
 
     public void insertFromFile() {
         DictionaryFile dictionaryFile = new DictionaryFile();
-        ArrayList<Word> mainList = dictionaryFile.read("src\\main\\resources\\data\\dic.txt");
+        ArrayList<Word> mainList = dictionaryFile.read("src\\main\\resources\\data\\dictionaryEn-Vi.txt");
         super.setList_word(mainList);
         Support.mergeSort(super.getList_word(), 0, super.getList_word().size() - 1);
     }
