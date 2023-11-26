@@ -25,22 +25,22 @@
             <Text fx:id="answer" layoutX="144.0" layoutY="430.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="resultText" text="Answer: " textAlignment="CENTER" wrappingWidth="459.55419921875" />
             <ImageView fitHeight="75.0" fitWidth="75.0" layoutX="46.0" layoutY="140.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../../../DJTMEEMMMMMMMMMMMMMMMMM/src/main/java/MainApp/Scene/image/Time.png" />
+                  <Image url="@../../../java/MainApp/Scene/image/Time.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="75.0" fitWidth="75.0" layoutX="331.0" layoutY="140.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../../../DJTMEEMMMMMMMMMMMMMMMMM/src/main/java/MainApp/Scene/image/2.png" />
+                  <Image url="@../../../java/MainApp/Scene/image/2.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="75.0" fitWidth="75.0" layoutX="566.0" layoutY="140.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../../../DJTMEEMMMMMMMMMMMMMMMMM/src/main/java/MainApp/Scene/image/3.png" />
+                  <Image url="@../../../java/MainApp/Scene/image/3.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="90.0" fitWidth="90.0" layoutX="323.0" layoutY="300.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../../../DJTMEEMMMMMMMMMMMMMMMMM/src/main/java/MainApp/Scene/image/Answer.png" />
+                  <Image url="@../../../java/MainApp/Scene/image/Answer.png" />
                </image>
             </ImageView>
          </children></AnchorPane>

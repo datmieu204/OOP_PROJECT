@@ -24,17 +24,17 @@
             <Text fx:id="points" layoutX="531.0" layoutY="244.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="resultText" text="Points: " wrappingWidth="143.5541990995407" />
             <ImageView fitHeight="70.0" fitWidth="70.0" layoutX="44.0" layoutY="144.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../../../DJTMEEMMMMMMMMMMMMMMMMM/src/main/java/MainApp/Scene/image/Time.png" />
+                  <Image url="@../../../java/MainApp/Scene/image/Time.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="70.0" fitWidth="70.0" layoutX="280.0" layoutY="144.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../../../DJTMEEMMMMMMMMMMMMMMMMM/src/main/java/MainApp/Scene/image/2.png" />
+                  <Image url="@../../../java/MainApp/Scene/image/2.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="70.0" fitWidth="70.0" layoutX="559.0" layoutY="144.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../../../DJTMEEMMMMMMMMMMMMMMMMM/src/main/java/MainApp/Scene/image/3.png" />
+                  <Image url="@../../../java/MainApp/Scene/image/3.png" />
                </image>
             </ImageView>
          </children></AnchorPane>
