@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<StackPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="590.0" prefWidth="836.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainApp.Game.MemoryGame.GameController5x5">
+   <children>
+      <AnchorPane fx:id="anchorRoot" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="590.0" prefWidth="836.0" styleClass="AnchorPane">
+         <children>
+            <VBox layoutX="248.0" layoutY="61.0" prefHeight="516.0" prefWidth="558.0">
+               <children>
+                  <HBox prefHeight="120.0" prefWidth="600.0">
+                     <children>
+                        <Button fx:id="button0" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#buttonClicked" prefHeight="120.0" prefWidth="120.0" styleClass="gameButton" textAlignment="CENTER" wrapText="true">
+                           <font>
+                              <Font size="32.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="button1" alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#buttonClicked" prefHeight="120.0" prefWidth="120.0" styleClass="gameButton" textAlignment="CENTER" wrapText="true">
+                           <font>
+                              <Font size="32.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="button2" alignment="CENTER" contentDisplay="CENTER" layoutX="235.0" layoutY="10.0" mnemonicParsing="false" onAction="#buttonClicked" prefHeight="120.0" prefWidth="120.0" styleClass="gameButton" textAlignment="CENTER" wrapText="true">
+                           <font>
+                              <Font size="32.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="button3" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#buttonClicked" prefHeight="120.0" prefWidth="120.0" styleClass="gameButton" textAlignment="CENTER" wrapText="true">
+                           <font>
+                              <Font size="32.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="button4" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#buttonClicked" prefHeight="120.0" prefWidth="120.0" styleClass="gameButton" textAlignment="CENTER" wrapText="true">
+                           <font>
+                              <Font size="32.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="120.0" prefWidth="600.0">
+                     <children>
+                        <Button fx:id="button5" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#buttonClicked" prefHeight="120.0" prefWidth="120.0" styleClass="gameButton" textAlignment="CENTER" wrapText="true">
+                           <font>
+                              <Font size="32.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="button6" alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#buttonClicked" prefHeight="120.0" prefWidth="120.0" styleClass="gameButton" textAlignment="CENTER" wrapText="true">
+                           <font>
+                              <Font size="32.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="button7" alignment="CENTER" contentDisplay="CENTER" layoutX="235.0" layoutY="10.0" mnemonicParsing="false" onAction="#buttonClicked" prefHeight="120.0" prefWidth="120.0" styleClass="gameButton" textAlignment="CENTER" wrapText="true">
+                           <font>
+                              <Font size="32.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="button8" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#buttonClicked" prefHeight="120.0" prefWidth="120.0" styleClass="gameButton" textAlignment="CENTER" wrapText="true">
+                           <font>
+                              <Font size="32.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="button9" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#buttonClicked" prefHeight="120.0" prefWidth="120.0" styleClass="gameButton" textAlignment="CENTER" wrapText="true">
+                           <font>
+                              <Font size="32.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="120.0" prefWidth="600.0">
+                     <children>
+                        <Button fx:id="button10" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#buttonClicked" prefHeight="120.0" prefWidth="120.0" styleClass="gameButton" textAlignment="CENTER" wrapText="true">
+                           <font>
+                              <Font size="32.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="button11" alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#buttonClicked" prefHeight="120.0" prefWidth="120.0" styleClass="gameButton" textAlignment="CENTER" wrapText="true">
+                           <font>
+                              <Font size="32.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="button12" alignment="CENTER" contentDisplay="CENTER" layoutX="235.0" layoutY="10.0" mnemonicParsing="false" onAction="#buttonClicked" prefHeight="120.0" prefWidth="120.0" styleClass="gameButton" textAlignment="CENTER" wrapText="true">
+                           <font>
+                              <Font size="32.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="button13" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#buttonClicked" prefHeight="120.0" prefWidth="120.0" styleClass="gameButton" textAlignment="CENTER" wrapText="true">
+                           <font>
+                              <Font size="32.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="button14" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#buttonClicked" prefHeight="120.0" prefWidth="120.0" styleClass="gameButton" textAlignment="CENTER" wrapText="true">
+                           <font>
+                              <Font size="32.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="120.0" prefWidth="600.0">
+                     <children>
+                        <Button fx:id="button15" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#buttonClicked" prefHeight="120.0" prefWidth="120.0" styleClass="gameButton" textAlignment="CENTER" wrapText="true">
+                           <font>
+                              <Font size="32.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="button16" alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#buttonClicked" prefHeight="120.0" prefWidth="120.0" styleClass="gameButton" textAlignment="CENTER" wrapText="true">
+                           <font>
+                              <Font size="32.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="button17" alignment="CENTER" contentDisplay="CENTER" layoutX="235.0" layoutY="10.0" mnemonicParsing="false" onAction="#buttonClicked" prefHeight="120.0" prefWidth="120.0" styleClass="gameButton" textAlignment="CENTER" wrapText="true">
+                           <font>
+                              <Font size="32.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="button18" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#buttonClicked" prefHeight="120.0" prefWidth="120.0" styleClass="gameButton" textAlignment="CENTER" wrapText="true">
+                           <font>
+                              <Font size="32.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="button19" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#buttonClicked" prefHeight="120.0" prefWidth="120.0" styleClass="gameButton" textAlignment="CENTER" wrapText="true">
+                           <font>
+                              <Font size="32.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="120.0" prefWidth="600.0">
+                     <children>
+                        <Button fx:id="button20" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#buttonClicked" prefHeight="120.0" prefWidth="120.0" styleClass="gameButton" textAlignment="CENTER" wrapText="true">
+                           <font>
+                              <Font size="32.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="button21" alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#buttonClicked" prefHeight="120.0" prefWidth="120.0" styleClass="gameButton" textAlignment="CENTER" wrapText="true">
+                           <font>
+                              <Font size="32.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="button22" alignment="CENTER" contentDisplay="CENTER" layoutX="235.0" layoutY="10.0" mnemonicParsing="false" onAction="#buttonClicked" prefHeight="120.0" prefWidth="120.0" styleClass="gameButton" textAlignment="CENTER" wrapText="true">
+                           <font>
+                              <Font size="32.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="button23" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#buttonClicked" prefHeight="120.0" prefWidth="120.0" styleClass="gameButton" textAlignment="CENTER" wrapText="true">
+                           <font>
+                              <Font size="32.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="button24" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#buttonClicked" prefHeight="120.0" prefWidth="120.0" styleClass="gameButton" textAlignment="CENTER" wrapText="true">
+                           <font>
+                              <Font size="32.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <Button fx:id="restart" layoutX="101.0" layoutY="411.0" mnemonicParsing="false" onAction="#restartGame" styleClass="optionButton" text="Restart" />
+            <Label fx:id="turn" layoutX="459.0" layoutY="8.0" prefHeight="41.0" prefWidth="141.0" styleClass="gameLabel" text="Turns = 0" AnchorPane.topAnchor="8.0" />
+            <Label fx:id="point" layoutX="255.0" layoutY="14.0" prefHeight="41.0" prefWidth="141.0" styleClass="gameLabel" text="Points = 0" AnchorPane.topAnchor="8.0" />
+            <Label fx:id="time" layoutX="643.0" layoutY="8.0" prefHeight="41.0" prefWidth="163.0" styleClass="gameLabel" text="Time: " AnchorPane.topAnchor="8.0" />
+            <Button fx:id="back" layoutX="115.0" layoutY="523.0" mnemonicParsing="false" onAction="#backToStartScene" styleClass="optionButton" text="Back" />
+            <Button fx:id="soundButton" layoutX="105.0" layoutY="233.0" mnemonicParsing="false" onAction="#onOffSound" prefHeight="100.0" prefWidth="100.0" styleClass="soundButton" />
+            <Button fx:id="instructionButton" layoutX="105.0" layoutY="76.0" mnemonicParsing="false" onAction="#nextToInstruction" prefHeight="100.0" prefWidth="100.0" styleClass="soundButton" />
+         </children>
+      </AnchorPane>
+   </children>
+</StackPane>

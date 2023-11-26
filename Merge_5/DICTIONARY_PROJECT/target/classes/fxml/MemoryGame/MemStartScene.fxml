@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.Light.Distant?>
+<?import javafx.scene.effect.Lighting?>
+<?import javafx.scene.effect.Shadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<Pane fx:id="rootPane" prefHeight="590.0" prefWidth="836.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainApp.Game.MemoryGame.MemStartScene">
+   <children>
+      <Pane fx:id="chooseTopicPane" prefHeight="590.0" prefWidth="836.0" />
+      <AnchorPane fx:id="memStartPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="590.0" prefWidth="836.0" styleClass="AnchorPane">
+         <children>
+            <ChoiceBox fx:id="choiceBox" accessibleRole="CHECK_BOX" blendMode="MULTIPLY" cache="true" layoutX="286.0" layoutY="320.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="33.0" prefWidth="242.0" styleClass="ChoiceBox">
+               <effect>
+                  <Lighting>
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant />
+                     </light>
+                  </Lighting>
+               </effect>
+               <cursor>
+                  <Cursor fx:constant="CLOSED_HAND" />
+               </cursor>
+            </ChoiceBox>
+            <Button fx:id="switchButton" alignment="CENTER" contentDisplay="CENTER" layoutX="449.0" layoutY="475.0" mnemonicParsing="false" onAction="#handleButtonClick" prefHeight="47.0" prefWidth="152.0" styleClass="optionButton" text="Let's start" AnchorPane.leftAnchor="449.0" AnchorPane.rightAnchor="235.0" AnchorPane.topAnchor="475.0" />
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="107.0" layoutY="208.0" prefHeight="21.0" prefWidth="600.0" styleClass="Label" text="Select level to play">
+               <font>
+                  <Font size="36.0" />
+               </font>
+            </Label>
+            <Text fx:id="text" layoutX="36.0" layoutY="134.0" strokeWidth="0.0" styleClass="Text" textAlignment="CENTER" wrappingWidth="741.0">
+               <font>
+                  <Font size="72.0" />
+               </font>
+            </Text>
+            <Button fx:id="backButton" alignment="CENTER" contentDisplay="CENTER" layoutX="213.0" layoutY="475.0" mnemonicParsing="false" onAction="#backToStartScene" prefHeight="47.0" prefWidth="152.0" styleClass="optionButton" text="Back" />
+         </children>
+      </AnchorPane>
+   </children>
+</Pane>
