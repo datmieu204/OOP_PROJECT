@@ -11,7 +11,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainApp.SceneController">
    <children>
-      <AnchorPane prefHeight="60.0" prefWidth="900.0" style="-fx-background-color: #c8dae2;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <AnchorPane prefHeight="60.0" prefWidth="900.0" style="-fx-background-color: #b2d9ea;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <ImageView fx:id="exit" fitHeight="40.0" fitWidth="40.0" layoutX="742.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
                <image>
@@ -25,7 +25,7 @@
             </ImageView>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="pane1" prefHeight="200.0" prefWidth="200.0" style="-fx-backgroundcolor: #5586B0;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+      <AnchorPane fx:id="pane1" prefHeight="200.0" prefWidth="200.0" style="-fx-backgroundcolor: #b2d9ea;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
       <AnchorPane layoutX="64.0" layoutY="54.0" prefHeight="590.0" prefWidth="836.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="64.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="60.0">
          <children>
             <StackPane fx:id="contentArea" layoutY="60.0" prefHeight="590.0" prefWidth="836.0" style="-fx-background-color: linear-gradient(to right,#E0709F, #FFA9F9)linear-gradient(to right,#E0709F, #FFA9F9);" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
@@ -33,7 +33,7 @@
       </AnchorPane>
       <AnchorPane layoutX="10.0" layoutY="64.0" prefHeight="586.0" prefWidth="64.0" style="-fx-background-color: #b2d9ea;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="60.0">
          <children>
-            <VBox alignment="TOP_CENTER" layoutY="56.0" prefHeight="316.0" prefWidth="64.0" spacing="25.0" style="-fx-background-color: #c8dae2;" AnchorPane.bottomAnchor="218.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="56.0">
+            <VBox alignment="TOP_CENTER" layoutY="56.0" prefHeight="356.0" prefWidth="64.0" spacing="25.0" style="-fx-background-color: #b2d9ea;" AnchorPane.bottomAnchor="178.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="56.0">
                <children>
                   <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                      <image>
