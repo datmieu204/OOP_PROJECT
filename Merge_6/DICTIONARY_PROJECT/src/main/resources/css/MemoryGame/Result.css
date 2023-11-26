@@ -1,0 +1,46 @@
+/* Label */
+.resultLabel{
+    -fx-text-fill: rgb(195, 32, 32);
+    -fx-font-weight: bold;
+    -fx-alignment: center;
+    -fx-font-size: 46px;
+    -fx-font-family: "Comic Sans MS";
+}
+/* Text */
+.resultText {
+    -fx-fill: #000000;
+    -fx-font-weight: bold;
+    -fx-font-family: "Comic Sans MS";
+    -fx-font-size: 30px;
+}
+/* Button */
+.optionButton{
+    -fx-font-weight: bold;
+    -fx-background-color: #ECD8F2;
+    -fx-background-radius: 22;
+    -fx-border-color: #8F60BF;
+    -fx-border-style: solid;
+    -fx-border-width: 2px;
+    -fx-border-radius: 22;
+    -fx-font-size: 21px;
+    -fx-text-fill: #719bed;
+    -fx-font-family: "Comic Sans MS";
+}
+
+.optionButton:hover{
+    -fx-font-weight: bold;
+    -fx-background-color: #A0BBF2;
+    -fx-background-radius: 22;
+    -fx-font-size: 21px;
+    -fx-text-fill: #0583F2;
+    -fx-border-color: #06457a;
+    -fx-border-radius: 20;
+    -fx-border-width: 3;
+    -fx-font-family: "Comic Sans MS";
+}
+
+/* Anchor Pane */
+.AnchorPane {
+    -fx-background-color: #99D9F2;
+    -fx-border-width: 2px; 
+}

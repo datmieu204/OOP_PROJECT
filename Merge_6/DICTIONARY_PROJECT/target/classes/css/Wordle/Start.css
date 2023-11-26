@@ -1,0 +1,43 @@
+/* OptionButton */
+.optionButton{
+    -fx-font-weight: bold;
+    -fx-background-color: #ECD8F2;
+    -fx-background-radius: 22;
+    -fx-border-color: #8F60BF;
+    -fx-font-family: "Comic Sans MS";
+    -fx-border-style: solid;
+    -fx-border-width: 2px;
+    -fx-border-radius: 22;
+    -fx-font-size: 16;
+    -fx-text-fill: #A0BBF2;
+}
+
+.optionButton:hover{
+    -fx-font-weight: bold;
+    -fx-background-color: #A0BBF2;
+    -fx-background-radius: 22;
+    -fx-font-size: 16;
+    -fx-font-family: "Comic Sans MS";
+    -fx-text-fill: #0583F2;
+    -fx-border-color: #06457a;
+    -fx-border-radius: 20;
+    -fx-border-width: 3;
+}
+
+.ChoiceBox {
+    -fx-background-color: #99d9f2;
+}
+
+.Label{
+    -fx-text-fill: #133f4d;
+    -fx-font-weight: bold;
+    -fx-alignment: center;
+    -fx-font-size: 48px;
+    -fx-font-family: "Comic Sans MS";
+}
+
+/* AnchorPane */
+.AnchorPane {
+    -fx-background-color: #99D9F2;
+    -fx-border-width: 2px; 
+}

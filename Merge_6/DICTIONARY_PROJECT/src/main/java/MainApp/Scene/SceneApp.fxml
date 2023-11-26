@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="584.0" prefWidth="836.0" style="-fx-background-color: linear-gradient(to right,#E0709F, #FFA9F9)linear-gradient(to right,#E0709F, #FFA9F9);" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainApp.MainController">
+   <children>
+      <ListView fx:id="listView" layoutX="83.0" layoutY="187.0" prefHeight="334.0" prefWidth="252.0" style="-fx-background-color: #ffffff; -fx-background-radius: 5px; -fx-border-color: #ffffff; -fx-border-radius: 5px;" AnchorPane.bottomAnchor="65.0" AnchorPane.leftAnchor="81.0" AnchorPane.rightAnchor="503.0" AnchorPane.topAnchor="185.0">
+         <effect>
+            <DropShadow color="#ff2383" height="49.66" offsetX="2.0" offsetY="2.0" radius="26.119999999999997" spread="0.16" width="56.82" />
+         </effect></ListView>
+      <TextField fx:id="txtSearch" layoutX="81.0" layoutY="120.0" prefHeight="38.0" prefWidth="252.0" promptText="search here" style="-fx-background-color: #ffffff; -fx-border-color: #ffffff; -fx-background-radius: 5px; -fx-border-radius: 5px;" AnchorPane.bottomAnchor="426.40000000000003" AnchorPane.leftAnchor="81.0" AnchorPane.rightAnchor="503.0" AnchorPane.topAnchor="120.0">
+         <font>
+            <Font name="Arial Bold" size="17.0" />
+         </font>
+         <effect>
+            <DropShadow color="#ff2383" height="49.66" offsetX="2.0" offsetY="2.0" radius="26.119999999999997" spread="0.16" width="56.82" />
+         </effect>
+      </TextField>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="-1.0" layoutY="3.0" prefHeight="124.0" prefWidth="837.0" textFill="#5c6d9b">
+         <font>
+            <Font name="Comic Sans MS Bold Italic" size="52.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="124.0" fitWidth="837.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@image/DICTIONARY.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Label>
+      <TextField layoutX="344.0" layoutY="185.0" prefHeight="334.0" prefWidth="428.0" style="-fx-background-color: #ffffff; -fx-background-radius: 5px; -fx-border-color: #ffffff; -fx-border-radius: 5px;" AnchorPane.bottomAnchor="65.0" AnchorPane.leftAnchor="344.0" AnchorPane.rightAnchor="64.0" AnchorPane.topAnchor="185.0">
+         <effect>
+            <DropShadow color="#ff2383" height="49.66" offsetX="2.0" offsetY="2.0" radius="26.119999999999997" spread="0.16" width="56.82" />
+         </effect></TextField>
+      <TextArea fx:id="txtExplain" editable="false" layoutX="354.0" layoutY="185.0" prefHeight="334.0" prefWidth="348.0" promptText="Output" style="-fx-background-color: #ffffff; -fx-border-color: #ffffff; -fx-border-radius: 20px; -fx-background-radius: 20px;" wrapText="true">
+         <font>
+            <Font name="Arial Bold" size="17.0" />
+         </font>
+      </TextArea>
+      <Label fx:id="labelSearch" layoutX="354.0" layoutY="128.0" prefHeight="48.0" prefWidth="217.0" style="-fx-background-radius: 5px;" textFill="WHITE" AnchorPane.topAnchor="128.0">
+         <font>
+            <Font name="Arial Bold" size="20.0" />
+         </font>
+         <effect>
+            <DropShadow color="#ff2383" height="53.24" offsetX="2.0" offsetY="2.0" radius="27.015" spread="0.16" width="56.82" />
+         </effect>
+      </Label>
+      <Button fx:id="btnPronounce" layoutX="702.0" layoutY="196.0" mnemonicParsing="false" onAction="#pronounce" prefHeight="46.0" prefWidth="51.0" style="-fx-background-color: transparent;">
+         <graphic>
+            <ImageView fitHeight="47.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@image/âm%20thanh.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <Button fx:id="btnAddToUser" layoutX="289.0" layoutY="121.0" mnemonicParsing="false" onAction="#addWordToUser" prefHeight="26.0" prefWidth="36.0" style="-fx-background-color: white;">
+         <graphic>
+            <ImageView fitHeight="27.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@image/sao.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+   </children>
+</AnchorPane>

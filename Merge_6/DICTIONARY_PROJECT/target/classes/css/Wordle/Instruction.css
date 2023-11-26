@@ -1,0 +1,45 @@
+.InstructionLabel{
+    -fx-font-family: "Comic Sans MS";
+    -fx-font-size: 36px;
+    -fx-text-fill: red; 
+    -fx-font-weight: bold; 
+    -fx-text-decoration: underline; 
+}
+.anchorPane {
+    -fx-background-color: lightblue;
+    -fx-border-color: black;
+    -fx-border-width: 2px;
+    -fx-border-radius: 10px; 
+}
+.instructionText{
+    -fx-font-family: "Comic Sans MS";
+    -fx-font-size: 16px;
+    -fx-text-fill: red; 
+    -fx-font-weight: bold; 
+    -fx-text-decoration: underline; 
+}
+
+.optionButton{
+    -fx-font-weight: bold;
+    -fx-background-color: #ECD8F2;
+    -fx-background-radius: 22;
+    -fx-border-color: #8F60BF;
+    -fx-font-family: "Comic Sans MS";
+    -fx-border-style: solid;
+    -fx-border-width: 2px;
+    -fx-border-radius: 22;
+    -fx-font-size: 16;
+    -fx-text-fill: #2e6ce8;
+}
+
+.optionButton:hover{
+    -fx-font-weight: bold;
+    -fx-background-color: #A0BBF2;
+    -fx-background-radius: 22;
+    -fx-font-size: 16;
+    -fx-font-family: "Comic Sans MS";
+    -fx-text-fill: #76b2e7;
+    -fx-border-color: #a9cfed;
+    -fx-border-radius: 20;
+    -fx-border-width: 3;
+}

@@ -1,0 +1,27 @@
+/* Button */
+.startButton{
+    -fx-font-weight: bold;
+    -fx-border-color: #e5bacc;
+    -fx-background-color: #e5bacc;
+    -fx-background-radius: 15px;
+    -fx-border-radius: 15px;
+}
+
+.startButton:hover{
+    -fx-font-weight: bold;
+    -fx-border-color: white;
+    -fx-background-color: rgb(226, 208, 215);
+    -fx-background-radius: 15px;
+    -fx-border-radius: 15px;
+}
+/* Text */
+.startText {
+    -fx-fill: #000000;
+    -fx-font-weight: bold;
+    -fx-font-family: "Comic Sans MS";
+    -fx-font-size: 30px;
+}
+/* AnchorPane */
+.startPane{
+    -fx-background-color: #99cee2;
+}

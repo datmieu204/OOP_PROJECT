@@ -1,0 +1,92 @@
+Hair: Toc
+Ear: Tai
+Jaw: Ham
+Nostril: Lo mui
+Lip: Moi
+Tongue: Luoi
+Tooth: Rang
+Eyelid: Mi mat
+Eyebrow: Long may
+Sideburns: Toc mai
+Forehead: Tran
+Iris: Mong mat
+Part: Toc re ngoi
+Mustache: Ria mep
+Beard: Rau
+Cheek: Ma
+Nose: Mui
+Nostril: Lo mui
+Eye: Mat
+Eyelashes: Long mi
+Mouth: Mieng
+Face: Mat
+Neck: Co
+Chin: Cham
+Mouth: Mieng
+Arm: Tay
+Shoulder: Bo vai
+Armpit: Nach
+Chest: Nguc
+Elbow: Khuyu tay
+Upper arm: Bap tay
+Abdomen: Bung
+Thigh: Bap dui
+Knee: Dau goi
+Waist: That lung
+Back: Lung
+Buttocks: Mong
+Leg: Doi chan
+Calf: Bap chan
+Hip: Hong
+Fingernail: Mong tay
+Palm: Long ban tay
+Ring finger: Ngon deo nhan
+Index finger: Ngon tro
+Thumb: Ngon tay cai
+Middle finger: Ngon giua
+Little finger: Ngon ut
+Knuckle: Khop dot ngon tay
+Wrist: Co tay
+Big toe: Ngon chan cai
+Toenail: Mong chan
+Toe: Ngon chan
+Instep: Mu ban chan
+Ball: Xuong ngon chan
+Ankle: Mat ca chan
+Heel: Got chan
+Little toe: Ngon chan ut
+Heart: Tim
+Brain: Nao
+Intestines: Ruot
+Throat: Hong
+Muscle: Co
+Liver: Gan
+Esophagus: Thuc quan
+Lung: Phoi
+Stomach: Da day
+Muscle: Bap thit, co
+Windpipe: Khi quan
+Spinal cord: Tuy song
+Pancreas: Tuy
+Vein: Tinh mach
+Artery: Dong mach
+Skeleton: Bo xuong
+Skull: Xuong so
+Backbone: Xuong song
+Clavicle: Xuong don
+Pelvis: Xuong chau
+Rib cage: Khung xuong suon
+Humerus: Xuong canh tay
+Rib: Xuong suon
+Kneecap: Xuong banh che
+Vertebra: Dot song
+Femur: Xuong dui
+Collarbone: Xuong quai xanh
+Hip bone: Xuong hong
+Digestive system: He tieu hoa
+Skin: Da
+Nerve: Day than kinh
+Joint: Khop
+Limb: Chan tay
+Nervous system: He than kinh
+Pupil: Con nguoi

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.Light.Distant?>
+<?import javafx.scene.effect.Lighting?>
+<?import javafx.scene.effect.Shadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<StackPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="590.0" prefWidth="836.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainApp.Game.MemoryGame.ChooseTopic">
+   <children>
+      <Pane fx:id="memory3x3" prefHeight="200.0" prefWidth="200.0" />
+      <Pane fx:id="memory4x4" prefHeight="200.0" prefWidth="200.0" />
+      <Pane fx:id="memory5x5" prefHeight="200.0" prefWidth="200.0" />
+      <AnchorPane fx:id="chooseTopicPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="590.0" prefWidth="836.0" styleClass="AnchorPane">
+         <children>
+            <ChoiceBox fx:id="choiceBox" accessibleRole="CHECK_BOX" blendMode="MULTIPLY" cache="true" layoutX="300.0" layoutY="304.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="33.0" prefWidth="242.0" styleClass="ChoiceBox" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="300.0">
+               <effect>
+                  <Lighting>
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant />
+                     </light>
+                  </Lighting>
+               </effect>
+               <cursor>
+                  <Cursor fx:constant="CLOSED_HAND" />
+               </cursor>
+            </ChoiceBox>
+            <Button fx:id="switchButton" alignment="CENTER" contentDisplay="CENTER" layoutX="445.0" layoutY="508.0" mnemonicParsing="false" onAction="#handleButtonClick" prefHeight="47.0" prefWidth="153.0" styleClass="optionButton" text="Let's start" AnchorPane.rightAnchor="220.0" />
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutY="193.0" prefHeight="21.0" prefWidth="600.0" styleClass="Label" text="Select Topic" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+               <font>
+                  <Font size="36.0" />
+               </font>
+            </Label>
+            <Text fx:id="text" layoutX="36.0" layoutY="134.0" strokeWidth="0.0" styleClass="Text" textAlignment="CENTER" wrappingWidth="741.0" AnchorPane.rightAnchor="59.0">
+               <font>
+                  <Font size="72.0" />
+               </font>
+            </Text>
+            <Button fx:id="backToStart" alignment="CENTER" contentDisplay="CENTER" layoutX="207.0" layoutY="508.0" mnemonicParsing="false" onAction="#backToStartScene" prefHeight="42.0" prefWidth="145.0" styleClass="optionButton" text="Back" AnchorPane.leftAnchor="220.0" />
+         </children>
+      </AnchorPane>
+   </children>
+</StackPane>

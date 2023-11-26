@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainApp.SceneController">
+   <children>
+      <AnchorPane prefHeight="60.0" prefWidth="900.0" style="-fx-background-color: #c8dae2;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <ImageView fx:id="exit" fitHeight="40.0" fitWidth="40.0" layoutX="742.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+               <image>
+                  <Image url="@image/exit.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="menu" fitHeight="40.0" fitWidth="50.0" layoutX="7.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="840.0" AnchorPane.topAnchor="10.0">
+               <image>
+                  <Image url="@image/menu.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="pane1" prefHeight="200.0" prefWidth="200.0" style="-fx-backgroundcolor: #5586B0;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+      <AnchorPane layoutX="64.0" layoutY="54.0" prefHeight="590.0" prefWidth="836.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="64.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="60.0">
+         <children>
+            <StackPane fx:id="contentArea" layoutY="60.0" prefHeight="590.0" prefWidth="836.0" style="-fx-background-color: linear-gradient(to right,#E0709F, #FFA9F9)linear-gradient(to right,#E0709F, #FFA9F9);" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="10.0" layoutY="64.0" prefHeight="586.0" prefWidth="64.0" style="-fx-background-color: #b2d9ea;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="60.0">
+         <children>
+            <VBox alignment="TOP_CENTER" layoutY="56.0" prefHeight="316.0" prefWidth="64.0" spacing="25.0" style="-fx-background-color: #c8dae2;" AnchorPane.bottomAnchor="218.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="56.0">
+               <children>
+                  <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@image/book.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@image/api.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@image/user%20menu.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@image/game.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@image/menuSetting.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </VBox>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="pane2" layoutX="64.0" layoutY="54.0" prefHeight="590.0" prefWidth="210.0" style="-fx-background-color: #FFC0D6;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="64.0" AnchorPane.topAnchor="60.0">
+         <children>
+            <VBox layoutY="51.2" prefHeight="539.0" prefWidth="210.0" spacing="17.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="51.0">
+               <children>
+                  <Button alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#Dictionary" prefHeight="60.0" prefWidth="213.0" style="-fx-background-color: transparent; -fx-text-fill: white;">
+                     <font>
+                        <Font name="Arial Bold" size="19.0" />
+                     </font>
+                     <effect>
+                        <DropShadow color="#ff2383" height="49.66" offsetX="2.0" offsetY="2.0" radius="26.119999999999997" spread="0.16" width="56.82" />
+                     </effect>
+                     <graphic>
+                        <ImageView fitHeight="47.0" fitWidth="181.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@image/Dictionary%20menu%20.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#API" prefHeight="56.0" prefWidth="210.0" style="-fx-background-color: transparent; -fx-text-fill: white;">
+                     <font>
+                        <Font name="Arial Bold" size="19.0" />
+                     </font>
+                     <effect>
+                        <DropShadow color="#ff2383" height="49.66" offsetX="2.0" offsetY="2.0" radius="26.119999999999997" spread="0.16" width="56.82" />
+                     </effect>
+                     <graphic>
+                        <ImageView fitHeight="43.0" fitWidth="167.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@image/Translate%20API.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#User" prefHeight="0.0" prefWidth="155.0" style="-fx-background-color: transparent; -fx-text-fill: white;">
+                     <font>
+                        <Font name="Arial Bold" size="19.0" />
+                     </font>
+                     <effect>
+                        <DropShadow color="#ff2383" height="49.66" offsetX="2.0" offsetY="2.0" radius="26.119999999999997" spread="0.16" width="56.82" />
+                     </effect>
+                     <graphic>
+                        <ImageView fitHeight="46.0" fitWidth="192.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@image/User.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#Game" prefHeight="59.0" prefWidth="211.0" style="-fx-background-color: transparent; -fx-text-fill: white;">
+                     <font>
+                        <Font name="Arial Bold" size="19.0" />
+                     </font>
+                     <effect>
+                        <DropShadow color="#ff2383" height="49.66" offsetX="2.0" offsetY="2.0" radius="26.119999999999997" spread="0.16" width="56.82" />
+                     </effect>
+                     <graphic>
+                        <ImageView fitHeight="45.0" fitWidth="189.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@image/game%20menu.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#Setting" prefHeight="58.0" prefWidth="219.0" style="-fx-background-color: transparent; -fx-text-fill: white;">
+                     <font>
+                        <Font name="Arial Bold" size="19.0" />
+                     </font>
+                     <effect>
+                        <DropShadow color="#ff2383" height="49.66" offsetX="2.0" offsetY="2.0" radius="26.119999999999997" spread="0.16" width="56.82" />
+                     </effect>
+                     <graphic>
+                        <ImageView fitHeight="44.0" fitWidth="189.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@image/Setting.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+            </VBox>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
